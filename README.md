@@ -40,7 +40,7 @@ Things you may want to cover:
 - has_many :items
 - has_many :sending_destinations
 - has_many :purchases
-- has_many :delivery
+- has_many :deliverys
 
 
 ## profileテーブル
@@ -138,7 +138,7 @@ Things you may want to cover:
 ## categoryテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|integer|null: false|
+|name|string|null: false|
 
 ### Association
 - has_many :items, through :item_category
@@ -173,6 +173,7 @@ Things you may want to cover:
 |fee|int|null: false|
 |item_id|references|null: false, foreign_key: true|
 |buyer|references|null: false, foreign_key: true|
+|sending_destination_id|references|null: false, foreign_key: true|
 
 ### Association
 belongs_to :item
