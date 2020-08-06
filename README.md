@@ -81,19 +81,19 @@ Things you may want to cover:
 - belongs_to :user
 
 
-## sending_destinationsテーブル
+## sending_destinationテーブル
 |Column|Type|Options|
 |------|----|-------|
 |first_name|string|null: false|
 |family_name|string|null: false|
 |first_name_kana|string|null: false|
 |family_name_kana|string|null: false|
-|post_cord|integer|null: false|
+|post_code|integer|null: false|
 |prefecture_code|string|null: false|
 |city|string|null: false|
 |town|string|null: false|
-|building|string|null: false|
-|tell|string|null: false|
+|building|string|null: true|
+|tell|string|null: true|
 |user_id|references|null: false, foreign_key: true|
 
 ### Associations
@@ -108,7 +108,6 @@ Things you may want to cover:
 |price|integer|null: false|
 |size|string|null: true|
 |condition|integer|null: false|
-|category|references|null: false, foreign_key: true|
 |brand|string|null: true|
 |stage|integer|null: false|
 |detail|text|null: false|
@@ -180,7 +179,7 @@ belongs_to :item
 belongs_to :user
 belongs_to :sending_destination
 
-## favorites テーブル（お気に入り）
+## favorite テーブル（お気に入り）
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
