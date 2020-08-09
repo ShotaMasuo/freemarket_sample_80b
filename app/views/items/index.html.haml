@@ -11,10 +11,66 @@
 
   .menuWrapper
     %ul.menuWrapper__itemMenuWrapper
-      %li.menuWrapper__itemMenuWrapper__item
+      %li.menuWrapper__itemMenuWrapper__item.item__category
         = link_to "カテゴリー", "#"
-      %li.menuWrapper__itemMenuWrapper__item
+        .menuWrapper__itemMenuWrapper__item__category
+          %ul
+            %li
+              =link_to "レディース", "#"
+            %li
+              =link_to "メンズ", "#"
+            %li
+              =link_to "ベビー・キッズ", "#"
+            %li
+              =link_to "インテリア・住まい・小物", "#"
+            %li
+              =link_to "本・音楽・ゲーム", "#"
+            %li
+              =link_to "おもちゃ・ホビー・グッズ", "#"
+            %li
+              =link_to "コスメ・香水・美容", "#"
+            %li
+              =link_to "家電・スマホ・カメラ", "#"
+            %li
+              =link_to "スポーツ・レジャー", "#"
+            %li
+              =link_to "ハンドメイド", "#"
+            %li
+              =link_to "チケット", "#"
+            %li
+              =link_to "自転車・オートバイ", "#"
+            %li
+              =link_to "その他", "#"
+      %li.menuWrapper__itemMenuWrapper__item.item__brand
         = link_to "ブランド", "#"
+        .menuWrapper__itemMenuWrapper__item__brand
+          %ul
+            %li
+              =link_to "NIKE", "#"
+            %li
+              =link_to "adidas", "#"
+            %li
+              =link_to "asics", "#"
+            %li
+              =link_to "MIZUNO", "#"
+            %li
+              =link_to "シャネル", "#"
+            %li
+              =link_to "Tiffany", "#"
+            %li
+              =link_to "BVLGARI", "#"
+            %li
+              =link_to "GUCCI", "#"
+            %li
+              =link_to "エルメス", "#"
+            %li
+              =link_to "beams", "#"
+            %li
+              =link_to "TOMY", "#"
+            %li
+              =link_to "journalstandard", "#"
+            %li
+              =link_to "その他", "#"
     %ul.menuWrapper__userMenuWrapper
       %li.menuWrapper__userMenuWrapper__item
         = link_to "ログイン", "#"

@@ -1,6 +1,5 @@
 body{
   box-sizing: border-box;
-
   header{
     margin: 0 auto;
     .topWrapper{
@@ -54,6 +53,42 @@ body{
             color: #444;
             &:hover{
               color: #ffa500;
+            }
+          }
+          
+          .display_block{
+            display: block;
+          }
+          &__category{
+            display: none;
+            position: fixed;
+            ul{
+              background-color: #fff;
+              li{
+                padding: 10px 10px;
+                border-bottom: 1px solid #ddd;
+                z-index: 5;
+                a{
+                  display: inline-block;
+                  width: 100%;
+                }
+              }
+            }
+          }
+          &__brand{
+            display: none;
+            position: fixed;
+            ul{
+              background-color: #fff;
+              li{
+                padding: 10px 10px;
+                border-bottom: 1px solid #ddd;
+                z-index: 5;
+                a{
+                  display: inline-block;
+                  width: 100%;
+                }
+              }
             }
           }
         }
