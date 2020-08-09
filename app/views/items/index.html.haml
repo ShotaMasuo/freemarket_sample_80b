@@ -1,14 +1,5 @@
 %header
-  .topWrapper
-    .topWrapper__logo
-      = link_to image_tag(asset_path("logo/logo.png")), "/"
-    .topWrapper__searchForm
-      = form_with url: "#" do |f|
-        = f.text_field :search_word, placeholder: "キーワードから探す", class: "inputKeyword"
-        %button{type: "submit"}
-          = image_tag(asset_path("icon/icon-search1.png"))
-
-
+  = render partial: 'header'
   .menuWrapper
     %ul.menuWrapper__itemMenuWrapper
       %li.menuWrapper__itemMenuWrapper__item.item__category
@@ -72,10 +63,7 @@
             %li
               =link_to "その他", "#"
     %ul.menuWrapper__userMenuWrapper
-      %li.menuWrapper__userMenuWrapper__item
-        = link_to "ログイン", "#"
-      %li.menuWrapper__userMenuWrapper__item
-        = link_to "新規会員登録", "#"
+      = render partial: 'user'
 .hero
   %h1.hero__heroTitle 人生を変えるフリマアプリ
   %p.hero__heroMessage FURIMAはだれでもかんたんに出品・購入できる
@@ -262,37 +250,7 @@
       = link_to image_tag(asset_path("icon/google-play-badge.png")),"#", class: "google"
 
 %footer
-  .footer__menu
-    .footer__menu__about
-      %h3 FURIMAについて
-      %ul
-        %li
-          = link_to "会社概要（運営会社）", "#"
-        %li
-          = link_to "プライバシーポリシー", "#"
-        %li
-          = link_to "FURIMA利用規約", "#"
-        %li
-          = link_to "ポイントに関する特約", "#"
-    .footer__menu__watch
-      %h3 FURIMAを見る
-      %ul
-        %li
-          = link_to "カテゴリー一覧", "#"
-        %li
-          = link_to "ブランド一覧", "#"
-    .footer__menu__help
-      %h3 ヘルプ&ガイド
-      %ul
-        %li
-          = link_to "FURIMAガイド", "#"
-        %li
-          = link_to "FURIMAロゴ利用ガイドライン", "#"
-        %li
-          = link_to "お知らせ", "#"
-  .footer__image
-    = link_to image_tag(asset_path("logo/logo-white.png")), "/"
-    ©️ FURIMA
+  = render partial: 'footer.html.haml'
 .cameraContainer
   = link_to "#" do
     %p 出品する
