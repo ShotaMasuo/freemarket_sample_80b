@@ -1,0 +1,19 @@
+$(function(){
+  $(".item__category").hover(
+    function(){
+      $(".menuWrapper__itemMenuWrapper__item__category").addClass("display_block");
+    },
+    function(){
+      $(".menuWrapper__itemMenuWrapper__item__category").removeClass("display_block");
+    }
+  );
+  $(".item__brand").hover(
+    function(){
+      $(".menuWrapper__itemMenuWrapper__item__brand").addClass("display_block");
+    },
+    function(){
+      $(".menuWrapper__itemMenuWrapper__item__brand").removeClass("display_block");
+    }
+  );
+
+});

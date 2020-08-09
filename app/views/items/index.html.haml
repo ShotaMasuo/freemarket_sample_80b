@@ -1,2 +1,299 @@
-%h1 Items#index
-%p Find me in app/views/items/index.html.erb
+%header
+  .topWrapper
+    .topWrapper__logo
+      = link_to image_tag(asset_path("logo/logo.png")), "/"
+    .topWrapper__searchForm
+      = form_with url: "#" do |f|
+        = f.text_field :search_word, placeholder: "キーワードから探す", class: "inputKeyword"
+        %button{type: "submit"}
+          = image_tag(asset_path("icon/icon-search1.png"))
+
+
+  .menuWrapper
+    %ul.menuWrapper__itemMenuWrapper
+      %li.menuWrapper__itemMenuWrapper__item.item__category
+        = link_to "カテゴリー", "#"
+        .menuWrapper__itemMenuWrapper__item__category
+          %ul
+            %li
+              =link_to "レディース", "#"
+            %li
+              =link_to "メンズ", "#"
+            %li
+              =link_to "ベビー・キッズ", "#"
+            %li
+              =link_to "インテリア・住まい・小物", "#"
+            %li
+              =link_to "本・音楽・ゲーム", "#"
+            %li
+              =link_to "おもちゃ・ホビー・グッズ", "#"
+            %li
+              =link_to "コスメ・香水・美容", "#"
+            %li
+              =link_to "家電・スマホ・カメラ", "#"
+            %li
+              =link_to "スポーツ・レジャー", "#"
+            %li
+              =link_to "ハンドメイド", "#"
+            %li
+              =link_to "チケット", "#"
+            %li
+              =link_to "自転車・オートバイ", "#"
+            %li
+              =link_to "その他", "#"
+      %li.menuWrapper__itemMenuWrapper__item.item__brand
+        = link_to "ブランド", "#"
+        .menuWrapper__itemMenuWrapper__item__brand
+          %ul
+            %li
+              =link_to "NIKE", "#"
+            %li
+              =link_to "adidas", "#"
+            %li
+              =link_to "asics", "#"
+            %li
+              =link_to "MIZUNO", "#"
+            %li
+              =link_to "シャネル", "#"
+            %li
+              =link_to "Tiffany", "#"
+            %li
+              =link_to "BVLGARI", "#"
+            %li
+              =link_to "GUCCI", "#"
+            %li
+              =link_to "エルメス", "#"
+            %li
+              =link_to "beams", "#"
+            %li
+              =link_to "TOMY", "#"
+            %li
+              =link_to "journalstandard", "#"
+            %li
+              =link_to "その他", "#"
+    %ul.menuWrapper__userMenuWrapper
+      %li.menuWrapper__userMenuWrapper__item
+        = link_to "ログイン", "#"
+      %li.menuWrapper__userMenuWrapper__item
+        = link_to "新規会員登録", "#"
+.hero
+  %h1.hero__heroTitle 人生を変えるフリマアプリ
+  %p.hero__heroMessage FURIMAはだれでもかんたんに出品・購入できる
+  %p.hero__heroMessage フリマアプリです
+  .hero__appWrapper
+    .hero__appWrapper__button
+      = link_to "", "#", class: "apple", style: "display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2008-12-10&kind=iossoftware&bubble=ios_apps) no-repeat;width:135px;height:40px;"
+      = link_to image_tag(asset_path("icon/google-play-badge.png")),"#", class: "google"
+.reasons
+  %h3 FURIMAが選ばれる3つの理由
+  %ul.reasons__lists
+    %li.reasons__lists__list
+      %span.num 1
+      = image_tag asset_path("pict/pict-reason-01.jpg"), alt: '', height: '', width: '', class: ''
+      %h5
+        %span 3分
+        ですぐに出品
+      %p スマホで入力するだけで簡単に出品できる！
+    %li.reasons__lists__list
+      %span.num 2
+      = image_tag asset_path("pict/pict-reason-02.jpg"), alt: '', height: '', width: '', class: ''
+      %h5
+        %span シンプル
+        で使いやすい
+      %p めんどくさい入力は必要なく、検索も購入もスムーズ！
+    %li.reasons__lists__list
+      %span.num 3
+      = image_tag asset_path("pict/pict-reason-03.jpg"), alt: '', height: '', width: '', class: ''
+      %h5
+        手数料
+        %span 業界最安値
+      %p 最大3%でお得に出品&購入！
+
+.member
+  %h3 会員数日本一
+  %p FURIMAは、フリマアプリで最も人気。
+  %p 出品・購入回数も業界最多です！
+  %p ほしかったあの商品に出会えるかもしれません。
+  .hero__appWrapper
+    .hero__appWrapper__button
+      = link_to "", "#", class: "apple", style: "display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2008-12-10&kind=iossoftware&bubble=ios_apps) no-repeat;width:135px;height:40px;"
+      = link_to image_tag(asset_path("icon/google-play-badge.png")),"#", class: "google"
+.feature
+  %h3 FURIMAの特徴
+  %ul
+    %li
+      = image_tag asset_path("icon/icon-01.png")
+      %h5 簡単に売り買いできる
+      %p スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+    %li
+      = image_tag asset_path("icon/icon-03.png")
+      %h5 簡単に売り買いできる
+      %p スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+    %li
+      = image_tag asset_path("icon/icon-04.png")
+      %h5 様々な支払いに対応
+      %p お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+.itemWrapper
+  .category
+    %h3 ピックアップカテゴリー
+    = link_to "新規投稿商品", "#"
+    .items
+      .item
+        = link_to "#" do
+          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG"
+          %p beef
+          %ul
+            %li
+              1000円
+              %span
+                = icon('fas', 'star')
+                1
+          %span.tax (税込)
+      .item
+        = link_to "#" do
+          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"
+          %p moyashi
+          %ul
+            %li
+              900円
+              %span
+                = icon('fas', 'star')
+                2
+          %span.tax (税込)
+      .item
+        = link_to "#" do
+          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
+          %p iwashi
+          %ul
+            %li
+              800円
+              %span
+                = icon('fas', 'star')
+                3
+          %span.tax (税込)
+      .item
+        = link_to "#" do
+          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
+          %p gyoza
+          %ul
+            %li
+              700円
+              %span
+                = icon('fas', 'star')
+                4
+          %span.tax (税込)
+      .item
+        = link_to "#" do
+          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"
+          %p curry
+          %ul
+            %li
+              500円
+              %span
+                = icon('fas', 'star')
+                100
+          %span.tax (税込)
+  .archive
+    %h3 ピックアップブランド
+    = link_to "アーカイブ", "#"
+    .items
+      .item
+        = link_to "#" do
+          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG"
+          %p beef
+          %ul
+            %li
+              1000円
+              %span
+                = icon('fas', 'star')
+                1
+          %span.tax (税込)
+      .item
+        = link_to "#" do
+          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"
+          %p moyashi
+          %ul
+            %li
+              900円
+              %span
+                = icon('fas', 'star')
+                2
+          %span.tax (税込)
+      .item
+        = link_to "#" do
+          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
+          %p iwashi
+          %ul
+            %li
+              800円
+              %span
+                = icon('fas', 'star')
+                3
+          %span.tax (税込)
+      .item
+        = link_to "#" do
+          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
+          %p gyoza
+          %ul
+            %li
+              700円
+              %span
+                = icon('fas', 'star')
+                4
+          %span.tax (税込)
+      .item
+        = link_to "#" do
+          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"
+          %p curry
+          %ul
+            %li
+              500円
+              %span
+                = icon('fas', 'star')
+                100
+          %span.tax (税込)
+
+.bottom
+  %h5 だれでもかんたん、人生を変えるフリマアプリ
+  %h3 今すぐ無料ダウンロード！
+  .hero__appWrapper
+    .hero__appWrapper__button
+      = link_to "", "#", class: "apple", style: "display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2008-12-10&kind=iossoftware&bubble=ios_apps) no-repeat;width:135px;height:40px;"
+      = link_to image_tag(asset_path("icon/google-play-badge.png")),"#", class: "google"
+
+%footer
+  .footer__menu
+    .footer__menu__about
+      %h3 FURIMAについて
+      %ul
+        %li
+          = link_to "会社概要（運営会社）", "#"
+        %li
+          = link_to "プライバシーポリシー", "#"
+        %li
+          = link_to "FURIMA利用規約", "#"
+        %li
+          = link_to "ポイントに関する特約", "#"
+    .footer__menu__watch
+      %h3 FURIMAを見る
+      %ul
+        %li
+          = link_to "カテゴリー一覧", "#"
+        %li
+          = link_to "ブランド一覧", "#"
+    .footer__menu__help
+      %h3 ヘルプ&ガイド
+      %ul
+        %li
+          = link_to "FURIMAガイド", "#"
+        %li
+          = link_to "FURIMAロゴ利用ガイドライン", "#"
+        %li
+          = link_to "お知らせ", "#"
+  .footer__image
+    = link_to image_tag(asset_path("logo/logo-white.png")), "/"
+    ©️ FURIMA
+.cameraContainer
+  = link_to "#" do
+    %p 出品する
+    = image_tag asset_path("icon/icon_camera.png")
