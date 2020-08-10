@@ -1,17 +1,45 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.Top
+  .Top__header
+    = link_to  "#" do
+      = image_tag 'logo.png', alt:"FURIMA", height: "100", width: "400"
+    .Top__main
+      .Top__panel
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .Top__no-account
+            %p アカウントをお持ちでない方はこちら
+            = link_to "新規会員登録", "#"
+          .Top__login
+            .Top__Google
+              = link_to "Googleでログイン", "#", class: "Top__Googlebtn"
+            .Top__Facebook
+              = link_to "Facebookでログイン", "#", class: "Top__Facebook"
+            .Top__Apple
+              = link_to "Appleでログイン", "#", class: "Top__Apple"
+          .Top__bottom
+            -# = f.label :email
+            %br/
+            .Top__email
+              = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "Top__email"
+            -# = f.label :password
+            %br/
+            .Top__pass
+              = f.password_field :password, autocomplete: "current-password", placeholder:"パスワード", class: "Top__pass"
+            - if devise_mapping.rememberable?
+              .field
+                -# = f.check_box :remember_me
+                -# = f.label :remember_me
+                %br/
+            .Top__form
+              = f.submit "ログイン", class: "Top__form"
+  
+    .Footer
+      %ul.Footer__datalis
+        %li
+          = link_to "プライバシーポリシー", "#"
+        %li
+          = link_to "FURIMA利用規約", "#"
+        %li
+          = link_to "特定商に関する表記", "#"
+      
+    = link_to  "#" do
+      = image_tag 'logo-white.png', alt:"FURIMA", height: "100", width: "400"
