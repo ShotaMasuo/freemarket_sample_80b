@@ -8,8 +8,8 @@ class Item < ApplicationRecord
   has_many :favorites
   has_many :comments
   has_many :images
-  has_many :categories, through: :item_categories
   has_one :purchase
   has_one :delivery
+  belongs_to :categories
   belongs_to :user
 end
