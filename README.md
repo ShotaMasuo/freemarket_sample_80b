@@ -72,10 +72,9 @@ Things you may want to cover:
 ## credit_cardテーブル
 |Column|Type|Options|
 |------|----|-------|
-|card_number|integer|null: false, unique: true|
-|expiration_year|integer|null: false|
-|expiration_month|integer|null: false|
 |user_id|references|null: false, foreign_key: true|
+|customer_id|string|null: false|
+|card_id|string|null: false|
 
 ### Association
 - belongs_to :user
