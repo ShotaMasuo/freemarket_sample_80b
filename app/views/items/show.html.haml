@@ -1,0 +1,87 @@
+.Main
+  .ShowMain
+    .Content 
+      .Content__main
+        %h2 test 
+        .Content__box
+          %ul
+            %li
+              = image_tag "to508-34191-01b.jpg", alt:"TEST", height: "300", width:"500"
+              -# content内はユーザーの投稿した内容が表示されるようになる
+        .Content__price
+          %span ¥10000
+        .Content__detail
+          %span (税込)
+          %span 送料込み
+        .Content__name
+          test
+        .Content__table
+          %table
+            %tbody
+              %tr
+                %th 出品者
+                %td test
+              %tr
+                %th カテゴリー
+                %td 
+                  = link_to "メンズ", "#"
+              %tr
+                %th ブランド
+                %td test
+              %tr
+                %th 商品サイズ
+                %td L
+              %tr
+                %th 商品の状態
+                %td 新品/未使用
+              %tr
+                %th 配送料の負担
+                %td 送料込み（出品者負担）
+              %tr
+                %th 発送元の地域
+                %td
+                  = link_to "東京", "#"
+              %tr
+                %th 発送日の目安
+                %td 1~2で発送
+            
+        .Option
+          = link_to "お気に入り", "#"
+          -# = icon('far', 'fa-ster')
+
+      .Comments
+        %textarea{:cols => "70", :rows => "4"} 
+        %p 
+          相手のことを考え丁寧なコメントを心がけましょう。
+          %br
+          不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      
+        %input{type: "submit", value: "コメントする", class: "Comments__btn"}
+        -# = icon('far', 'fa-comment')
+      
+      %ul.Item_Next
+        %li
+          = link_to "<前の商品", "#", class: "Item_Next__page"
+        %li
+          = link_to "後ろの商品>", "#",class: "Item_Next__page"
+      
+      .SubItem
+        = link_to "他の商品をもっとみる", "#" ,class: "SubItem"
+      
+      .ItemList
+        = image_tag "dragonball.jpeg", alt:"TEST", height: "250", width:"250"
+
+      .ItemList__body
+        %h3 test
+        .ItemList__data
+          %ul
+            %li
+              30000円
+            %li
+              お気に入り
+              -# = icon('far', 'fa-ster likeIkon')
+          %p
+            (税込)
+
+.ImageFooter
+.Exposition
