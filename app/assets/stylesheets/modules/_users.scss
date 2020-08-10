@@ -1,6 +1,142 @@
 * {
   box-sizing: border-box;
 }
+.warper {
+  width: 100vw;
+  background-color: #eeeded;
+  position: absolute;
+  .registration-main {
+    width: 700px;
+    height: 100%;
+    margin: 0 auto;
+    .registration-vontainer {
+      text-align: center;
+      background-color: #fff;
+      .main-title {
+        font-size: 28px;
+        font-weight: 550;
+        letter-spacing: 3px;
+        color: #ffffff;
+        padding: 30px;
+        background-color: rgb(118, 209, 212);
+      }
+
+      .form-group {
+        max-width: 335px;
+        margin-left: auto;
+        margin-right: auto;
+        .field {
+          text-align: left;
+          margin-top: 17px;
+          label {
+            font-weight: 550;
+            font-size: 13px;
+            letter-spacing: 2px;
+            color: #585858;
+          }
+          .hissu {
+            color: #fff;
+            background-color: #ff1934;
+            font-size: 12px;
+            padding: 4px;
+            margin-left:5px;
+            border-radius: 0.4em;
+          }
+          .default, .form-name {
+            height: 35px;
+            border: 1px solid #dfdede;
+            padding: 5px 14px 5px;
+            font-size: 14px;
+            border-radius: 0.60em;
+            margin-top: 6px;
+          }
+          .default:focus, .form-name:focus {
+            background-color: rgb(255, 250, 206);
+          }
+          .default {
+            width: 300px;
+          }
+          .form-name {
+            width: 135px;
+            margin-right: 8px;
+          }
+          p.info-sentence {
+            font-size: 13px;
+            color: #8d8d8d;
+            margin-top: 9px;
+            letter-spacing: 1px;
+          }
+          h3.identification-letter{
+            margin-top: 20px;
+            font-weight: bolder;
+            color: #3f3f3f;
+          }
+          .info-text {
+            font-size: 15px;
+            color: #555555;
+            margin-top: 8px;
+          }
+          .name-info {
+            display: flex;
+            .family_name, .first_name {
+              width: 130px;
+            }
+            .first_name {
+              margin-left: 7px;
+            }
+          }
+          .birthday-select {
+            display: flex;
+            margin-top: 8px;
+          }
+          .select-default, .select-month, .select-day {
+            width: 82px;
+            height: 47px;
+            padding-left: 5px;
+            border: 1px solid #d6d4d4;
+            border-radius: 0.4em;
+          }
+          span.birthday {
+            margin: 13px 8px 0;
+            font-size: 14px;
+          }
+        }
+
+        .actions {
+          .button {
+            width: 100%;
+            height: 57px;
+            font-size: 20px;
+            background-color: rgb(118, 209, 212);
+            color: #fff;
+            border: 1px solid #dfdede;
+            letter-spacing: 2px;
+            border-radius: 0.4em;
+            margin: 30px 0 45px;
+          }
+          .button:hover {
+            background-color: rgb(94, 182, 185);
+          }
+        }
+      }
+    }
+  }
+  .logo {
+    background-color: #eeeded;
+    height: 80px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    .logo-herder {
+      margin: 10px 0 10px 40px;
+    }
+    .logo-footer {
+      margin: 15px 0 0 264px;
+      width: 150px;
+      height: 40px;
+    }
+  }
+}
 
 .Top{
   background-color: #f7f7f7;
