@@ -1,3 +1,71 @@
+%header
+  = render partial: 'header'
+
+  .menuWrapper
+    %ul.menuWrapper__itemMenuWrapper
+      %li.menuWrapper__itemMenuWrapper__item.item__category
+        = link_to "カテゴリー", "#"
+        .menuWrapper__itemMenuWrapper__item__category
+          %ul
+            %li
+              =link_to "レディース", "#"
+            %li
+              =link_to "メンズ", "#"
+            %li
+              =link_to "ベビー・キッズ", "#"
+            %li
+              =link_to "インテリア・住まい・小物", "#"
+            %li
+              =link_to "本・音楽・ゲーム", "#"
+            %li
+              =link_to "おもちゃ・ホビー・グッズ", "#"
+            %li
+              =link_to "コスメ・香水・美容", "#"
+            %li
+              =link_to "家電・スマホ・カメラ", "#"
+            %li
+              =link_to "スポーツ・レジャー", "#"
+            %li
+              =link_to "ハンドメイド", "#"
+            %li
+              =link_to "チケット", "#"
+            %li
+              =link_to "自転車・オートバイ", "#"
+            %li
+              =link_to "その他", "#"
+      %li.menuWrapper__itemMenuWrapper__item.item__brand
+        = link_to "ブランド", "#"
+        .menuWrapper__itemMenuWrapper__item__brand
+          %ul
+            %li
+              =link_to "NIKE", "#"
+            %li
+              =link_to "adidas", "#"
+            %li
+              =link_to "asics", "#"
+            %li
+              =link_to "MIZUNO", "#"
+            %li
+              =link_to "シャネル", "#"
+            %li
+              =link_to "Tiffany", "#"
+            %li
+              =link_to "BVLGARI", "#"
+            %li
+              =link_to "GUCCI", "#"
+            %li
+              =link_to "エルメス", "#"
+            %li
+              =link_to "beams", "#"
+            %li
+              =link_to "TOMY", "#"
+            %li
+              =link_to "journalstandard", "#"
+            %li
+              =link_to "その他", "#"
+    %ul.menuWrapper__userMenuWrapper
+      = render partial: 'user'
+
 .Main
   .ShowMain
     .Content 
@@ -46,9 +114,8 @@
                 %td 1~2で発送
             
         .Option
+          = icon('fas', 'star')
           = link_to "お気に入り", "#"
-          -# = icon('far', 'fa-ster')
-
       .Comments
         %textarea{:cols => "70", :rows => "4"} 
         %p 
@@ -78,10 +145,22 @@
             %li
               30000円
             %li
-              お気に入り
-              -# = icon('far', 'fa-ster likeIkon')
+              = icon('fas', 'star')
+              2
           %p
             (税込)
 
-.ImageFooter
-.Exposition
+.bottom
+  %h5 だれでもかんたん、人生を変えるフリマアプリ
+  %h3 今すぐ無料ダウンロード！
+  .hero__appWrapper
+    .hero__appWrapper__button
+      = link_to "", "#", class: "apple", style: "display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2008-12-10&kind=iossoftware&bubble=ios_apps) no-repeat;width:135px;height:40px;"
+      = link_to image_tag(asset_path("icon/google-play-badge.png")),"#", class: "google"
+
+%footer
+  = render partial: 'footer.html.haml'
+.cameraContainer
+  = link_to "#" do
+    %p 出品する
+    = image_tag asset_path("icon/icon_camera.png")

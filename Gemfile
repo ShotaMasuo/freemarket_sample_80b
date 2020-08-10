@@ -69,3 +69,4 @@ gem "devise"
 gem "font-awesome-sass"
 gem 'jquery-rails'
 gem 'payjp'
+gem 'ancestry'
