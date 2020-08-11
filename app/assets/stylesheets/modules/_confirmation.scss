@@ -1,0 +1,44 @@
+.confirmationContainer{
+  background-color: #f5f5f5;
+  padding: 40px 0 ;
+  .confirmationWrapper{
+    background-color: #fff;
+    width: 50%;
+    margin: 0 auto;
+    h1{
+      text-align: center;
+      padding: 20px;
+      font-weight: bold;
+      font-size: 30px;
+    }
+    &__detailWrapper{
+      display: flex;
+      flex-direction: column;
+      width: 60%;
+      margin: 0 auto;
+      text-align: center;
+      padding-bottom: 30px;
+      &__detail{
+        margin: 0 auto;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        &:nth-child(3){
+          border-bottom: 1px solid #bbb;
+          padding-bottom: 5px;
+        }
+      }
+    }
+  }
+  .button{
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    background-color: #3FC9CF;
+    font-size: 26px;
+    padding:10px 50px ;
+    margin: 30px auto ;
+    width: 290px;
+  }
+}
