@@ -1,0 +1,68 @@
+.Wrapper
+  = render "header"
+  .MypageBody
+    .SideList
+      = link_to "#", class: "ListBtn" do
+        %p 出品した商品  
+      = link_to "#", class: "ListBtn" do 
+        %p いいねした商品 
+      = link_to "#", class: "ListBtn" do
+        %p 購入履歴
+      = link_to "#", class: "ListBtn" do
+        %p ポイント  
+      = link_to "#", class: "ListBtn" do
+        %p プロフィール 
+      = link_to "#", class: "ListBtn" do
+        %p 発送元・お届け先住所   
+      = link_to "#", class: "ListBtn" do     
+        %p ログアウト
+    .MainField
+      .UserBox
+        .UserBox__UserName Username
+        .UserBox__Number 出品数：0
+      .SaleItems
+        .SaleHead 出品した商品
+        .SaleItemsStatus
+          = link_to "#", class: "ItemsStatus" do
+            %p 出品中
+          = link_to "#", class: "ItemsStatus" do
+            %p 取引中
+          = link_to "#", class: "ItemsStatus" do
+            %p 売却済
+        .ItemsBox
+          .SaleContents   
+            = image_tag (asset_path("icon-01.png")), class: "SaleContents__image"
+            .SaleContents__Exp
+              %p フィギュア 新品
+              %p 1500円  
+          .SaleContents   
+            = image_tag (asset_path("sample1.png")), class: "SaleContents__image"
+            .SaleContents__Exp
+              %p オムライス 新品
+              %p 100円  
+      .FavoriteItems
+        .FavoriteHead いいね！一覧
+        .ItemsBox
+          .FavoriteContents
+            = image_tag (asset_path("icon-01.png")), class: "FavoriteContents__image"
+            .FavoriteContents__Exp
+              %p フィギュア 新品
+              %p 1500円  
+          .FavoriteContents
+            = image_tag (asset_path("sample1.png")), class: "FavoriteContents__image"
+            .FavoriteContents__Exp
+              %p フィギュア 新品
+              %p 1500円   
+      .PurchaseHistory
+        .PurchaseHead 購入履歴
+        .ItemsBox
+          .PurchaseContents
+            = image_tag (asset_path("icon-01.png")), class: "PurchaseContents__image"
+            .PurchaseContents__Exp
+              %p フィギュア 新品
+              %p 1500円  
+          .PurchaseContents   
+            = image_tag (asset_path("sample1.png")), class: "PurchaseContents__image"
+            .PurchaseContents__Exp
+              %p オムライス 新品
+              %p 100円  

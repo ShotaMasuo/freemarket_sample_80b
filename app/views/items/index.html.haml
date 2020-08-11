@@ -5,33 +5,19 @@
       %li.menuWrapper__itemMenuWrapper__item.item__category
         = link_to "カテゴリー", "#"
         .menuWrapper__itemMenuWrapper__item__category
-          %ul
-            %li
-              =link_to "レディース", "#"
-            %li
-              =link_to "メンズ", "#"
-            %li
-              =link_to "ベビー・キッズ", "#"
-            %li
-              =link_to "インテリア・住まい・小物", "#"
-            %li
-              =link_to "本・音楽・ゲーム", "#"
-            %li
-              =link_to "おもちゃ・ホビー・グッズ", "#"
-            %li
-              =link_to "コスメ・香水・美容", "#"
-            %li
-              =link_to "家電・スマホ・カメラ", "#"
-            %li
-              =link_to "スポーツ・レジャー", "#"
-            %li
-              =link_to "ハンドメイド", "#"
-            %li
-              =link_to "チケット", "#"
-            %li
-              =link_to "自転車・オートバイ", "#"
-            %li
-              =link_to "その他", "#"
+          %ul.parents
+            - @categories.each do |category|
+              %li.parent
+                =link_to "#{category.name}", "#"
+                %ul.children
+                  - category.children.each do |child|
+                    %li.child
+                      =link_to "#{child.name}", "#"
+                      %ul.grandChildren
+                        - child.children.each do |gchild|
+                          %li.grandChild
+                            =link_to "#{gchild.name}", "#"
+
       %li.menuWrapper__itemMenuWrapper__item.item__brand
         = link_to "ブランド", "#"
         .menuWrapper__itemMenuWrapper__item__brand

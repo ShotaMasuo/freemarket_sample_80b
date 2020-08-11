@@ -57,13 +57,16 @@ body{
           }
           
           .display_block{
-            display: block;
+            display: block!important;
           }
           &__category{
             display: none;
+            // display: flex;
             position: fixed;
-            ul{
+            .parents{
               background-color: #fff;
+              display: block;
+              width: 224px;
               li{
                 padding: 10px 10px;
                 border-bottom: 1px solid #ddd;
@@ -71,6 +74,22 @@ body{
                 a{
                   display: inline-block;
                   width: 100%;
+                }
+                .children{
+                  position: absolute;
+                  top: 0;
+                  left: 224px;
+                  background-color: #fff;
+                  width: 224px;
+                  display: none;
+                  .grandChildren{
+                    position: absolute;
+                    top: 0;
+                    left: 224px;
+                    background-color: #fff;
+                    width: 224px;
+                    display: none;
+                  }
                 }
               }
             }

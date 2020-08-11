@@ -1,5 +1,7 @@
 $(function(){
+  console.log("test");
   $(".item__category").hover(
+    console.log("test2");
     function(){
       $(".menuWrapper__itemMenuWrapper__item__category").addClass("display_block");
     },
@@ -16,4 +18,20 @@ $(function(){
     }
   );
 
+  $(".parent").hover(
+    function(){
+      $(this).children('ul').addClass("display_block");
+    },
+    function(){
+      $(this).children('ul').removeClass("display_block");
+    }
+  )
+  $(".child").hover(
+    function(){
+      $(this).children('ul').addClass("display_block");
+    },
+    function(){
+      $(this).children('ul').removeClass("display_block");
+    }
+  )
 });

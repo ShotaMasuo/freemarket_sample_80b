@@ -1,0 +1,187 @@
+.Header {
+  height: 150px;
+  // 高さ150pxは仮定
+  width: 100vw;
+}
+
+.MypageBody {
+  display: flex;
+}
+
+.SideList {
+  height: calc(100vh - 150px);
+  width: 240px;
+  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  .ListBtn {
+    height: 45px;
+    width: 170px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    color: black;
+    text-decoration: none;
+    border: 1px solid;
+    border-color: #3fc9cf;
+  }
+  .ListBtn:hover {
+    background-color: #3fc9cf;
+    color: white;
+  }
+}
+
+.MainField {
+  height: calc(100vh - 150px);
+  width: calc(100vw - 240px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .UserBox {
+    display: none;
+    height: 350px;
+    width: 500px;
+    text-align: center;
+    border: 1px solid;
+    border-color: #3fc9cf;
+    &__UserName {
+      font-size: 50px;
+      margin-top: 80px;
+    }
+    &__Number {
+      font-size: 35px;
+    }
+  }
+
+  .SaleItems {
+    display: none;
+    height: 400px;
+    width: 600px;
+    border: 1px solid;
+    border-color: #3fc9cf;
+    .SaleHead {
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid;
+      border-color: #3fc9cf;
+      font-size: 25px;
+    }
+    .SaleItemsStatus {
+      height: 50px;
+      display: block;
+      display: flex;
+      .ItemsStatus {
+        width: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid;
+        border-color: #3fc9cf;
+        text-decoration: none;
+        color: black;
+      }
+      .ItemsStatus:hover {
+        background-color: #3fc9cf;
+        color: white;
+      }
+    } 
+    .ItemsBox {
+      .SaleContents {
+        height: 140px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &__image {
+          height: 120px;
+          width: 120px;
+        }
+        &__Exp {
+          font-size: 20px;
+        }
+      }
+      .SaleContents:hover {
+        background-color: #3fc9cf;
+        color: white;
+      } 
+    } 
+  }
+  
+  .FavoriteItems {
+    display: none;
+    height: 400px;
+    width: 600px;
+    border: 1px solid;
+    border-color: #3fc9cf;
+    .FavoriteHead {
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid;
+      border-color: #3fc9cf;
+      font-size: 25px;
+    }
+    .ItemsBox {
+      .FavoriteContents  {
+        height: 140px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &__image {
+          height: 120px;
+          width: 120px;
+        }
+        &__Exp {
+          font-size: 20px;
+        }
+      }
+      .FavoriteContents:hover {
+        background-color: #3fc9cf;
+        color: white;
+      }
+    }
+  }
+
+  .PurchaseHistory {
+    display: none;
+    height: 400px;
+    width: 600px;
+    border: 1px solid;
+    border-color: #3fc9cf;
+    .PurchaseHead {
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid;
+      border-color: #3fc9cf;
+      font-size: 25px;
+    }
+    .ItemsBox {
+      .PurchaseContents {
+        height: 140px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &__image {
+          height: 120px;
+          width: 120px;
+        }
+        &__Exp {
+          font-size: 20px;
+        }
+      }
+      .PurchaseContents:hover {
+        background-color: #3fc9cf;
+        color: white;
+      }
+    }
+  }
+}
+
