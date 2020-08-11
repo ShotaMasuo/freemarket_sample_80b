@@ -15,4 +15,6 @@ class User < ApplicationRecord
   has_many :sending_destinations
   has_many :purchases
   has_many :deliveries
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
 end
