@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :nickname, presence: true
-  validates :email, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true, format:{ with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i}
   validates :password, presence: true
   has_one :profile
   has_one :point
@@ -15,5 +15,4 @@ class User < ApplicationRecord
   has_many :sending_destinations
   has_many :purchases
   has_many :deliveries
-
 end

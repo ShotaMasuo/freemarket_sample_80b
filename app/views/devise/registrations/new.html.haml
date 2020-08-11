@@ -5,9 +5,10 @@
     .registration-vontainer
       %h2.main-title
         会員情報入力
-      = form_with url: "#" do |f|
+      = form_with model: @user, url: user_registration_path, id: 'new_user', local: true  do |f|
         = render "devise/shared/error_messages", resource: resource
         - required = '必須'
+        - arbitrary = '任意'
         .form-group
           .field
             = f.label :nickname, 'ニックネーム'
@@ -19,7 +20,7 @@
             = f.label :email, 'メールアドレス'
             %span.hissu #{required}
             %br/
-            = f.email_field :email, autocomplete: "email", placeholder: "PC・携帯どちらでも可", required: "", class: "default"
+            = f.email_field :email, autocomplete: "email", pattern: "/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i", placeholder: "PC・携帯どちらでも可" ,required: "", class: "default"
 
           .field
             = f.label :password, 'パスワード'
@@ -66,7 +67,7 @@
               %span.hissu #{required}
               .birthday-select
                 .birthday-year
-                  %select.select-default{name: "year"}
+                  %select.select-default{name: "year", required: ""}
                     %option{value: ""} --
                     %option{value: "2020"} 2020
                     %option{value: "2019"} 2019
@@ -191,7 +192,7 @@
                     %option{value: "1900"} 1900
                 %span.birthday 年
                 .birthday-month
-                  %select.select-month{name: "month"}
+                  %select.select-month{name: "month", required: ""}
                     %option{value: ""} --
                     %option{value: "1"} 1
                     %option{value: "2"} 2
@@ -207,7 +208,7 @@
                     %option{value: "12"} 12
                 %span.birthday 月
                 .birthday-day
-                  %select.select-day{name: "day"}
+                  %select.select-day{name: "day", required: ""}
                     %option{value: ""} --
                     %option{value: "1"} 1
                     %option{value: "2"} 2
@@ -241,6 +242,99 @@
                     %option{value: "30"} 30
                     %option{value: "31"} 31
                 %span.birthday 日
+            
+          .field
+            .post_coad
+              = f.label :post_coad, '郵便番号'
+              %span.hissu #{required}
+              .post_coad_info
+                = f.text_field :post_coad, pattern: "^[0-9]{3}-[0-9]{4}$", required: "", placeholder: " 例) 123-4567 ", maxlength: "8", class: 'form-name'
+          
+          .field
+            .prefecture
+              = f.label :prefecture, '都道府県'
+              %span.hissu #{required}
+              .prefecture_filed
+                %select.select_prefecture{name: 'prefecture', required: ""}
+                  %option{value: ""} --
+                  %option{value: "北海道"} 北海道
+                  %option{value: "青森県"} 青森県
+                  %option{value: "岩手県"} 岩手県
+                  %option{value: "宮城県"} 宮城県
+                  %option{value: "秋田県"} 秋田県
+                  %option{value: "山形県"} 山形県
+                  %option{value: "福島県"} 福島県
+                  %option{value: "茨城県"} 茨城県
+                  %option{value: "栃木県"} 栃木県
+                  %option{value: "群馬県"} 群馬県
+                  %option{value: "埼玉県"} 埼玉県
+                  %option{value: "千葉県"} 千葉県
+                  %option{value: "東京都"} 東京都
+                  %option{value: "神奈川県"} 神奈川県
+                  %option{value: "新潟県"} 新潟県
+                  %option{value: "富山県"} 富山県
+                  %option{value: "石川県"} 石川県
+                  %option{value: "福井県"} 福井県
+                  %option{value: "山梨県"} 山梨県
+                  %option{value: "長野県"} 長野県
+                  %option{value: "岐阜県"} 岐阜県
+                  %option{value: "静岡県"} 静岡県
+                  %option{value: "愛知県"} 愛知県
+                  %option{value: "三重県"} 三重県
+                  %option{value: "滋賀県"} 滋賀県
+                  %option{value: "京都府"} 京都府
+                  %option{value: "大阪府"} 大阪府
+                  %option{value: "兵庫県"} 兵庫県
+                  %option{value: "奈良県"} 奈良県
+                  %option{value: "和歌山県"} 和歌山県
+                  %option{value: "鳥取県"} 鳥取県
+                  %option{value: "島根県"} 島根県
+                  %option{value: "岡山県"} 岡山県
+                  %option{value: "広島県"} 広島県
+                  %option{value: "山口県"} 山口県
+                  %option{value: "徳島県"} 徳島県
+                  %option{value: "香川県"} 香川県
+                  %option{value: "愛媛県"} 愛媛県
+                  %option{value: "高知県"} 高知県
+                  %option{value: "福岡県"} 福岡県
+                  %option{value: "佐賀県"} 佐賀県
+                  %option{value: "長崎県"} 長崎県
+                  %option{value: "熊本県"} 熊本県
+                  %option{value: "大分県"} 大分県
+                  %option{value: "宮崎県"} 宮崎県
+                  %option{value: "鹿児島県"} 鹿児島県
+                  %option{value: "沖縄県"} 沖縄県
+                  %option{value: "未定"} 未定
+
+          .field
+            .city
+              = f.label :city, '市区町村'
+              %span.hissu #{required}
+              .city_info
+                = f.text_field :city, placeholder: " 例) 横浜市緑区 ", required: "", class: "city_fill"
+
+          .field
+            .town
+              = f.label :town, '番地'
+              %span.hissu #{required}
+              .town_info
+                = f.text_field :town, placeholder: " 例) 青山1-1-1 ", required: "", class: "town_fill"
+          
+          .field
+            .building
+              = f.label :building, '建物名'
+              %span.Any #{arbitrary}
+              .building_info
+                = f.text_field :building, placeholder: " 例) 柳ビル ", class: "building_fill"
+          
+          .field
+            .tell
+              = f.label :tell, '電話番号'
+              %span.Any #{arbitrary}
+              .tell_info
+                = f.text_field :tell, placeholder: " 例) 09012345678", class: "tell_fill"
+
+          
             %p.info-sentence
               ※本人情報は正しく入力してください。会員登録後、修正するにはお時間をいただく場合があります。
 
