@@ -16,4 +16,21 @@ $(function(){
     }
   );
 
+  $(".parent").hover(
+    function(){
+      $(this).children('ul').addClass("display_block");
+    },
+    function(){
+      $(this).children('ul').removeClass("display_block");
+    }
+  )
+  $(".child").hover(
+    function(){
+      $(this).children('ul').addClass("display_block");
+    },
+    function(){
+      $(this).children('ul').removeClass("display_block");
+    }
+  )
+
 });
