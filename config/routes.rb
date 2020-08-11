@@ -7,4 +7,5 @@ Rails.application.routes.draw do
       get 'confirmation', to: "items#confirmation"
     end
   end
+  resources :categories, only: :index
 end

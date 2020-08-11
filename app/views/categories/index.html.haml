@@ -1,0 +1,96 @@
+%header
+  = render partial: 'header'
+
+.wrapper
+  .container
+    .categoryIndex
+      %h3 カテゴリー一覧
+      .categoryIndex__categoryContainer
+        %p レディース
+        %p メンズ
+        %p ベビー
+        %p インテリア
+        %p 音楽
+        %p おもちゃ
+        %p コスメ
+        %p 家電
+        %p スポーツ
+        %p ハンドメイド
+        %p チケット
+    .categoryDetail
+      %h3 レディース
+      .categoryDetail__container
+        = link_to "すべて", "#"
+        .categoryDetail__container__detail
+          %p トップス
+          = link_to "すべて", "#"
+          = link_to "Tシャツ", "#"
+          = link_to "ポロシャツ", "#"
+          = link_to "キャミソール", "#"
+          = link_to "タンクトップ", "#"
+          = link_to "パーカー", "#"
+          = link_to "ジャージ", "#"
+          = link_to "その他", "#"
+        .categoryDetail__container__detail
+          %p ジャケット
+          = link_to "すべて", "#"
+          = link_to "Tシャツ", "#"
+          = link_to "ポロシャツ", "#"
+          = link_to "キャミソール", "#"
+          = link_to "タンクトップ", "#"
+          = link_to "パーカー", "#"
+          = link_to "ジャージ", "#"
+          = link_to "その他", "#"
+        .categoryDetail__container__detail
+          %p パンツ
+          = link_to "すべて", "#"
+          = link_to "Tシャツ", "#"
+          = link_to "ポロシャツ", "#"
+          = link_to "キャミソール", "#"
+          = link_to "タンクトップ", "#"
+          = link_to "パーカー", "#"
+          = link_to "ジャージ", "#"
+          = link_to "その他", "#"
+
+    .categoryDetail
+      %h3 レディース
+      .categoryDetail__container
+        = link_to "すべて", "#"
+        .categoryDetail__container__detail
+          %p トップス
+          = link_to "すべて", "#"
+          = link_to "Tシャツ", "#"
+          = link_to "ポロシャツ", "#"
+          = link_to "キャミソール", "#"
+          = link_to "タンクトップ", "#"
+          = link_to "パーカー", "#"
+          = link_to "ジャージ", "#"
+          = link_to "その他", "#"
+        .categoryDetail__container__detail
+          %p ジャケット
+          = link_to "すべて", "#"
+          = link_to "Tシャツ", "#"
+          = link_to "ポロシャツ", "#"
+          = link_to "キャミソール", "#"
+          = link_to "タンクトップ", "#"
+          = link_to "パーカー", "#"
+          = link_to "ジャージ", "#"
+          = link_to "その他", "#"
+        .categoryDetail__container__detail
+          %p パンツ
+          = link_to "すべて", "#"
+          = link_to "Tシャツ", "#"
+          = link_to "ポロシャツ", "#"
+          = link_to "キャミソール", "#"
+          = link_to "タンクトップ", "#"
+          = link_to "パーカー", "#"
+          = link_to "ジャージ", "#"
+          = link_to "その他", "#"
+
+.cameraContainer
+  = link_to "#" do
+    %p 出品する
+    = image_tag asset_path("icon/icon_camera.png")
+
+%footer
+  = render partial: 'footer'
