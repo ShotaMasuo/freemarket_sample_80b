@@ -1,4 +1,5 @@
 $(function(){
+  console.log("test");
   $(".item__category").hover(
     function(){
       $(".menuWrapper__itemMenuWrapper__item__category").addClass("display_block");
