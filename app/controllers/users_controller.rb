@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :get_categorys
+  before_action :get_categories
 
   def index
   end
@@ -8,9 +8,8 @@ class UsersController < ApplicationController
   end
 
   private
-  def get_categorys
+  def get_categories
     @categories = Category.where(ancestry: nil)
   end
-
 end
 

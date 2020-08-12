@@ -28,17 +28,17 @@
             = f.text_field :family_name_kana, placeholder: ' 例) アヤ', class: 'first_name_kana'
 
           .field
-            .post_coad
-              = f.label :post_coad, '郵便番号'
+            .post_code
+              = f.label :post_code, '郵便番号'
               %span.hissu #{required}
-              .post_coad_info
+              .post_code_info
                 = f.text_field :post_code, pattern: "^[0-9]{3}-[0-9]{4}$", required: "", placeholder: " 例) 123-4567 ", maxlength: "8", class: 'form-name'
           
           .field
             .prefecture
               = f.label :prefecture, '都道府県'
               %span.hissu #{required}
-              .prefecture_filed
+              .prefecture_field
                 = f.collection_select :prefecture_code, Prefecture.all, :id, :name, prompt: "--", class: 'prefecture_fill'
 
           .field
