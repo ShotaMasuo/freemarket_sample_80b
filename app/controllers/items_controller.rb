@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :get_categorys
-  
+
   def index
   end
 
@@ -10,9 +10,8 @@ class ItemsController < ApplicationController
 
   def new
   end
-end
-  def confirmation
 
+  def confirmation
   end
 
   private
