@@ -1,20 +1,15 @@
-.Header {
-  height: 150px;
-  // 高さ150pxは仮定
-  width: 100vw;
-}
-
 .MypageBody {
+  margin: 0 5%;
   display: flex;
+  background-color: #f8f8f8;
 }
 
 .SideList {
-  height: calc(100vh - 150px);
   width: 240px;
   display: block;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   .ListBtn {
     height: 45px;
@@ -27,6 +22,8 @@
     text-decoration: none;
     border: 1px solid;
     border-color: #3fc9cf;
+    margin-bottom: 5px;
+    background-color: white;
   }
   .ListBtn:hover {
     background-color: #3fc9cf;
@@ -35,7 +32,7 @@
 }
 
 .MainField {
-  height: calc(100vh - 150px);
+  height: 85vh;
   width: calc(100vw - 240px);
   display: flex;
   justify-content: center;
@@ -48,6 +45,7 @@
     text-align: center;
     border: 1px solid;
     border-color: #3fc9cf;
+    background-color: white;
     &__UserName {
       font-size: 50px;
       margin-top: 80px;
@@ -58,11 +56,12 @@
   }
 
   .SaleItems {
-    display: none;
+    // display: none;
     height: 400px;
     width: 600px;
     border: 1px solid;
     border-color: #3fc9cf;
+    background-color: white;
     .SaleHead {
       height: 60px;
       display: flex;
@@ -90,34 +89,55 @@
         background-color: #3fc9cf;
         color: white;
       }
-    } 
+    }
     .ItemsBox {
-      .SaleContents {
-        height: 140px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        &__image {
-          height: 120px;
-          width: 120px;
+      display: flex;
+      .item {
+        width: 220px;
+        margin: 10px 0 0 10px;
+        &:hover {
+          opacity: 0.5;
         }
-        &__Exp {
-          font-size: 20px;
+        a {
+          text-decoration: none;
+          color: black;
+          font-size: 16px;
+          font-weight: normal;
+          img {
+            width: 100%;
+            height: 150px;
+          }
+          p {
+            padding: 10px 15px 5px 15px;
+            text-align: left;
+          }
+          ul {
+            padding: 0 15px;
+            text-align: left;
+            span {
+              display: inline;
+              float: right;
+              padding-right: 16px;
+            }
+          }
+          .tax {
+            padding: 0 15px 15px 20px;
+            display: inline-block;
+            float: left;
+            font-size: 10px;
+          }
         }
       }
-      .SaleContents:hover {
-        background-color: #3fc9cf;
-        color: white;
-      } 
     } 
   }
-  
+
   .FavoriteItems {
     display: none;
     height: 400px;
     width: 600px;
     border: 1px solid;
     border-color: #3fc9cf;
+    background-color: white;
     .FavoriteHead {
       height: 60px;
       display: flex;
@@ -128,22 +148,42 @@
       font-size: 25px;
     }
     .ItemsBox {
-      .FavoriteContents  {
-        height: 140px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        &__image {
-          height: 120px;
-          width: 120px;
+      display: flex;
+      .item {
+        width: 220px;
+        margin: 10px 0 0 10px;
+        &:hover {
+          opacity: 0.5;
         }
-        &__Exp {
-          font-size: 20px;
+        a {
+          text-decoration: none;
+          color: black;
+          font-size: 16px;
+          font-weight: normal;
+          img {
+            width: 100%;
+            height: 150px;
+          }
+          p {
+            padding: 10px 15px 5px 15px;
+            text-align: left;
+          }
+          ul {
+            padding: 0 15px;
+            text-align: left;
+            span {
+              display: inline;
+              float: right;
+              padding-right: 16px;
+            }
+          }
+          .tax {
+            padding: 0 15px 15px 20px;
+            display: inline-block;
+            float: left;
+            font-size: 10px;
+          }
         }
-      }
-      .FavoriteContents:hover {
-        background-color: #3fc9cf;
-        color: white;
       }
     }
   }
@@ -154,6 +194,7 @@
     width: 600px;
     border: 1px solid;
     border-color: #3fc9cf;
+    background-color: white;
     .PurchaseHead {
       height: 60px;
       display: flex;
@@ -164,23 +205,142 @@
       font-size: 25px;
     }
     .ItemsBox {
-      .PurchaseContents {
-        height: 140px;
+      display: flex;
+      .item {
+        width: 220px;
+        margin: 10px 0 0 10px;
+        &:hover {
+          opacity: 0.5;
+        }
+        a {
+          text-decoration: none;
+          color: black;
+          font-size: 16px;
+          font-weight: normal;
+          img {
+            width: 100%;
+            height: 150px;
+          }
+          p {
+            padding: 10px 15px 5px 15px;
+            text-align: left;
+          }
+          ul {
+            padding: 0 15px;
+            text-align: left;
+            span {
+              display: inline;
+              float: right;
+              padding-right: 16px;
+            }
+          }
+          .tax {
+            padding: 0 15px 15px 20px;
+            display: inline-block;
+            float: left;
+            font-size: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  .Point {
+    display: none;
+    height: 400px;
+    width: 600px;
+    border: 1px solid;
+    border-color: #3fc9cf;
+    background-color: white;
+    .PointHead {
+      height: 80px;
+      border-bottom: 1px solid;
+      border-color: #3fc9cf;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 25px;
+    }
+    .PointLevel {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px;
+      font-size: 20px;
+    }
+    .PointBox {
+      height: 80px;
+      border-top: 1px solid;
+      border-color: #3fc9cf;
+      padding: 0 5px;
+      .PointBtn {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 25px;
+        text-decoration: none;
+        color: black;
+        font-size: 20px;
+      }
+      .PointBtn:hover {
+        color: white;
+      }
+    }
+    .PointBox:hover {
+      background-color: #3fc9cf;
+    }
+  }
+  .Profile {
+    display: none;
+    height: 420px;
+    width: 600px;
+    .ProfileBox {
+      height: 320px;
+      border: 1px solid;
+      border-color: #3fc9cf;
+      background-color: white;
+      .ProfileHead {
+        height: 80px;
+        border-bottom: 1px solid;
+        border-color: #3fc9cf;
         display: flex;
         justify-content: center;
         align-items: center;
-        &__image {
-          height: 120px;
-          width: 120px;
-        }
-        &__Exp {
-          font-size: 20px;
-        }
+        font-size: 25px;
       }
-      .PurchaseContents:hover {
-        background-color: #3fc9cf;
-        color: white;
+      .ProfileData {
+        height: 80px;
+        text-align: center;
+        font-size: 15px;
+        padding-top: 10px;
       }
+    }
+    .EditBtn {
+      height: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #3fc9cf;
+      color: white;
+      margin-top: 10px;
+      border-radius: 20px;
+      font-size: 30px;
+      text-decoration: none;
+    }
+  }
+  .Logout {
+    display: none;
+    .LogoutBtn {
+      font-size: 30px;
+      text-decoration: none;
+      height: 80px;
+      width: 600px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #3fc9cf;
+      color: white;
+      border-radius: 20px;
     }
   }
 }

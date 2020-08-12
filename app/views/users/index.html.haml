@@ -1,10 +1,35 @@
-.Wrapper
-  = render "header"
+%header
+  = render partial: 'items/header'
+  .menuWrapper
+    %ul.menuWrapper__itemMenuWrapper
+      %li.menuWrapper__itemMenuWrapper__item.item__category
+        = link_to "カテゴリー", "#"
+        .menuWrapper__itemMenuWrapper__item__category
+          %ul.parents
+            - @categories.each do |category|
+              %li.parent
+                =link_to "#{category.name}", category_path(category.id)
+                %ul.children
+                  - category.children.each do |child|
+                    %li.child
+                      =link_to "#{child.name}", category_path(child.id)
+                      %ul.grandChildren
+                        - child.children.each do |gchild|
+                          %li.grandChild
+                            =link_to "#{gchild.name}", category_path(gchild.id)
+
+      %li.menuWrapper__itemMenuWrapper__item.item__brand
+        = link_to "ブランド", "#"
+        .menuWrapper__itemMenuWrapper__item__brand
+          = render partial: 'items/brand'
+    %ul.menuWrapper__userMenuWrapper
+      = render partial: 'items/user'
+
   .MypageBody
     .SideList
       = link_to "#", class: "ListBtn" do
         %p 出品した商品  
-      = link_to "#", class: "ListBtn" do 
+      = link_to "#", class: "ListBtn" do
         %p いいねした商品 
       = link_to "#", class: "ListBtn" do
         %p 購入履歴
@@ -13,8 +38,8 @@
       = link_to "#", class: "ListBtn" do
         %p プロフィール 
       = link_to "#", class: "ListBtn" do
-        %p 発送元・お届け先住所   
-      = link_to "#", class: "ListBtn" do     
+        %p 支払い方法    
+      = link_to "#", class: "ListBtn" do
         %p ログアウト
     .MainField
       .UserBox
@@ -30,39 +55,111 @@
           = link_to "#", class: "ItemsStatus" do
             %p 売却済
         .ItemsBox
-          .SaleContents   
-            = image_tag (asset_path("icon-01.png")), class: "SaleContents__image"
-            .SaleContents__Exp
-              %p フィギュア 新品
-              %p 1500円  
-          .SaleContents   
-            = image_tag (asset_path("sample1.png")), class: "SaleContents__image"
-            .SaleContents__Exp
-              %p オムライス 新品
-              %p 100円  
+          .item
+            = link_to "#" do
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG"
+              %p beef
+              %ul
+                %li
+                  1000円
+                  %span
+                    = icon('fas', 'star')
+                    1
+              %span.tax (税込)
+          .item
+            = link_to "#" do
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"
+              %p moyashi
+              %ul
+                %li
+                  900円
+                  %span
+                    = icon('fas', 'star')
+                    2
+              %span.tax (税込)
       .FavoriteItems
         .FavoriteHead いいね！一覧
         .ItemsBox
-          .FavoriteContents
-            = image_tag (asset_path("icon-01.png")), class: "FavoriteContents__image"
-            .FavoriteContents__Exp
-              %p フィギュア 新品
-              %p 1500円  
-          .FavoriteContents
-            = image_tag (asset_path("sample1.png")), class: "FavoriteContents__image"
-            .FavoriteContents__Exp
-              %p フィギュア 新品
-              %p 1500円   
+          .item
+            = link_to "#" do
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"
+              %p moyashi
+              %ul
+                %li
+                  900円
+                  %span
+                    = icon('fas', 'star')
+                    2
+              %span.tax (税込)
+          .item
+            = link_to "#" do
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
+              %p iwashi
+              %ul
+                %li
+                  800円
+                  %span
+                    = icon('fas', 'star')
+                    3
+              %span.tax (税込)
       .PurchaseHistory
         .PurchaseHead 購入履歴
         .ItemsBox
-          .PurchaseContents
-            = image_tag (asset_path("icon-01.png")), class: "PurchaseContents__image"
-            .PurchaseContents__Exp
-              %p フィギュア 新品
-              %p 1500円  
-          .PurchaseContents   
-            = image_tag (asset_path("sample1.png")), class: "PurchaseContents__image"
-            .PurchaseContents__Exp
-              %p オムライス 新品
-              %p 100円  
+          .item
+            = link_to "#" do
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
+              %p gyoza
+              %ul
+                %li
+                  700円
+                  %span
+                    = icon('fas', 'star')
+                    4
+              %span.tax (税込)
+          .item
+            = link_to "#" do
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"
+              %p curry
+              %ul
+                %li
+                  500円
+                  %span
+                    = icon('fas', 'star')
+                    100
+              %span.tax (税込)
+      .Point
+        .PointHead
+          %h2 ポイント
+        .PointLevel
+          %p 所持ポイント
+          %p p0
+        .PointBox
+          = link_to "#", class: "PointBtn" do
+            %p ポイント履歴
+            %p >
+        .PointBox
+          = link_to "#", class: "PointBtn" do
+            %p ポイント有効期限
+            %p >
+        .PointBox
+          = link_to "#", class: "PointBtn" do
+            %p ポイントとは？
+            %p >
+      .Profile
+        .ProfileBox
+          .ProfileHead
+            %h2 プロフィール
+          .ProfileData
+            %p お名前
+            %p 鈴木 太郎
+          .ProfileData
+            %p お名前カナ
+            %p スズキ タロウ
+          .ProfileData
+            %p 生年月日
+            %p 2020/8/5
+        = link_to "#", class: "EditBtn" do
+          変更する
+      .Logout
+        = link_to "#", class: "LogoutBtn" do
+          ログアウト

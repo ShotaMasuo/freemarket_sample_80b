@@ -1,6 +1,6 @@
 .Top
   .Top__header
-    = link_to  "#" do
+    = link_to  "/" do
       = image_tag 'logo.png', alt:"FURIMA", height: "100", width: "400"
     .Top__main
       .Top__panel
@@ -16,18 +16,14 @@
             .Top__Apple
               = link_to "Appleでログイン", "#", class: "Top__Apple"
           .Top__bottom
-            -# = f.label :email
             %br/
             .Top__email
               = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", required: "", class: "Top__email"
-            -# = f.label :password
             %br/
             .Top__pass
               = f.password_field :password, autocomplete: "current-password", placeholder:"パスワード", required: "", class: "Top__pass"
             - if devise_mapping.rememberable?
               .field
-                -# = f.check_box :remember_me
-                -# = f.label :remember_me
                 %br/
             .Top__form
               = f.submit "ログイン", class: "Top__form"
@@ -41,5 +37,5 @@
         %li
           = link_to "特定商に関する表記", "#"
       
-    = link_to  "#" do
+    = link_to  "/" do
       = image_tag 'logo-white.png', alt:"FURIMA", height: "100", width: "400"
