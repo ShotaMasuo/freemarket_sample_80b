@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_095137) do
     t.string "family_name", null: false
     t.string "first_name_kana", null: false
     t.string "family_name_kana", null: false
-    t.integer "post_code", null: false
+    t.string "post_code", null: false
     t.string "prefecture_code", null: false
     t.string "city", null: false
     t.string "town", null: false
@@ -108,6 +108,8 @@ ActiveRecord::Schema.define(version: 2020_08_11_095137) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["name"], name: "index_items_on_name"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
