@@ -72,4 +72,3 @@ gem 'ancestry'
 gem 'active_hash'
 gem 'payjp'
 gem 'ancestry'
-

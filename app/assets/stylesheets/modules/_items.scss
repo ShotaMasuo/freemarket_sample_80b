@@ -55,7 +55,7 @@ body{
               color: #ffa500;
             }
           }
-          
+
           .display_block{
             display: block!important;
           }
@@ -168,7 +168,7 @@ body{
       }
     }
   }
-  
+
   .reasons{
     padding-top: 50px;
     h3{
@@ -222,8 +222,8 @@ body{
       }
     }
   }
-  
-  
+
+
   .member{
     height: 400px;
     background-image: url(asset_path("pict/bg-topMiddleDl-pict.jpg"));
@@ -273,7 +273,7 @@ body{
       }
     }
   }
-  
+
   .feature{
     margin: 70px 10%;
     h3{
@@ -438,7 +438,7 @@ body{
         }
       }
     }
-    
+
   }
 
 .bottom{
@@ -521,3 +521,166 @@ footer{
     width: 50%;
   }
 }
+
+
+.all {
+  width: 100vw;
+  background-color: #eeeded;
+  .cotentns-form{
+    width: 700px;
+    height: 100%;
+    margin: 0 auto;
+    .product-details {
+      background-color: #fff;
+      .form-box {
+        padding-bottom: 40px;
+        border-bottom: 1px solid #e9e9e9;
+        .content {
+          padding-top: 1px;
+          margin: 0 40px;
+          .title_hissu {
+            margin: 30px 0 0 7px;
+            label {
+              font-weight: 550;
+              font-size: 15px;
+              letter-spacing: 2px;
+              color: #636363;
+            }
+            .hissu, .ninni {
+              color: #fff;
+              font-size: 14px;
+              padding: 4px;
+              margin-left:5px;
+              border-radius: 0.4em;
+            }
+            .hissu {
+              background-color: #ff1934;
+            }
+            .ninni {
+              background-color: #cac9c9;
+            }
+            p.product-details, p.delivery-information {
+              font-weight: 550;
+              font-size: 14px;
+              letter-spacing: 2px;
+              color: #999898;
+              margin-bottom: 25px;
+            }
+          }
+          .text, .long-sentence, select, .text-numeric {
+            border: 1px solid #d6d4d4;
+            padding: 5px 14px 5px;
+            font-size: 16px;
+            border-radius: 0.60em;
+          }
+          .text, select {
+            height: 55px;
+            width: 610px;
+          }
+          .long-sentence {
+            width: 610px;
+            height: 150px;
+            padding-top: 15px；
+          }
+          .long-sentence:focus, .text:focus,.text-numeric:focus {
+            background-color: rgb(255, 250, 206);
+          }
+
+          .image-from {
+            display: flex;
+            margin-top: 20px;
+            .image {
+              .img {
+                border: 1px dashed #adadad;
+                border-radius: 0.60em;
+                margin-right: 9px;
+                width: 117px;
+                height: 180px;
+              }
+              .photo {
+                position: relative;
+                .icon {
+                  position: absolute;
+                  right: 42px;
+                  padding-top: 63px;
+                  font-size: 50px;
+                  color: rgb(209, 209, 209);
+                }
+                .hidden {
+                  display: none;
+                }
+              }
+            }
+          }
+
+
+
+          .price-contents {
+            display: flex;
+            .title_hissu {
+            }
+            .money {
+              margin: 40px 10px 0 180px;
+              color: #747373;
+              font-weight: 550;
+              font-size: 15px;
+            }
+            .text-numeric {
+              height: 55px;
+              width: 287px;
+              margin-top: 23px;
+            }
+            .text-numeric::placeholder {
+              text-align: right;
+            }
+          }
+          p.price {
+            font-weight: 550;
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: #999898;
+            margin: 25px 0 0 8px;
+          }
+        }
+
+
+        .submit {
+          text-align: center;
+          margin-top: 60px;
+          .submit-sell {
+            width: 360px;
+            height: 55px;
+            font-size: 20px;
+            color: #fff;
+            border: 1px solid #dfdede;
+            letter-spacing: 2px;
+            border-radius: 0.4em;
+            background-color: rgb(118, 209, 212);
+          }
+          .submit-sell:hover {
+            background-color: rgb(94, 182, 185);
+          }
+        }
+      }
+    }
+  }
+
+
+  .logo {
+    background-color: #eeeded;
+    height: 80px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    .logo-herder {
+      margin: 10px 0 10px 230px;
+    }
+    .logo-footer {
+      margin: 15px 0 0 264px;
+      width: 150px;
+      height: 40px;
+    }
+  }
+}
+
+
