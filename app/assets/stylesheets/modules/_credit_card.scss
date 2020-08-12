@@ -1,0 +1,97 @@
+.cardWrapper{
+  background-color: #F5F5F5;
+  padding: 20px 0;
+  .cardContainer{
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #fff;
+
+    h3{
+      padding: 20px;
+      border-bottom: 1px solid #F5F5F5;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .inputWrapper{
+      width: 50%;
+      margin: 30px auto;
+      padding-bottom: 30px;
+      font-size: 13px;
+      font-weight: bold;
+      p{
+        padding-top: 30px;
+        text-align: left;
+        margin-bottom: 10px;
+        span{
+          color: #fff;
+          background-color: red;
+          padding: 5px;
+          border-radius: 5px;
+          font-size: 10px;
+        }
+      }
+      .number{
+        .cardnumber{
+          display: block;
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+        }
+      }
+      .expiration{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 auto;
+        .month, .year{
+          border: 1px solid #ccc;
+          display: block;
+          width: 100px;
+          padding: 10px;
+          border-radius: 5px;
+        }
+        p{
+          padding-top: 10px;
+          text-align: left;
+          color: #333;
+        }
+      }
+      .securitycode{
+        .securitycode__cardsecurity__form{
+          display: block;
+          width: 100%;
+          border: 1px solid #ccc;
+          padding: 10px;
+          border-radius: 5px;
+        }
+        .spanWrapper{
+          .question{
+            background-color: #0095EE;
+            color: #fff;
+            border-radius: 50%;
+            padding: 0 4px;
+            float: right;
+          }
+          .security{
+            float: right;
+            color: #0095EE;
+          }
+        }
+      }
+
+      .btnWrapper{
+        margin-top: 50px;
+        width: 100%;
+        background-color: #42C9CF;
+        padding: 16px;
+        .add__btn{
+          border: none;
+          color: #fff;
+          background-color: #42C9CF;
+        }
+      }
+    }
+  }
+}
