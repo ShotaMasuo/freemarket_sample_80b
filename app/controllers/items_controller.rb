@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
   def show
   end
   def confirmation
-
+    @item = Item.find(params[:id])
   end
 
   private
