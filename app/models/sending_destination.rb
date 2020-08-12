@@ -8,6 +8,6 @@ class SendingDestination < ApplicationRecord
   validates :city, presence: true
   validates :town, presence: true
 
-  has_many :deriveries
+  has_many :deliveries
   belongs_to :user, optional: true
 end

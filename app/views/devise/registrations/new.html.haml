@@ -1,8 +1,9 @@
-.warper
+.wrapper
   .logo
-    = image_tag 'logo.png', width: '200', height: '60', class: 'logo-herder'
+    = link_to  "/" do
+      = image_tag 'logo.png', width: '200', height: '60', class: 'logo-herder'
   .registration-main
-    .registration-vontainer
+    .registration-container
       %h2.main-title
         会員情報入力
       = form_with model: @user, url: user_registration_path, id: 'new_user', local: true  do |f|
@@ -250,4 +251,5 @@
             = f.submit "次へ進む", class: "button"
 
   .logo
-    = image_tag 'logo-white.png', width: '200', height: '60', class: 'logo-footer'
+    = link_to  "/" do
+      = image_tag 'logo-white.png', width: '200', height: '60', class: 'logo-footer'
