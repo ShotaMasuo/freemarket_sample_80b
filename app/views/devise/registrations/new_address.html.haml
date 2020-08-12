@@ -1,9 +1,9 @@
-.warper
+.wrapper
   .logo
     = link_to  "/" do
       = image_tag 'logo.png', width: '200', height: '60', class: 'logo-herder'
   .registration-main
-    .registration-vontainer
+    .registration-container
       %h2.main-title
         発送元・お届け先住所
       = form_for @address do |f|
