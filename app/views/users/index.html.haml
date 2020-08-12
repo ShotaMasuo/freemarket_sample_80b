@@ -1,5 +1,57 @@
 .Wrapper
-  = render "header"
+  %header
+    = render partial: 'header'
+    .menuWrapper
+      %ul.menuWrapper__itemMenuWrapper
+        %li.menuWrapper__itemMenuWrapper__item.item__category
+          = link_to "カテゴリー", "#"
+          .menuWrapper__itemMenuWrapper__item__category
+            %ul.parents
+              - @categories.each do |category|
+                %li.parent
+                  =link_to "#{category.name}", "#"
+                  %ul.children
+                    - category.children.each do |child|
+                      %li.child
+                        =link_to "#{child.name}", "#"
+                        %ul.grandChildren
+                          - child.children.each do |gchild|
+                            %li.grandChild
+                              =link_to "#{gchild.name}", "#"
+
+        %li.menuWrapper__itemMenuWrapper__item.item__brand
+          = link_to "ブランド", "#"
+          .menuWrapper__itemMenuWrapper__item__brand
+            %ul
+              %li
+                =link_to "NIKE", "#"
+              %li
+                =link_to "adidas", "#"
+              %li
+                =link_to "asics", "#"
+              %li
+                =link_to "MIZUNO", "#"
+              %li
+                =link_to "シャネル", "#"
+              %li
+                =link_to "Tiffany", "#"
+              %li
+                =link_to "BVLGARI", "#"
+              %li
+                =link_to "GUCCI", "#"
+              %li
+                =link_to "エルメス", "#"
+              %li
+                =link_to "beams", "#"
+              %li
+                =link_to "TOMY", "#"
+              %li
+                =link_to "journalstandard", "#"
+              %li
+                =link_to "その他", "#"
+      %ul.menuWrapper__userMenuWrapper
+        = render partial: 'user'
+
   .MypageBody
     .SideList
       = link_to "#", class: "ListBtn" do
@@ -13,7 +65,7 @@
       = link_to "#", class: "ListBtn" do
         %p プロフィール 
       = link_to "#", class: "ListBtn" do
-        %p 発送元・お届け先住所   
+        %p 支払い方法    
       = link_to "#", class: "ListBtn" do
         %p ログアウト
     .MainField
@@ -66,3 +118,39 @@
             .PurchaseContents__Exp
               %p オムライス 新品
               %p 100円  
+      .Point
+        .PointHead
+          %h2 ポイント
+        .PointLevel
+          %p 所持ポイント
+          %p p0
+        .PointBox     
+          = link_to "#", class: "PointBtn" do 
+            %p ポイント履歴
+            %p >
+        .PointBox    
+          = link_to "#", class: "PointBtn" do  
+            %p ポイント有効期限
+            %p >
+        .PointBox    
+          = link_to "#", class: "PointBtn" do
+            %p ポイントとは？
+            %p >  
+      .Profile
+        .ProfileBox 
+          .ProfileHead 
+            %h2 プロフィール
+          .ProfileData
+            %p お名前
+            %p 鈴木 太郎
+          .ProfileData
+            %p お名前カナ
+            %p スズキ タロウ
+          .ProfileData
+            %p 生年月日 
+            %p 2020/8/5
+        = link_to "#", class: "EditBtn" do
+          変更する
+      .Logout    
+        = link_to "#", class: "LogoutBtn" do
+          ログアウト     
