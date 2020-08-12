@@ -70,3 +70,4 @@ gem "font-awesome-sass"
 gem 'jquery-rails'
 gem 'payjp'
 gem 'ancestry'
+gem 'active_hash'
