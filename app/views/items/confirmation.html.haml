@@ -3,13 +3,17 @@
 .confirmationContainer
   .confirmationWrapper
     %h1 購入確認
+    %h3
+      = "商品 : " + @item.name
     .confirmationWrapper__detailWrapper
       .confirmationWrapper__detailWrapper__detail
         %p 商品代金
-        %p ¥6,000
+        %p 
+          = "¥" + @item.price.to_s(:delimited)
       .confirmationWrapper__detailWrapper__detail
         %p 決済手数料
-        %p ¥600
+        %p 
+          = "¥" + (@item.price/10).to_s(:delimited)
       .confirmationWrapper__detailWrapper__detail
         %p ポイント使用
         %p &#045;P500
