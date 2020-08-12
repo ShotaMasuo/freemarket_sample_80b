@@ -37,7 +37,7 @@
         %p ポイント  
       = link_to "#", class: "ListBtn" do
         %p プロフィール 
-      = link_to "#", class: "ListBtn" do
+      = link_to new_credit_card_path, class: "ListBtn" do
         %p 支払い方法    
       = link_to "#", class: "ListBtn" do
         %p ログアウト
@@ -55,42 +55,78 @@
           = link_to "#", class: "ItemsStatus" do
             %p 売却済
         .ItemsBox
-          .SaleContents
-            = image_tag (asset_path("icon-01.png")), class: "SaleContents__image"
-            .SaleContents__Exp
-              %p フィギュア 新品
-              %p 1500円
-          .SaleContents
-            = image_tag (asset_path("sample1.png")), class: "SaleContents__image"
-            .SaleContents__Exp
-              %p オムライス 新品
-              %p 100円
+          .item
+            = link_to "#" do
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG"
+              %p beef
+              %ul
+                %li
+                  1000円
+                  %span
+                    = icon('fas', 'star')
+                    1
+              %span.tax (税込)
+          .item
+            = link_to "#" do
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"
+              %p moyashi
+              %ul
+                %li
+                  900円
+                  %span
+                    = icon('fas', 'star')
+                    2
+              %span.tax (税込)
       .FavoriteItems
         .FavoriteHead いいね！一覧
         .ItemsBox
-          .FavoriteContents
-            = image_tag (asset_path("icon-01.png")), class: "FavoriteContents__image"
-            .FavoriteContents__Exp
-              %p フィギュア 新品
-              %p 1500円
-          .FavoriteContents
-            = image_tag (asset_path("sample1.png")), class: "FavoriteContents__image"
-            .FavoriteContents__Exp
-              %p フィギュア 新品
-              %p 1500円
+          .item
+            = link_to "#" do
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"
+              %p moyashi
+              %ul
+                %li
+                  900円
+                  %span
+                    = icon('fas', 'star')
+                    2
+              %span.tax (税込)
+          .item
+            = link_to "#" do
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
+              %p iwashi
+              %ul
+                %li
+                  800円
+                  %span
+                    = icon('fas', 'star')
+                    3
+              %span.tax (税込)
       .PurchaseHistory
         .PurchaseHead 購入履歴
         .ItemsBox
-          .PurchaseContents
-            = image_tag (asset_path("icon-01.png")), class: "PurchaseContents__image"
-            .PurchaseContents__Exp
-              %p フィギュア 新品
-              %p 1500円
-          .PurchaseContents
-            = image_tag (asset_path("sample1.png")), class: "PurchaseContents__image"
-            .PurchaseContents__Exp
-              %p オムライス 新品
-              %p 100円
+          .item
+            = link_to "#" do
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
+              %p gyoza
+              %ul
+                %li
+                  700円
+                  %span
+                    = icon('fas', 'star')
+                    4
+              %span.tax (税込)
+          .item
+            = link_to "#" do
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"
+              %p curry
+              %ul
+                %li
+                  500円
+                  %span
+                    = icon('fas', 'star')
+                    100
+              %span.tax (税込)
       .Point
         .PointHead
           %h2 ポイント

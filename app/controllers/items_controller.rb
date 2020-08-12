@@ -9,10 +9,12 @@ class ItemsController < ApplicationController
   def show
   end
 
+
   def new
   end
 
   def confirmation
+    @item = Item.find(params[:id])
   end
 
   private
