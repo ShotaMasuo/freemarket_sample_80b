@@ -7,5 +7,12 @@ Rails.application.routes.draw do
       get 'confirmation', to: "items#confirmation"
     end
   end
-  resources :categories, only: :index
+  resources :categories, only: [:index, :show] do
+    member do
+      get 'brand', to: "categories#brand"
+    end
+    collection do
+      get 'brand', to: "categories#brandIndex"
+    end
+  end
 end
