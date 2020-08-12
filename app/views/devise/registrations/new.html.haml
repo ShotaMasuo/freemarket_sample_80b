@@ -5,9 +5,10 @@
     .registration-vontainer
       %h2.main-title
         会員情報入力
-      = form_with url: "#" do |f|
-        = render "devise/shared/error_messages", resource: resource
+      = form_with model: @user, url: user_registration_path, id: 'new_user', local: true  do |f|
+        = render "devise/shared/error_messages", resource: @user
         - required = '必須'
+        - arbitrary = '任意'
         .form-group
           .field
             = f.label :nickname, 'ニックネーム'
@@ -19,7 +20,7 @@
             = f.label :email, 'メールアドレス'
             %span.hissu #{required}
             %br/
-            = f.email_field :email, autocomplete: "email", placeholder: "PC・携帯どちらでも可", required: "", class: "default"
+            = f.email_field :email, autocomplete: "email", pattern: "/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i", placeholder: "PC・携帯どちらでも可" ,required: "", class: "default"
 
           .field
             = f.label :password, 'パスワード'
@@ -66,7 +67,7 @@
               %span.hissu #{required}
               .birthday-select
                 .birthday-year
-                  %select.select-default{name: "year"}
+                  %select.select-default{name: "year", required: ""}
                     %option{value: ""} --
                     %option{value: "2020"} 2020
                     %option{value: "2019"} 2019
@@ -191,7 +192,7 @@
                     %option{value: "1900"} 1900
                 %span.birthday 年
                 .birthday-month
-                  %select.select-month{name: "month"}
+                  %select.select-month{name: "month", required: ""}
                     %option{value: ""} --
                     %option{value: "1"} 1
                     %option{value: "2"} 2
@@ -207,7 +208,7 @@
                     %option{value: "12"} 12
                 %span.birthday 月
                 .birthday-day
-                  %select.select-day{name: "day"}
+                  %select.select-day{name: "day", required: ""}
                     %option{value: ""} --
                     %option{value: "1"} 1
                     %option{value: "2"} 2
@@ -241,11 +242,12 @@
                     %option{value: "30"} 30
                     %option{value: "31"} 31
                 %span.birthday 日
+          
             %p.info-sentence
               ※本人情報は正しく入力してください。会員登録後、修正するにはお時間をいただく場合があります。
 
           .actions
-            = f.submit "登録", class: "button"
+            = f.submit "次へ進む", class: "button"
 
   .logo
     = image_tag 'logo-white.png', width: '200', height: '60', class: 'logo-footer'
