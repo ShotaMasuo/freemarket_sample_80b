@@ -1,7 +1,6 @@
 $(function(){
   console.log("test");
   $(".item__category").hover(
-    console.log("test2");
     function(){
       $(".menuWrapper__itemMenuWrapper__item__category").addClass("display_block");
     },
