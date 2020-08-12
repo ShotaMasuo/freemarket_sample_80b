@@ -21,4 +21,14 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
   end
   
+  def brand
+    @categories = Category.where(ancestry: nil)
+    @items = Item.where(brand: params[:id])
+  end
+  
+  def brandIndex
+    @categories = Category.where(ancestry: nil)
+    @items = Item.where(brand: params[:id])
+    
+  end
 end
