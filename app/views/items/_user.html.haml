@@ -1,4 +1,12 @@
-%li.menuWrapper__userMenuWrapper__item
-  = link_to "ログイン", "#"
-%li.menuWrapper__userMenuWrapper__item
-  = link_to "新規会員登録", "#"
+- if user_signed_in?
+  %ul.menuWrapper__userMenuWrapper
+    %li.menuWrapper__userMenuWrapper__item
+      = link_to "ログアウト", destroy_user_session_path, method: :delete
+    %li.menuWrapper__userMenuWrapper__item
+      = link_to "マイページ", "#"
+- else
+  %ul.menuWrapper__userMenuWrapper
+    %li.menuWrapper__userMenuWrapper__item
+      = link_to "ログイン", new_user_session_path
+    %li.menuWrapper__userMenuWrapper__item
+      = link_to "新規会員登録", new_user_registration_path

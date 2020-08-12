@@ -8,48 +8,23 @@
           %ul.parents
             - @categories.each do |category|
               %li.parent
-                =link_to "#{category.name}", "#"
+                =link_to "#{category.name}", category_path(category.id)
                 %ul.children
                   - category.children.each do |child|
                     %li.child
-                      =link_to "#{child.name}", "#"
+                      =link_to "#{child.name}", category_path(child.id)
                       %ul.grandChildren
                         - child.children.each do |gchild|
                           %li.grandChild
-                            =link_to "#{gchild.name}", "#"
+                            =link_to "#{gchild.name}", category_path(gchild.id)
 
       %li.menuWrapper__itemMenuWrapper__item.item__brand
         = link_to "ブランド", "#"
         .menuWrapper__itemMenuWrapper__item__brand
-          %ul
-            %li
-              =link_to "NIKE", "#"
-            %li
-              =link_to "adidas", "#"
-            %li
-              =link_to "asics", "#"
-            %li
-              =link_to "MIZUNO", "#"
-            %li
-              =link_to "シャネル", "#"
-            %li
-              =link_to "Tiffany", "#"
-            %li
-              =link_to "BVLGARI", "#"
-            %li
-              =link_to "GUCCI", "#"
-            %li
-              =link_to "エルメス", "#"
-            %li
-              =link_to "beams", "#"
-            %li
-              =link_to "TOMY", "#"
-            %li
-              =link_to "journalstandard", "#"
-            %li
-              =link_to "その他", "#"
+          = render partial: 'items/brand'
     %ul.menuWrapper__userMenuWrapper
       = render partial: 'user'
+
 .hero
   %h1.hero__heroTitle 人生を変えるフリマアプリ
   %p.hero__heroMessage FURIMAはだれでもかんたんに出品・購入できる

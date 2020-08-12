@@ -32,5 +32,4 @@ $(function(){
       $(this).children('ul').removeClass("display_block");
     }
   )
-
 });

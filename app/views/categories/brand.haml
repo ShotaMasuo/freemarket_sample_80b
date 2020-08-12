@@ -1,0 +1,44 @@
+%header
+  = render partial: 'items/header'
+  .menuWrapper
+    %ul.menuWrapper__itemMenuWrapper
+      %li.menuWrapper__itemMenuWrapper__item.item__category
+        = link_to "カテゴリー", categories_path
+        .menuWrapper__itemMenuWrapper__item__category
+          %ul.parents
+            - @categories.each do |category|
+              %li.parent
+                =link_to "#{category.name}", category_path(category.id)
+                %ul.children
+                  - category.children.each do |child|
+                    %li.child
+                      =link_to "#{child.name}", category_path(child.id)
+                      %ul.grandChildren
+                        - child.children.each do |gchild|
+                          %li.grandChild
+                            =link_to "#{gchild.name}", category_path(gchild.id)
+      %li.menuWrapper__itemMenuWrapper__item.item__brand
+        = link_to "ブランド", brand_categories_path
+        .menuWrapper__itemMenuWrapper__item__brand
+          = render partial: 'items/brand'
+    %ul.menuWrapper__userMenuWrapper
+      = render partial: 'items/user'
+.showWrapper
+  .showWrapper__container
+    %h1
+      = params[:id] + "の商品一覧"
+    .showWrapper__container__items
+      - @items.each do |item|
+        = link_to item_path(item.id) do
+          .showWrapper__container__items__item
+            = image_tag asset_path("pict/pict-reason-01.jpg")
+            %p
+              = item.name
+
+.cameraContainer
+  = link_to "#" do
+    %p 出品する
+    = image_tag asset_path("icon/icon_camera.png")
+
+%footer
+  = render partial: 'items/footer'
