@@ -6,5 +6,5 @@ class Delivery < ApplicationRecord
 
   belongs_to :item
   belongs_to :user
-  belongs_to :sendig_destination
+  belongs_to :sending_destination
 end
