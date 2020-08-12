@@ -2,6 +2,7 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.where(ancestry: nil)
   end
+
   def show
     category_list = []
     get_category = Category.find(params[:id])
@@ -19,16 +20,15 @@ class CategoriesController < ApplicationController
     @items = Item.where(category_id: category_list)
     @categories = Category.where(ancestry: nil)
     @category = Category.find(params[:id])
-  end
-  
+  end 
+
   def brand
     @categories = Category.where(ancestry: nil)
     @items = Item.where(brand: params[:id])
-  end
+  end  
   
   def brandIndex
     @categories = Category.where(ancestry: nil)
-    @items = Item.where(brand: params[:id])
-    
+    @items = Item.where(brand: params[:id])   
   end
 end
