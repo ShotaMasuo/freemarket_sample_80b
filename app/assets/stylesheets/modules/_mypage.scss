@@ -1,20 +1,15 @@
-.Header {
-  height: 150px;
-  // 高さ150pxは仮定
-  width: 100vw;
-}
-
 .MypageBody {
+  width: 90%;
+  margin: 0 10%;
   display: flex;
 }
 
 .SideList {
-  height: calc(100vh - 150px);
   width: 240px;
   display: block;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   .ListBtn {
     height: 45px;
@@ -27,6 +22,7 @@
     text-decoration: none;
     border: 1px solid;
     border-color: #3fc9cf;
+    margin-bottom: 5px;
   }
   .ListBtn:hover {
     background-color: #3fc9cf;
@@ -35,7 +31,7 @@
 }
 
 .MainField {
-  height: calc(100vh - 150px);
+  height: 85vh;
   width: calc(100vw - 240px);
   display: flex;
   justify-content: center;
@@ -58,7 +54,7 @@
   }
 
   .SaleItems {
-    display: none;
+    // display: none;
     height: 400px;
     width: 600px;
     border: 1px solid;
@@ -183,5 +179,102 @@
       }
     }
   }
+
+  .Point {
+    display: none;
+    height: 400px;
+    width: 600px;
+    border: 1px solid;
+    border-color: #3fc9cf;
+    .PointHead {
+      height: 80px;
+      border-bottom: 1px solid;
+      border-color: #3fc9cf;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 25px;
+    }
+    .PointLevel {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px;
+      font-size: 20px;
+    }
+    .PointBox {
+      height: 80px;
+      border-top: 1px solid;
+      border-color: #3fc9cf;
+      padding: 0 5px;
+      .PointBtn {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 25px;
+        text-decoration: none;
+        color: black;
+        font-size: 20px;
+      }
+      .PointBtn:hover {
+        color: white;
+      }
+    }
+    .PointBox:hover {
+      background-color: #3fc9cf;
+    }
+  }
+  .Profile {
+    display: none;
+    height: 420px;
+    width: 600px;
+    .ProfileBox {
+      height: 320px;
+      border: 1px solid;
+      border-color: #3fc9cf;
+      .ProfileHead {
+        height: 80px;
+        border-bottom: 1px solid;
+        border-color: #3fc9cf;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+      }
+      .ProfileData {
+        height: 80px;
+        text-align: center;
+        font-size: 15px;
+        padding-top: 10px;
+      }
+    }
+    .EditBtn {
+      height: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #3fc9cf;
+      color: white;
+      margin-top: 10px;
+      border-radius: 20px;
+      font-size: 30px;
+      text-decoration: none;
+    }
+  }
+  .Logout { 
+    display: none;
+    .LogoutBtn {
+      font-size: 30px;
+      text-decoration: none;
+      height: 80px;
+      width: 600px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #3fc9cf;
+      color: white;
+      border-radius: 20px;
+    } 
+  }  
 }
 

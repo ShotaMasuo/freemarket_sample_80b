@@ -38,7 +38,7 @@
       = link_to "#", class: "ListBtn" do
         %p プロフィール 
       = link_to "#", class: "ListBtn" do
-        %p 発送元・お届け先住所   
+        %p 支払い方法    
       = link_to "#", class: "ListBtn" do
         %p ログアウト
     .MainField
@@ -91,3 +91,39 @@
             .PurchaseContents__Exp
               %p オムライス 新品
               %p 100円  
+      .Point
+        .PointHead
+          %h2 ポイント
+        .PointLevel
+          %p 所持ポイント
+          %p p0
+        .PointBox     
+          = link_to "#", class: "PointBtn" do 
+            %p ポイント履歴
+            %p >
+        .PointBox    
+          = link_to "#", class: "PointBtn" do  
+            %p ポイント有効期限
+            %p >
+        .PointBox    
+          = link_to "#", class: "PointBtn" do
+            %p ポイントとは？
+            %p >  
+      .Profile
+        .ProfileBox 
+          .ProfileHead 
+            %h2 プロフィール
+          .ProfileData
+            %p お名前
+            %p 鈴木 太郎
+          .ProfileData
+            %p お名前カナ
+            %p スズキ タロウ
+          .ProfileData
+            %p 生年月日 
+            %p 2020/8/5
+        = link_to "#", class: "EditBtn" do
+          変更する
+      .Logout    
+        = link_to "#", class: "LogoutBtn" do
+          ログアウト     
