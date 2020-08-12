@@ -6,7 +6,7 @@
       %h2.main-title
         会員情報入力
       = form_with model: @user, url: user_registration_path, id: 'new_user', local: true  do |f|
-        = render "devise/shared/error_messages", resource: resource
+        = render "devise/shared/error_messages", resource: @user
         - required = '必須'
         - arbitrary = '任意'
         .form-group
@@ -242,55 +242,12 @@
                     %option{value: "30"} 30
                     %option{value: "31"} 31
                 %span.birthday 日
-            
-          .field
-            .post_coad
-              = f.label :post_coad, '郵便番号'
-              %span.hissu #{required}
-              .post_coad_info
-                = f.text_field :post_coad, pattern: "^[0-9]{3}-[0-9]{4}$", required: "", placeholder: " 例) 123-4567 ", maxlength: "8", class: 'form-name'
-          
-          .field
-            .prefecture
-              = f.label :prefecture, '都道府県'
-              %span.hissu #{required}
-              .prefecture_filed
-                = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "--", class: 'prefecture_fill'
-
-          .field
-            .city
-              = f.label :city, '市区町村'
-              %span.hissu #{required}
-              .city_info
-                = f.text_field :city, placeholder: " 例) 横浜市緑区 ", required: "", class: "city_fill"
-
-          .field
-            .town
-              = f.label :town, '番地'
-              %span.hissu #{required}
-              .town_info
-                = f.text_field :town, placeholder: " 例) 青山1-1-1 ", required: "", class: "town_fill"
-          
-          .field
-            .building
-              = f.label :building, '建物名'
-              %span.Any #{arbitrary}
-              .building_info
-                = f.text_field :building, placeholder: " 例) 柳ビル ", class: "building_fill"
-          
-          .field
-            .tell
-              = f.label :tell, '電話番号'
-              %span.Any #{arbitrary}
-              .tell_info
-                = f.text_field :tell, placeholder: " 例) 09012345678", class: "tell_fill"
-
           
             %p.info-sentence
               ※本人情報は正しく入力してください。会員登録後、修正するにはお時間をいただく場合があります。
 
           .actions
-            = f.submit "登録", class: "button"
+            = f.submit "次へ進む", class: "button"
 
   .logo
     = image_tag 'logo-white.png', width: '200', height: '60', class: 'logo-footer'

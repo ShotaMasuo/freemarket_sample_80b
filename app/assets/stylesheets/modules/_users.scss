@@ -3,7 +3,7 @@
 }
 .warper {
   width: 100vw;
-  background-color: #eeeded;
+  background-color:#eeeded;
   position: absolute;
   .registration-main {
     width: 700px;
@@ -12,6 +12,7 @@
     .registration-vontainer {
       text-align: center;
       background-color: #fff;
+       
       .main-title {
         font-size: 28px;
         font-weight: 550;
@@ -107,6 +108,22 @@
           span.birthday {
             margin: 13px 8px 0;
             font-size: 14px;
+          }
+          .first_name_fill{
+            width: 300px;
+            margin: 8px 0 0;
+            height: 48px;
+            padding: 10px 16px 8px;
+            border: 1px solid #ccc;
+            border-radius: 0.4em;
+          }
+          .first_name_kana{
+            width: 300px;
+            margin: 8px 0 0;
+            height: 48px;
+            padding: 10px 16px 8px;
+            border: 1px solid #ccc;
+            border-radius: 0.4em;
           }
           select{
             margin-top: 10px;
@@ -294,5 +311,18 @@
         text-decoration: none;
         font-size: 10px;
       }
+}
+
+.address{
+  margin-top: 100px;
+  font-size: 30px;
+  padding: 15px;
+  &__fill{
+    text-decoration: none;
+    color: black;
+  }
+  .address__fill:hover{
+    color: #3FC9CF;
+  }
 }
 
