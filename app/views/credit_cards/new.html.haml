@@ -1,0 +1,85 @@
+%header
+  = render partial: 'items/header'
+  .menuWrapper
+    %ul.menuWrapper__itemMenuWrapper
+      %li.menuWrapper__itemMenuWrapper__item.item__category
+        = link_to "カテゴリー", categories_path
+        .menuWrapper__itemMenuWrapper__item__category
+          %ul.parents
+            - @categories.each do |category|
+              %li.parent
+                =link_to "#{category.name}", category_path(category.id)
+                %ul.children
+                  - category.children.each do |child|
+                    %li.child
+                      =link_to "#{child.name}", category_path(child.id)
+                      %ul.grandChildren
+                        - child.children.each do |gchild|
+                          %li.grandChild
+                            =link_to "#{gchild.name}", category_path(gchild.id)
+      %li.menuWrapper__itemMenuWrapper__item.item__brand
+        = link_to "ブランド", brand_categories_path
+        .menuWrapper__itemMenuWrapper__item__brand
+          = render partial: 'items/brand'
+          
+    %ul.menuWrapper__userMenuWrapper
+      = render partial: 'items/user'
+.cardWrapper
+  .cardContainer 
+    %h3 クレジットカード情報入力
+    = form_tag(credit_cards_path, method: :post, id: "charge-form", class: "details", name: "inputForm") do
+      .inputWrapper
+        %p
+          カード番号
+          %span 必須
+        .number
+          = text_field_tag 'payment_card_no', "", class: 'cardnumber', id: "payment_card_no", placeholder: '半角数字のみ', type: "text", maxlength: "16"
+
+        %p
+          有効期限
+          %span 必須
+        .expiration
+          %select#payment_card_month.card-default{name: "payment_card_month", type: "text", class: "month"}
+            %option{value: ""} --
+            %option{value: "1"}01
+            %option{value: "2"}02
+            %option{value: "3"}03
+            %option{value: "4"}04
+            %option{value: "5"}05
+            %option{value: "6"}06
+            %option{value: "7"}07
+            %option{value: "8"}08
+            %option{value: "9"}09
+            %option{value: "10"}10
+            %option{value: "11"}11
+            %option{value: "12"}12
+          %p 月
+          %select#payment_card_year.card-default{name: "payment_card_year", type: "text", class: "year"}
+            %option{value: ""} --
+            %option{value: "2020"}20
+            %option{value: "2021"}21
+            %option{value: "2022"}22
+            %option{value: "2023"}23
+            %option{value: "2024"}24
+            %option{value: "2025"}25
+            %option{value: "2026"}26
+            %option{value: "2027"}27
+            %option{value: "2028"}28
+            %option{value: "2029"}29
+            %option{value: "2030"}30
+          %p 年
+
+        .securitycode
+          %p
+            セキュリティコード
+            %span 必須
+          = text_field_tag  "payment_card_cvc", "", type: 'text', class: 'securitycode__cardsecurity__form', id: "payment_card_cvc", maxlength: "4", placeholder: 'カード背面4桁もしくは3桁の番号'
+          .spanWrapper
+            %span.security
+              カード裏面の番号とは？
+            %span.question
+              ?
+        .btnWrapper
+          = submit_tag "登録する", class: "add__btn", id: "payment_card_submit-button"
+%footer
+  = render partial: 'items/footer'

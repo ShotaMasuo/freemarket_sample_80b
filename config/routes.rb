@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :credit_cards, only: [:new, :create]
+  
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
@@ -21,4 +23,6 @@ Rails.application.routes.draw do
       get 'brand', to: "categories#brandIndex"
     end
   end
+
+  resources :users, only: :index
 end
