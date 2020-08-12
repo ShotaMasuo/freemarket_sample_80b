@@ -1,6 +1,7 @@
 .warper
   .logo
-    = image_tag 'logo.png', width: '200', height: '60', class: 'logo-herder'
+    = link_to  "/" do
+      = image_tag 'logo.png', width: '200', height: '60', class: 'logo-herder'
   .registration-main
     .registration-vontainer
       %h2.main-title
@@ -250,4 +251,5 @@
             = f.submit "次へ進む", class: "button"
 
   .logo
-    = image_tag 'logo-white.png', width: '200', height: '60', class: 'logo-footer'
+    = link_to  "/" do
+      = image_tag 'logo-white.png', width: '200', height: '60', class: 'logo-footer'

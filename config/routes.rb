@@ -21,4 +21,5 @@ Rails.application.routes.draw do
       get 'brand', to: "categories#brandIndex"
     end
   end
+  resources :users, only: [:index, :show]
 end
