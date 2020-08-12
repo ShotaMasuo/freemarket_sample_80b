@@ -1,0 +1,56 @@
+%header
+  = render partial: 'items/header'
+  .menuWrapper
+    %ul.menuWrapper__itemMenuWrapper
+      %li.menuWrapper__itemMenuWrapper__item.item__category
+        = link_to "カテゴリー", categories_path
+        .menuWrapper__itemMenuWrapper__item__category
+          %ul.parents
+            - @categories.each do |category|
+              %li.parent
+                =link_to "#{category.name}", category_path(category.id)
+                %ul.children
+                  - category.children.each do |child|
+                    %li.child
+                      =link_to "#{child.name}", category_path(child.id)
+                      %ul.grandChildren
+                        - child.children.each do |gchild|
+                          %li.grandChild
+                            =link_to "#{gchild.name}", category_path(gchild.id)
+      %li.menuWrapper__itemMenuWrapper__item.item__brand
+        = link_to "ブランド", brand_categories_path
+        .menuWrapper__itemMenuWrapper__item__brand
+          = render partial: 'items/brand'
+          
+    %ul.menuWrapper__userMenuWrapper
+      = render partial: 'items/user'
+.wrapper
+  .container
+    .categoryIndex
+      %h3 カテゴリー一覧
+      .categoryIndex__categoryContainer
+        - @categories.each do |category|
+          %p
+            = category.name
+    - @categories.each do |category|
+      .categoryDetail
+        %h3
+          = category.name
+        .categoryDetail__container
+          = link_to "すべて", category_path(category.id)
+          - category.children.each do |child|
+            .categoryDetail__container__detail
+              %p
+                = child.name
+              = link_to "すべて", category_path(child.id)
+              - child.children.each do |gchild|
+                = link_to category_path(gchild.id) do
+                  = gchild.name
+
+.cameraContainer
+  = link_to "#" do
+    %p 出品する
+    = image_tag asset_path("icon/icon_camera.png")
+
+%footer
+  = render partial: 'items/footer'

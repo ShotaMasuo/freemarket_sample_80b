@@ -1,10 +1,35 @@
-.Wrapper
-  = render "header"
+%header
+  = render partial: 'items/header'
+  .menuWrapper
+    %ul.menuWrapper__itemMenuWrapper
+      %li.menuWrapper__itemMenuWrapper__item.item__category
+        = link_to "カテゴリー", "#"
+        .menuWrapper__itemMenuWrapper__item__category
+          %ul.parents
+            - @categories.each do |category|
+              %li.parent
+                =link_to "#{category.name}", category_path(category.id)
+                %ul.children
+                  - category.children.each do |child|
+                    %li.child
+                      =link_to "#{child.name}", category_path(child.id)
+                      %ul.grandChildren
+                        - child.children.each do |gchild|
+                          %li.grandChild
+                            =link_to "#{gchild.name}", category_path(gchild.id)
+
+      %li.menuWrapper__itemMenuWrapper__item.item__brand
+        = link_to "ブランド", "#"
+        .menuWrapper__itemMenuWrapper__item__brand
+          = render partial: 'items/brand'
+    %ul.menuWrapper__userMenuWrapper
+      = render partial: 'items/user'
+
   .MypageBody
     .SideList
       = link_to "#", class: "ListBtn" do
         %p 出品した商品  
-      = link_to "#", class: "ListBtn" do 
+      = link_to "#", class: "ListBtn" do
         %p いいねした商品 
       = link_to "#", class: "ListBtn" do
         %p 購入履歴
@@ -13,8 +38,8 @@
       = link_to "#", class: "ListBtn" do
         %p プロフィール 
       = link_to "#", class: "ListBtn" do
-        %p 発送元・お届け先住所   
-      = link_to "#", class: "ListBtn" do     
+        %p 支払い方法    
+      = link_to "#", class: "ListBtn" do
         %p ログアウト
     .MainField
       .UserBox
@@ -66,3 +91,39 @@
             .PurchaseContents__Exp
               %p オムライス 新品
               %p 100円  
+      .Point
+        .PointHead
+          %h2 ポイント
+        .PointLevel
+          %p 所持ポイント
+          %p p0
+        .PointBox     
+          = link_to "#", class: "PointBtn" do 
+            %p ポイント履歴
+            %p >
+        .PointBox    
+          = link_to "#", class: "PointBtn" do  
+            %p ポイント有効期限
+            %p >
+        .PointBox    
+          = link_to "#", class: "PointBtn" do
+            %p ポイントとは？
+            %p >  
+      .Profile
+        .ProfileBox 
+          .ProfileHead 
+            %h2 プロフィール
+          .ProfileData
+            %p お名前
+            %p 鈴木 太郎
+          .ProfileData
+            %p お名前カナ
+            %p スズキ タロウ
+          .ProfileData
+            %p 生年月日 
+            %p 2020/8/5
+        = link_to "#", class: "EditBtn" do
+          変更する
+      .Logout    
+        = link_to "#", class: "LogoutBtn" do
+          ログアウト     

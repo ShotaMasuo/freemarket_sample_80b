@@ -1,0 +1,24 @@
+%header
+  = render partial: 'header'
+.confirmationContainer
+  .confirmationWrapper
+    %h1 購入確認
+    .confirmationWrapper__detailWrapper
+      .confirmationWrapper__detailWrapper__detail
+        %p 商品代金
+        %p ¥6,000
+      .confirmationWrapper__detailWrapper__detail
+        %p 決済手数料
+        %p ¥600
+      .confirmationWrapper__detailWrapper__detail
+        %p ポイント使用
+        %p &#045;P500
+      .confirmationWrapper__detailWrapper__detail
+        %p 支払い金額
+        %p ¥6,100
+      .confirmationWrapper__detailWrapper__detail
+        %p 支払い方法
+        %p カード
+  = link_to "商品を購入する", "#",{class: "button"}
+%footer
+  = render partial: 'footer.html.haml'

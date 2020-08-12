@@ -68,5 +68,8 @@ gem "haml-rails", ">= 1.0", '<= 2.0.1'
 gem "devise"
 gem "font-awesome-sass"
 gem 'jquery-rails'
+gem 'ancestry'
+gem 'active_hash'
 gem 'payjp'
 gem 'ancestry'
+
