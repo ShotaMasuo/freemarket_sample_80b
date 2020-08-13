@@ -1,0 +1,40 @@
+%header
+  = render partial: 'items/header'
+  .menuWrapper
+    %ul.menuWrapper__itemMenuWrapper
+      %li.menuWrapper__itemMenuWrapper__item.item__category
+        = link_to "カテゴリー", categories_path
+        .menuWrapper__itemMenuWrapper__item__category
+          %ul.parents
+            - @categories.each do |category|
+              %li.parent
+                =link_to "#{category.name}", category_path(category.id)
+                %ul.children
+                  - category.children.each do |child|
+                    %li.child
+                      =link_to "#{child.name}", category_path(child.id)
+                      %ul.grandChildren
+                        - child.children.each do |gchild|
+                          %li.grandChild
+                            =link_to "#{gchild.name}", category_path(gchild.id)
+      %li.menuWrapper__itemMenuWrapper__item.item__brand
+        = link_to "ブランド", brand_categories_path
+        .menuWrapper__itemMenuWrapper__item__brand
+          = render partial: 'items/brand'
+          
+    %ul.menuWrapper__userMenuWrapper
+      = render partial: 'items/user'
+.cardShowWrapper
+  .cardContainer 
+    %h3 クレジットカード情報
+    .inputWrapper
+      %p カード番号
+      %p.detail
+        = @card_no
+      %p
+        有効期限 ( month / year )
+      %p.detail
+        = @exp_month + " / " + @exp_year
+      = link_to "削除", credit_card_path(@card.id), method: :delete
+%footer
+  = render partial: 'items/footer'

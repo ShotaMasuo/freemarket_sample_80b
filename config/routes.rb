@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :credit_cards, only: [:new, :create]
+  resources :credit_cards, only: [:new, :create, :show, :destroy]
   
   devise_for :users, controllers: {
     registrations: 'users/registrations'
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :items, only: [:show, :new] do
     member do
       get 'confirmation', to: "items#confirmation"
+      post 'pay', to: "items#pay"
     end
   end
   resources :categories, only: [:index, :show] do
