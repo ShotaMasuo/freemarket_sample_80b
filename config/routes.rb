@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :credit_cards, only: [:new, :create]
+  resources :credit_cards, only: [:new, :create, :show, :destroy]
   
   devise_for :users, controllers: {
     registrations: 'users/registrations'
