@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-
+  
   before_action :get_categories
+  before_action :get_item, only: [:confirmation, :pay]
 
   def index
   end
@@ -14,12 +15,10 @@ class ItemsController < ApplicationController
   end
 
   def confirmation
-    @item = Item.find(params[:id])
     @user = User.find(current_user.id)
   end
   require "payjp"
   def pay
-    @item = Item.find(params[:id])
     if @item.stage != "selling"
       redirect_to item_path(params[:id])
     else
@@ -51,5 +50,8 @@ class ItemsController < ApplicationController
   private
   def get_categories
     @categories = Category.where(ancestry: nil)
+  end
+  def get_item
+    @item = Item.find(params[:id])
   end
 end
