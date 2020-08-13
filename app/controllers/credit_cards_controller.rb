@@ -1,9 +1,10 @@
 class CreditCardsController < ApplicationController
   require "payjp"
-  
+  @@item_id = 0
   def new
     @categories = Category.where(ancestry: nil)
     current_card = CreditCard.where(user_id: current_user.id).first
+    @@item_id = params[:item_id].to_i if params[:item_id]
     redirect_to credit_card_path(current_card.id) if current_card
   end
   
@@ -47,7 +48,13 @@ class CreditCardsController < ApplicationController
         @card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
         # 無事、トークン作成とともにcredit_cardsテーブルに登録された場合、createビューが表示されるように条件分岐
         if @card.save
-          redirect_to user_path(current_user.id)
+          if @@item_id != 0
+            item_id = @@item_id
+            @@item_id = 0
+            redirect_to confirmation_item_path(item_id)
+          else
+            redirect_to user_path(current_user.id)
+          end
         else
           redirect_to new_credit_card_path
         end

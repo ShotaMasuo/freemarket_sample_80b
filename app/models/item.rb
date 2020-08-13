@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true#, uniqueness: true
   validates :price, presence: true
   validates :condition, presence: true
   validates :stage, presence: true
@@ -10,6 +10,8 @@ class Item < ApplicationRecord
   has_many :images
   has_one :purchase
   has_one :delivery
-  belongs_to :categories
+  belongs_to :category
   belongs_to :user
+
+  enum stage: [:selling, :sold, :deliverying, :deliveried]
 end

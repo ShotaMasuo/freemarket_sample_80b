@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :items, only: [:show, :new] do
     member do
       get 'confirmation', to: "items#confirmation"
+      post 'pay', to: "items#pay"
     end
   end
   resources :categories, only: [:index, :show] do
