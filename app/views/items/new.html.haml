@@ -7,7 +7,7 @@
         - required = '必須'
         .form-box
           .content
-            .title_hissu
+            .info
               = f.label :image, '出品画像'
               %span.hissu #{required}
             .image-from
@@ -41,20 +41,20 @@
 
         .form-box
           .content
-            .title_hissu
+            .info
               = f.label :name, '商品名'
               %span.hissu #{required}
             %br/
             = f.text_field :name, autocomplete: "on", placeholder: "例) テレビ", required: "", class: "text"
           .content
-            .title_hissu
+            .info
               = f.label :explanation, '商品の説明'
               %span.hissu #{required}
             %br/
             = f.text_area :explanation, autocomplete: "on", placeholder: '商品の説明(色、素材、重さ、定価、注意点など)                                 例)2019年頃に購入したジャケットです。ライトグレーで傷はありません。      あわせやすいのでおすすめです。', required: "", class: "long-sentence"
         .form-box
           .content
-            .title_hissu
+            .info
               %p.product-details 商品の詳細
               = f.label :category, 'カテゴリー'
               %span.hissu #{required}
@@ -75,13 +75,13 @@
               %option{value: "自動車・オートバイ"} 自動車・オートバイ
               %option{value: "その他"} その他
           .content
-            .title_hissu
+            .info
               = f.label :brand, 'ブランド'
               %span.ninni 任意
             %br/
             = f.text_field :brand, autocomplete: "on", required: "", placeholder: "例) NIKE", class: "text"
           .content
-            .title_hissu
+            .info
               = f.label :condition, '商品の状態'
               %span.hissu #{required}
             %br/
@@ -94,7 +94,7 @@
               %option{value: "全体的に状態が悪い"} 全体的に状態が悪い
         .form-box
           .content
-            .title_hissu
+            .info
               %p.delivery-information 配送について
               = f.label :delivery_fee, '配送料の負担'
               %span.hissu #{required}
@@ -104,13 +104,19 @@
               %option{value: "送料込み(出品者負担)"} 送料込み(出品者負担)
               %option{value: "着払(購入者負担)）"} 着払い(購入者負担)
           .content
-            .title_hissu
+            .info
+              = f.label :product_size, '商品のサイズ'
+              %span.ninni 任意
+            = f.text_field :product_size, autocomplete: "on", placeholder: "例) Mサイズ", class: "size"
+
+          .content
+            .info
               = f.label :prefecture, '発送元の地域'
               %span.hissu #{required}
               .prefecture
                 = f.collection_select :prefecture_code, Prefecture.all, :id, :name, prompt: "--", class: 'input'
           .content
-            .title_hissu
+            .info
               = f.label :delivery_date, '発送までの日数'
               %span.hissu #{required}
             %br/
@@ -123,7 +129,7 @@
           .content
             %p.price 価格（¥300〜9,999,999)
             .price-contents
-              .title_hissu
+              .info
                 = f.label :delivery_fee, '販売価格'
                 %span.hissu #{required}
               %p.money ¥
