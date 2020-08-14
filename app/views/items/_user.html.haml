@@ -3,7 +3,7 @@
     %li.menuWrapper__userMenuWrapper__item
       = link_to "ログアウト", destroy_user_session_path, method: :delete
     %li.menuWrapper__userMenuWrapper__item
-      = link_to "マイページ", "#"
+      = link_to "マイページ", user_path(current_user.id)
 - else
   %ul.menuWrapper__userMenuWrapper
     %li.menuWrapper__userMenuWrapper__item

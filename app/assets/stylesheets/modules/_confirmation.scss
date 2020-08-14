@@ -38,6 +38,13 @@
       }
     }
   }
+  .soldout{
+    background-color: #444;
+    color: #fff;
+    width: 100px;
+    margin: 50px auto 0 auto;
+    text-align: center;
+  }
   .button{
     display: block;
     text-decoration: none;
@@ -47,5 +54,19 @@
     padding:10px 50px ;
     margin: 30px auto ;
     width: 290px;
+  }
+  .createCardBtn{
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    background-color: #3FC9CF;
+    font-size: 26px;
+    padding:10px 50px ;
+    margin: 30px auto ;
+    width: 290px;
+    border: none;
+    &:hover{
+      cursor: pointer;
+    }
   }
 }
