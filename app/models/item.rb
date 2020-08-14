@@ -11,7 +11,7 @@ class Item < ApplicationRecord
   enum delivery_date: {
     '1~2日で発送':1, '2~3日で発送':2, '4~7日で発送':3
   }
-
+  
   validates :name, presence: true
   validates :price, presence: true
   validates :condition, presence: true
@@ -26,5 +26,9 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :user
 
+
   accepts_nested_attributes_for :images, allow_destroy: true
+
+  enum stage: [:selling, :sold, :deliverying, :deliveried]
+
 end
