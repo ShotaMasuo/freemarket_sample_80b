@@ -5,9 +5,6 @@ class ItemsController < ApplicationController
   
   before_action :get_item, except: [:index, :new, :create]
 
-  before_action :get_item, only: [:confirmation, :pay]
-
-
   def index
     @items = Item.includes(:images).order('created_at DESC')
   end
@@ -52,8 +49,11 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.destroy
-    redirect_to root_path
+    if @item.destroy
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def confirmation
