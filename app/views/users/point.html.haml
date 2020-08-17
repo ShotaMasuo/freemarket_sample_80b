@@ -42,8 +42,19 @@
       = link_to logoutbtn_path, method: :get, class: "ListBtn" do
         %p ログアウト
     .MainField
-      .UserBox
-        .UserBox__UserName 
-          = @nickname
-        .UserBox__Number 
-          = "出品数：#{@items.count}"
+      .Point
+        .PointHead
+          %h2 ポイント
+        .PointLevel
+          %p 所持ポイント
+          %p 
+            = "p#{@points}"
+        = link_to "#", class: "PointBtn" do
+          %p ポイント履歴
+          %p >
+        = link_to "#", class: "PointBtn" do
+          %p ポイント有効期限
+          %p >
+        = link_to "#", class: "PointBtn" do
+          %p ポイントとは？
+          %p >
