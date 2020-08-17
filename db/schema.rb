@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 2020_08_13_121445) do
     t.string "size"
     t.integer "condition", null: false
     t.string "brand"
-    t.integer "stage", null: false
+    t.integer "stage", default: 0, null: false
     t.text "detail", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

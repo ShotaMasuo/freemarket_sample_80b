@@ -39,9 +39,6 @@
             %br/
             = f.text_field :name, autocomplete: "on", placeholder: "例) テレビ", required: "", class: "text"
 
-            .content
-            = f.hidden_field :stage, value: '0', class: "text"
-
           .content
             .info
               = f.label :detail, '商品の説明'
