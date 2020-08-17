@@ -42,8 +42,5 @@
       = link_to logoutbtn_path, method: :get, class: "ListBtn" do
         %p ログアウト
     .MainField
-      .UserBox
-        .UserBox__UserName 
-          = @nickname
-        .UserBox__Number 
-          = "出品数：#{@items.count}"
+      .Logout
+        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "LogoutBtn"

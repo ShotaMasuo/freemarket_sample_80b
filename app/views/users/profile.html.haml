@@ -42,8 +42,23 @@
       = link_to logoutbtn_path, method: :get, class: "ListBtn" do
         %p ログアウト
     .MainField
-      .UserBox
-        .UserBox__UserName 
-          = @nickname
-        .UserBox__Number 
-          = "出品数：#{@items.count}"
+      .Profile
+        .ProfileBox
+          .ProfileHead
+            %h2 プロフィール
+          .ProfileData
+            %p お名前
+            %p
+              = @profile.first_name
+              = @profile.family_name
+          .ProfileData
+            %p お名前カナ
+            %p 
+              = @profile.first_name_kana
+              = @profile.family_name_kana
+          .ProfileData
+            %p 生年月日
+            %p 
+              = @profile.birth_day
+        = link_to "#", class: "EditBtn" do
+          変更する

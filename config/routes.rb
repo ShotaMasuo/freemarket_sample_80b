@@ -26,5 +26,10 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: [:index, :show]
-
+  get 'saleitem', to: "users#saleitem"
+  get 'favorites', to: "users#favorites"
+  get 'history', to: "users#history"
+  get 'point', to: "users#point"
+  get 'profile', to: "users#profile"
+  get 'logoutbtn', to: "users#logoutbtn"
 end

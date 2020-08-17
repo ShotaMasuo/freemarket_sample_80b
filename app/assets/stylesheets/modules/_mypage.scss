@@ -39,7 +39,6 @@
   align-items: center;
 
   .UserBox {
-    display: none;
     height: 350px;
     width: 500px;
     text-align: center;
@@ -56,7 +55,6 @@
   }
 
   .SaleItems {
-    // display: none;
     height: 400px;
     width: 600px;
     border: 1px solid;
@@ -95,9 +93,6 @@
       .item {
         width: 220px;
         margin: 10px 0 0 10px;
-        &:hover {
-          opacity: 0.5;
-        }
         a {
           text-decoration: none;
           color: black;
@@ -127,12 +122,32 @@
             font-size: 10px;
           }
         }
+        .MoreList {
+          display: flex;
+          justify-content: space-around;
+          margin-top: 20px;
+          .Btn {
+            height: 30px;
+            width: 45px;
+            border-radius: 10px;
+            border: 1px solid;
+            border-color: #3fc9cf;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #3fc9cf;
+            font-size: 12px;
+          }
+          .Btn:hover {
+            background-color: #3fc9cf;
+            color: white;
+          }
+        }
       }
     } 
   }
 
   .FavoriteItems {
-    display: none;
     height: 400px;
     width: 600px;
     border: 1px solid;
@@ -189,7 +204,6 @@
   }
 
   .PurchaseHistory {
-    display: none;
     height: 400px;
     width: 600px;
     border: 1px solid;
@@ -246,7 +260,6 @@
   }
 
   .Point {
-    display: none;
     height: 400px;
     width: 600px;
     border: 1px solid;
@@ -269,29 +282,26 @@
       padding: 5px;
       font-size: 20px;
     }
-    .PointBox {
+    .PointBtn {
       height: 80px;
       border-top: 1px solid;
       border-color: #3fc9cf;
       padding: 0 5px;
-      .PointBtn {
-        display: flex;
-        justify-content: space-between;
+      display: flex;
+      justify-content: space-between;
+      text-decoration: none;
+      color: black;
+      p {
         margin-top: 25px;
-        text-decoration: none;
-        color: black;
-        font-size: 20px;
-      }
-      .PointBtn:hover {
-        color: white;
+        font-size: 20px;  
       }
     }
-    .PointBox:hover {
+    .PointBtn:hover {
       background-color: #3fc9cf;
+      color: white;
     }
   }
   .Profile {
-    display: none;
     height: 420px;
     width: 600px;
     .ProfileBox {
@@ -329,7 +339,6 @@
     }
   }
   .Logout {
-    display: none;
     .LogoutBtn {
       font-size: 30px;
       text-decoration: none;

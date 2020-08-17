@@ -42,8 +42,31 @@
       = link_to logoutbtn_path, method: :get, class: "ListBtn" do
         %p ログアウト
     .MainField
-      .UserBox
-        .UserBox__UserName 
-          = @nickname
-        .UserBox__Number 
-          = "出品数：#{@items.count}"
+      .SaleItems
+        .SaleHead 出品した商品
+        .SaleItemsStatus
+          = link_to "#", class: "ItemsStatus" do
+            %p 出品中
+          = link_to "#", class: "ItemsStatus" do
+            %p 取引中
+          = link_to "#", class: "ItemsStatus" do
+            %p 売却済
+        .ItemsBox
+          - @items.each do |item|
+            .item
+              = link_to "#" do
+                = image_tag item.images[0].image
+                %p 
+                  = item.name
+                %ul
+                  %li
+                    = "#{item.price}円" 
+                    %span
+                      = icon('fas', 'star')
+                      = item.favorites.count
+                %span.tax (税込)
+              .MoreList
+                = link_to "詳細", "#", class: "Btn"
+                = link_to "編集", edit_item_path(item.id), class: "Btn"
+                = link_to "削除", "#", class: "Btn"
+      

@@ -42,8 +42,28 @@
       = link_to logoutbtn_path, method: :get, class: "ListBtn" do
         %p ログアウト
     .MainField
-      .UserBox
-        .UserBox__UserName 
-          = @nickname
-        .UserBox__Number 
-          = "出品数：#{@items.count}"
+      .FavoriteItems
+        .FavoriteHead いいね！一覧
+        .ItemsBox
+          .item
+            = link_to "#" do
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"
+              %p moyashi
+              %ul
+                %li
+                  900円
+                  %span
+                    = icon('fas', 'star')
+                    2
+              %span.tax (税込)
+          .item
+            = link_to "#" do
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"
+              %p moyashi
+              %ul
+                %li
+                  900円
+                  %span
+                    = icon('fas', 'star')
+                    2
+              %span.tax (税込)
