@@ -5,13 +5,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(current_user.id)
-    @items = Item.where(user_id: current_user.id)
+    @nickname = current_user.nickname
+    @items = current_user.items
   end
 
   def saleitem
-    @user = User.find(current_user.id)
-    @items = Item.where(user_id: current_user.id)
+    @items = current_user.items
   end  
 
   def favorites
@@ -22,11 +21,11 @@ class UsersController < ApplicationController
   end
   
   def point
-    @points = Point.find_by(user_id: current_user.id)
+    @points = current_user.point.point
   end
   
   def profile
-    @profile = Profile.find_by(user_id: current_user.id)
+    @profile = current_user.profile
   end
   
   def logoutbtn
