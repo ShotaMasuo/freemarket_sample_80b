@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
   root 'items#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :items, only: [:show, :new] do
+  resources :items, only: [:show, :new, :edit, :update] do
     member do
       get 'confirmation', to: "items#confirmation"
     end
@@ -24,5 +24,10 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: [:index, :show]
-
+  get 'saleitem', to: "users#saleitem"
+  get 'favorites', to: "users#favorites"
+  get 'history', to: "users#history"
+  get 'point', to: "users#point"
+  get 'profile', to: "users#profile"
+  get 'logoutbtn', to: "users#logoutbtn"
 end

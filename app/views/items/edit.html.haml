@@ -3,7 +3,7 @@
     = image_tag 'logo.png', width: '200', height: '60', class: 'logo-herder'
   .cotentns-form
     .product-details
-      = form_with url: "#" do |f|
+      = form_with model: @item, url: "#" do |f|
         - required = '必須'
         .form-box
           .content
@@ -11,34 +11,15 @@
               = f.label :image, '出品画像'
               %span.hissu #{required}
             .image-from
-              .image
-                = f.text_field :content, placeholder: '', autocomplete: 'off', accept: "image/*", class: 'picimg'
-                = f.label :image, class: 'photo' do
-                  = icon('far', 'image', class: 'icon')
-                  = f.file_field :image, class: 'hidden'
-              .image
-                = f.text_field :content, placeholder: '', autocomplete: 'off', accept: "image/*", class: 'picimg'
-                = f.label :image, class: 'photo' do
-                  = icon('far', 'image', class: 'icon')
-                  = f.file_field :image, class: 'hidden'
-              .image
-                = f.text_field :content, placeholder: '', autocomplete: 'off', accept: "image/*", class: 'picimg'
-                = f.label :image, class: 'photo' do
-                  = icon('far', 'image', class: 'icon')
-                  = f.file_field :image, class: 'hidden'
-              .image
-                = f.text_field :content, placeholder: '', autocomplete: 'off', accept: "image/*", class: 'picimg'
-                = f.label :image, class: 'photo' do
-                  = icon('far', 'image', class: 'icon')
-                  = f.file_field :image, class: 'hidden'
-              .image
-                = f.text_field :content, placeholder: '', autocomplete: 'off', accept: "image/*", class: 'picimg'
-                = f.label :image, class: 'photo' do
-                  = icon('far', 'image', class: 'icon')
-                  = f.file_field :image, class: 'hidden'
-
-
-
+              - @item.images.length.times do |i|
+                = image_tag asset_path(@item.images[i].image)
+              - i = 5 - @item.images.length
+              - i.times do
+                .image
+                  = f.text_field :content, placeholder: '', autocomplete: 'off', accept: "image/*", class: 'picimg' 
+                  = f.label :image, class: 'photo' do
+                    = icon('far', 'image', class: 'icon')
+                    = f.file_field :image, class: 'hidden'
         .form-box
           .content
             .title_hissu
@@ -129,8 +110,8 @@
               %p.money ¥
               = f.text_field :price, autocomplete: "on", required: "", placeholder: "0", style: "text-align: right;", class: "text-numeric"
           .submit
-            = link_to "#" do
-              = f.submit "出品する", class: "submit-sell"
+            = link_to user_path do
+              = f.submit "更新する", class: "submit-sell"
 
 
 

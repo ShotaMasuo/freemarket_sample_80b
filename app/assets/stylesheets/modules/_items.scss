@@ -589,8 +589,15 @@ footer{
           .image-from {
             display: flex;
             margin-top: 20px;
+            img {
+              border-radius: 0.60em;
+              margin-right: 9px;
+              width: 117px;
+              height: 180px;
+              display: block;
+            }
             .image {
-              .img {
+              .picimg {
                 border: 1px dashed #adadad;
                 border-radius: 0.60em;
                 margin-right: 9px;
