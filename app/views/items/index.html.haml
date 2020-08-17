@@ -87,120 +87,46 @@
     %h3 ピックアップカテゴリー
     = link_to "新規投稿商品", "#"
     .items
-      .item
-        = link_to "#" do
-          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG"
-          %p beef
-          %ul
-            %li
-              1000円
-              %span
-                = icon('fas', 'star')
-                1
-          %span.tax (税込)
-      .item
-        = link_to "#" do
-          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"
-          %p moyashi
-          %ul
-            %li
-              900円
-              %span
-                = icon('fas', 'star')
-                2
-          %span.tax (税込)
-      .item
-        = link_to "#" do
-          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
-          %p iwashi
-          %ul
-            %li
-              800円
-              %span
-                = icon('fas', 'star')
-                3
-          %span.tax (税込)
-      .item
-        = link_to "#" do
-          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
-          %p gyoza
-          %ul
-            %li
-              700円
-              %span
-                = icon('fas', 'star')
-                4
-          %span.tax (税込)
-      .item
-        = link_to "#" do
-          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"
-          %p curry
-          %ul
-            %li
-              500円
-              %span
-                = icon('fas', 'star')
-                100
-          %span.tax (税込)
+      - @items.each do |item|
+        .item
+          = link_to item_path(item.id) do
+            = image_tag asset_path("pict/#{item.images[0].image}")
+            %p
+            %ul
+              %li
+                = item.name
+                .img
+                  = "#{item.price}円"
+                  -# %span
+                    -# = icon('fas', 'star')   今後実装するので今はコメントアウトにしています。
+            %span.tax (税込)
+          -if item.stage == 1
+            .sold
+              .sold-text
+                SOLD
+
   .archive
     %h3 ピックアップブランド
     = link_to "アーカイブ", "#"
     .items
-      .item
-        = link_to "#" do
-          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG"
-          %p beef
-          %ul
-            %li
-              1000円
-              %span
-                = icon('fas', 'star')
-                1
-          %span.tax (税込)
-      .item
-        = link_to "#" do
-          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"
-          %p moyashi
-          %ul
-            %li
-              900円
-              %span
-                = icon('fas', 'star')
-                2
-          %span.tax (税込)
-      .item
-        = link_to "#" do
-          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
-          %p iwashi
-          %ul
-            %li
-              800円
-              %span
-                = icon('fas', 'star')
-                3
-          %span.tax (税込)
-      .item
-        = link_to "#" do
-          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
-          %p gyoza
-          %ul
-            %li
-              700円
-              %span
-                = icon('fas', 'star')
-                4
-          %span.tax (税込)
-      .item
-        = link_to "#" do
-          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"
-          %p curry
-          %ul
-            %li
-              500円
-              %span
-                = icon('fas', 'star')
-                100
-          %span.tax (税込)
+      - @items.each do |item|
+        .item
+          = link_to item_path(item.id) do
+            = image_tag asset_path("pict/#{item.images[0].image}")
+            %p
+            %ul
+              %li
+                = item.name
+                .img
+                  = "#{item.price}円"
+                  -# %span
+                  -# = icon('fas', 'star')   今後実装する予定なので今はコメントアウトにしています。
+            %span.tax (税込)
+          -if item.stage == 1
+            .sold
+              .sold-text
+                SOLD
+
 
 .bottom
   %h5 だれでもかんたん、人生を変えるフリマアプリ

@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   before_action :get_item, except: [:index, :new, :create]
 
   def index
-    @items = Item.includes(:images).order('created_at DESC')
+    @items = Item.includes(:images).order('created_at DESC').limit(5)
   end
 
   def show

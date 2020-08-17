@@ -377,6 +377,25 @@ body{
               font-size: 10px;
             }
           }
+          .sold {
+            width: 0;
+            height: 0;
+            border-top: 60px solid #3FC9CF ;
+            border-bottom: 60px solid transparent;
+            border-right: 60px solid transparent;
+            border-left: 60px solid #3FC9CF ;
+            position: relative;
+            top: -239px;
+            z-index: 100;
+            .sold-text {
+              color: #fff;
+              font-size: 26px;
+              font-weight: 600;
+              transform: rotate(-45deg);
+              margin: -35px 0px 0px -63px;
+              letter-spacing: 2px;
+            }
+          }
         }
       }
     }
@@ -435,10 +454,28 @@ body{
               font-size: 10px;
             }
           }
+          .sold {
+            width: 0;
+            height: 0;
+            border-top: 60px solid #3FC9CF ;
+            border-bottom: 60px solid transparent;
+            border-right: 60px solid transparent;
+            border-left: 60px solid #3FC9CF ;
+            position: relative;
+            top: -239px;
+            z-index: 100;
+            .sold-text {
+              color: #fff;
+              font-size: 26px;
+              font-weight: 600;
+              transform: rotate(-45deg);
+              margin: -35px 0px 0px -63px;
+              letter-spacing: 2px;
+            }
+          }
         }
       }
     }
-
   }
 
 .bottom{
