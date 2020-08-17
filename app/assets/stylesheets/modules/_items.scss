@@ -377,6 +377,25 @@ body{
               font-size: 10px;
             }
           }
+          .sold {
+            width: 0;
+            height: 0;
+            border-top: 60px solid #3FC9CF ;
+            border-bottom: 60px solid transparent;
+            border-right: 60px solid transparent;
+            border-left: 60px solid #3FC9CF ;
+            position: relative;
+            top: -239px;
+            z-index: 100;
+            .sold-text {
+              color: #fff;
+              font-size: 26px;
+              font-weight: 600;
+              transform: rotate(-45deg);
+              margin: -35px 0px 0px -63px;
+              letter-spacing: 2px;
+            }
+          }
         }
       }
     }
@@ -435,10 +454,28 @@ body{
               font-size: 10px;
             }
           }
+          .sold {
+            width: 0;
+            height: 0;
+            border-top: 60px solid #3FC9CF ;
+            border-bottom: 60px solid transparent;
+            border-right: 60px solid transparent;
+            border-left: 60px solid #3FC9CF ;
+            position: relative;
+            top: -239px;
+            z-index: 100;
+            .sold-text {
+              color: #fff;
+              font-size: 26px;
+              font-weight: 600;
+              transform: rotate(-45deg);
+              margin: -35px 0px 0px -63px;
+              letter-spacing: 2px;
+            }
+          }
         }
       }
     }
-
   }
 
 .bottom{
@@ -538,7 +575,7 @@ footer{
         .content {
           padding-top: 1px;
           margin: 0 40px;
-          .title_hissu {
+          .info {
             margin: 30px 0 0 7px;
             label {
               font-weight: 550;
@@ -567,15 +604,18 @@ footer{
               margin-bottom: 25px;
             }
           }
-          .text, .long-sentence, select, .text-numeric {
+          .text, .long-sentence, select, .text-numeric, .size {
             border: 1px solid #d6d4d4;
             padding: 5px 14px 5px;
             font-size: 16px;
             border-radius: 0.60em;
           }
-          .text, select {
+          .text, select, .size {
             height: 55px;
             width: 610px;
+          }
+          .size, .prefecture {
+            margin-top: 20px;
           }
           .long-sentence {
             width: 610px;
