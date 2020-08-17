@@ -10,9 +10,9 @@
             = link_to "新規会員登録", new_user_registration_path
           .Top__login
             .Top__Google
-              = link_to "Googleでログイン", "#", class: "Top__Googlebtn"
+              = link_to "Googleでログイン", user_google_oauth2_omniauth_authorize_path, method: :post, class: "Top__Googlebtn"
             .Top__Facebook
-              = link_to "Facebookでログイン", "#", class: "Top__Facebook"
+              = link_to "Facebookでログイン", user_facebook_omniauth_authorize_path, method: :post, class: "Top__Facebook"
             .Top__Apple
               = link_to "Appleでログイン", "#", class: "Top__Apple"
           .Top__bottom
