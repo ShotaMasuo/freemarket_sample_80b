@@ -6,7 +6,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.string :size, null: true
       t.integer :condition, null: false
       t.string :brand, null: true
-      t.integer :stage, null: false
+      t.integer :stage, null: false, default: "0"
       t.text :detail, null: false
       t.references :user, foreign_key: true, null: false
       t.timestamps
