@@ -89,7 +89,7 @@
     .items
       - @items.each do |item|
         .item
-          = link_to "/items/#{item.id}" do
+          = link_to item_path(item.id) do
             = image_tag asset_path("pict/#{item.images[0].image}")
             %p
             %ul
@@ -111,7 +111,7 @@
     .items
       - @items.each do |item|
         .item
-          = link_to "/items/#{item.id}" do
+          = link_to item_path(item.id) do
             = image_tag asset_path("pict/#{item.images[0].image}")
             %p
             %ul
@@ -139,6 +139,6 @@
 %footer
   = render partial: 'footer.html.haml'
 .cameraContainer
-  = link_to "/items/new" do
+  = link_to new_item_path do
     %p 出品する
     = image_tag asset_path("icon/icon_camera.png")
