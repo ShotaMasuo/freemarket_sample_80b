@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :credit_cards, only: [:new, :create]
-  
+
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
@@ -9,8 +9,9 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
   end
   root 'items#index'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :items, only: [:show, :new] do
+  resources :items, only: [:index, :show, :new] do
     member do
       get 'confirmation', to: "items#confirmation"
     end

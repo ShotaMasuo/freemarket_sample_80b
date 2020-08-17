@@ -37,8 +37,6 @@
                   = icon('far', 'image', class: 'icon')
                   = f.file_field :image, class: 'hidden'
 
-
-
         .form-box
           .content
             .info
@@ -135,10 +133,8 @@
               %p.money ¥
               = f.text_field :price, autocomplete: "on", required: "", placeholder: "0", style: "text-align: right;", class: "text-numeric"
           .submit
-            = f.submit "出品する", class: "submit-sell"
-
-
-
+            = link_to "/items/new" do
+              = f.submit "出品する", class: "submit-sell"
 
   .logo
     = image_tag 'logo-white.png', width: '200', height: '60', class: 'logo-footer'

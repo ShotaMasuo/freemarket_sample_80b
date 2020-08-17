@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   before_action :get_categories
 
   def index
+    @items = Item.all.order("id DESC").limit(5)
   end
 
   def show
