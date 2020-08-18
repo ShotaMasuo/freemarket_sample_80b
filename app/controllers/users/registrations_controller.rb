@@ -10,9 +10,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     @user = User.new(sign_up_params)
-    unless @user.valid?
-      flash.now[:alert] = @user.errors.full_messages
-      render :new and return
+    if params[:sns_auth] == 'true'
+      pass = Devise.friendly_token
+      params[:user][:password] = pass
+      params[:user][:password_confirmation] = pass
+    else
+      unless @user.valid?
+        flash.now[:alert] = @user.errors.full_messages
+        render :new and return
+      end
     end
     session["devise.regist_data"] = {user: @user.attributes}
     session["devise.regist_data"][:user]["password"] = params[:user][:password]
