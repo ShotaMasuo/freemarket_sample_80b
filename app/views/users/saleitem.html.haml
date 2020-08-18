@@ -55,7 +55,7 @@
           - @items.each do |item|
             .item
               = link_to "#" do
-                = image_tag item.images[0].image
+                = image_tag item.images[0].image.url
                 %p 
                   = item.name
                 %ul

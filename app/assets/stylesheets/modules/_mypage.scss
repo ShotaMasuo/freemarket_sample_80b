@@ -302,10 +302,10 @@
     }
   }
   .Profile {
-    height: 420px;
+    height: 500px;
     width: 600px;
     .ProfileBox {
-      height: 320px;
+      height: 500px;
       border: 1px solid;
       border-color: #3fc9cf;
       background-color: white;
@@ -324,18 +324,6 @@
         font-size: 15px;
         padding-top: 10px;
       }
-    }
-    .EditBtn {
-      height: 80px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #3fc9cf;
-      color: white;
-      margin-top: 10px;
-      border-radius: 20px;
-      font-size: 30px;
-      text-decoration: none;
     }
   }
   .Logout {
