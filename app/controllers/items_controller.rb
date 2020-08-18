@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.includes(:images).order('created_at DESC').limit(5)
+    @favorites = Favorite.includes(:item).group(:item_id).count
   end
 
   def show

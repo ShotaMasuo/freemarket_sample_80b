@@ -96,9 +96,12 @@
               %li
                 = item.name
                 .img
-                  = "#{item.price}円"
-                  -# %span
-                    -# = icon('fas', 'star')   今後実装するので今はコメントアウトにしています。
+                  = "#{item.price.to_s(:delimited, delimiter: ',')}円"
+                  %span
+                    - if @favorites[item.id]
+                      = icon('fas', 'star')
+                      = @favorites[item.id]
+
             %span.tax (税込)
           -if item.stage == 1
             .sold
@@ -118,9 +121,11 @@
               %li
                 = item.name
                 .img
-                  = "#{item.price}円"
-                  -# %span
-                  -# = icon('fas', 'star')   今後実装する予定なので今はコメントアウトにしています。
+                  = "#{item.price.to_s(:delimited, delimiter: ',')}円"
+                  %span
+                    - if @favorites[item.id]
+                      = icon('fas', 'star')
+                      = @favorites[item.id]
             %span.tax (税込)
           -if item.stage == 1
             .sold
