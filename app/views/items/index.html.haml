@@ -90,7 +90,7 @@
       - @items.each do |item|
         .item
           = link_to item_path(item.id) do
-            = image_tag asset_path("pict/#{item.images[0].image}")
+            = image_tag item.images[0].image.url
             %p
             %ul
               %li
@@ -112,7 +112,7 @@
       - @items.each do |item|
         .item
           = link_to item_path(item.id) do
-            = image_tag asset_path("pict/#{item.images[0].image}")
+            = image_tag item.images[0].image.url
             %p
             %ul
               %li
