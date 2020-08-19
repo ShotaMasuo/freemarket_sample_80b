@@ -7,9 +7,17 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.includes(:images).order('created_at DESC').limit(5)
+    @favorites = Favorite.includes(:item).group(:item_id).count
   end
-
+  
   def show
+    @prefecture = Prefecture.find(@item.prefecture).name
+    # @favorites = Favorite.where(item_id: params[:id]).count
+    @favorites = Favorite.includes(:item).group(:item_id).count
+    @flug = Favorite.where(item_id: params[:id]).where(user_id: current_user.id)
+    @comment = Comment.new
+    @comments = Comment.where(item_id: params[:id])
+    @otherItems = Item.where(user_id: current_user.id).where.not(id: params[:id])
   end
 
   def new
