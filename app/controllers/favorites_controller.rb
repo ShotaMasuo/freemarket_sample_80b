@@ -1,14 +1,17 @@
 class FavoritesController < ApplicationController
   def create
-    favorite = Favorite.new(user_id: current_user.id, item_id: params[:id])
+    @flug = 0
     if !Favorite.where(item_id: params[:id]).where(user_id: current_user.id).exists?
-      if favorite.save
-        redirect_to item_path(params[:id])
-      else
-        redirect_to item_path(params[:id]),{message: "失敗"}
-      end
+      favorite = Favorite.new(user_id: current_user.id, item_id: params[:id])
+      favorite.save
+      @flug = 1
     else
-      redirect_to item_path(params[:id]),{message: "失敗"}
+      favorite = Favorite.where(user_id: current_user.id).where(item_id: params[:id])
+      favorite[0].destroy
+    end
+    @favorites = Favorite.where(item_id: params[:id]).count
+    respond_to do |format|
+      format.json
     end
   end
 end

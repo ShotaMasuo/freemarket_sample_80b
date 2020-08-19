@@ -85,10 +85,10 @@
                   = @item.delivery_date
             
         .Option
-          = link_to favorite_item_path(@item.id), method: "post" do
+          = link_to "#", class: "favorite-item", id: "#{@item.id}", data: {user_id: current_user.id}  do
             = icon('fas', 'star')
             %span いいね!
-            %span
+            %span.favoritesNumber
               = @favorites
 
       .Comments
