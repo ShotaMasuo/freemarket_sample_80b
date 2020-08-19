@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       get 'confirmation', to: "items#confirmation"
       post 'pay', to: "items#pay"
       post 'favorite', to: "favorites#create"
+      post 'comment', to: "comments#create"
     end
   end
   

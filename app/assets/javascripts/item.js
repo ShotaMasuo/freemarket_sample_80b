@@ -33,7 +33,7 @@ $(function(){
     }
   )
 
-  $('.Option').on('click', '.favorite-item', function(e){
+  $(document).on('click', '.favorite-item', function(e){
     e.preventDefault();
     let itemId = $(this).attr("id")
     let userId = $(this).attr("data-user-id")
