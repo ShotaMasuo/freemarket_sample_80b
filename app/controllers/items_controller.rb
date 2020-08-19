@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  
+
   before_action :get_categories
   
   before_action :get_item, only: :show
@@ -59,8 +59,9 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    @item = Item.find(params[:id])
     if @item.destroy
-      redirect_to root_path
+      redirect_to item_path(item.id)
     else
       render :edit
     end

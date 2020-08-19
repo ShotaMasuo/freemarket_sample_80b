@@ -729,5 +729,33 @@ footer{
     }
   }
 }
-
-
+.deleted-page {
+  background-color: #f7f7f7;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  overflow: scroll;
+  .logo {
+    height: 128px;
+    text-align: center;
+    padding-top: 30px;
+    img {
+      margin-right: 40px;
+    }
+    .success {
+      margin-top: 120px;
+      font-size: 30px;
+      h2 {
+        font-size: 100%;
+        font-weight: normal;
+      }
+      a  {
+        text-decoration: none;
+        color: black;
+      }
+      a:hover {
+        color:  rgb(118, 209, 212);
+      }
+    }
+  }
+}
