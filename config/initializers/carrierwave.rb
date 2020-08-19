@@ -12,6 +12,6 @@
       region: 'us-east-2'
     }
 
-    config.fog_directory  = 'tech-camp2020'
+    config.fog_directory = 'tech-camp2020'
     config.asset_host = 'https://s3-us-east-2.amazonaws.com/tech-camp2020'
   end

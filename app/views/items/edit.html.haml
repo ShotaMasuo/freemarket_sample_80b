@@ -3,11 +3,11 @@
     = image_tag 'logo.png', width: '200', height: '60', class: 'logo-herder'
   .cotentns-form
     .product-details
-      = form_with model: @item, url: "#" do |f|
+      = form_with model: @item, local: true do |f|
         - required = '必須'
         .form-box
           .content
-            .title_hissu
+            .info
               = f.label :image, '出品画像'
               %span.hissu #{required}
             .image-from
@@ -22,99 +22,77 @@
                     = f.file_field :image, class: 'hidden'
         .form-box
           .content
-            .title_hissu
+            .info
               = f.label :name, '商品名'
               %span.hissu #{required}
             %br/
             = f.text_field :name, autocomplete: "on", placeholder: "例) テレビ", required: "", class: "text"
+
           .content
-            .title_hissu
-              = f.label :explanation, '商品の説明'
+            .info
+              = f.label :detail, '商品の説明'
               %span.hissu #{required}
             %br/
-            = f.text_area :explanation, autocomplete: "on", placeholder: '商品の説明(色、素材、重さ、定価、注意点など)                                 例)2019年頃に購入したジャケットです。ライトグレーで傷はありません。      あわせやすいのでおすすめです。', required: "", class: "long-sentence"
+            = f.text_area :detail, autocomplete: "on", placeholder: '商品の説明(色、素材、重さ、定価、注意点など)                                 例)2019年頃に購入したジャケットです。ライトグレーで傷はありません。      あわせやすいのでおすすめです。', required: "", class: "long-sentence"
         .form-box
           .content
-            .title_hissu
+            .info
               %p.product-details 商品の詳細
-              = f.label :category, 'カテゴリー'
+              = f.label :category_id, 'カテゴリー'
               %span.hissu #{required}
             %br/
-            %select.item-ategory{name: "category_id"}
-              %option{value: "選択してください"} 選択してください
-              %option{value: "レディース"} レディース
-              %option{value: "メンズ"} メンズ
-              %option{value: "ベビー・キッズ"} ベビー・キッズ
-              %option{value: "インテリア・住まい・小物"} インテリア・住まい・小物
-              %option{value: "本・音楽・ゲーム"} 本・音楽・ゲーム
-              %option{value: "おもちゃ・ホビー・グッズ"} おもちゃ・ホビー・グッズ
-              %option{value: "コスメ・香水・美容"} コスメ・香水・美容
-              %option{value: "家電・スマホ・カメラ"} 家電・スマホ・カメラ
-              %option{value: "スポーツ・レジャー"} スポーツ・レジャー
-              %option{value: "ハンドメイド"} ハンドメイド
-              %option{value: "チケット"} チケット
-              %option{value: "自動車・オートバイ"} 自動車・オートバイ
-              %option{value: "その他"} その他
+            = f.select :category_id, @category_array, {include_blank: '選択してください'} , required: "required"
+            
           .content
-            .title_hissu
+            .info
               = f.label :brand, 'ブランド'
               %span.ninni 任意
             %br/
             = f.text_field :brand, autocomplete: "on", placeholder: "例) NIKE", class: "text"
           .content
-            .title_hissu
+            .info
               = f.label :condition, '商品の状態'
               %span.hissu #{required}
             %br/
-            %select.item-condition{name: "item-condition"}
-              %option{value: "選択してください"} 選択してください
-              %option{value: "新品"} 新品、未使用
-              %option{value: "未使用に近い"} 未使用に近い
-              %option{value: "目立った傷や汚れなし"} 目立った傷や汚れなし
-              %option{value: "やや傷や汚れあり"} やや傷や汚れあり
-              %option{value: "全体的に状態が悪い"} 全体的に状態が悪い
+            = f.select :condition, Item.conditions.keys, {include_blank: '選択してください'}, required: ""
         .form-box
           .content
-            .title_hissu
+            .info
               %p.delivery-information 配送について
               = f.label :delivery_fee, '配送料の負担'
               %span.hissu #{required}
             %br/
-            %select.fee-burden{name: "fee-burden"}
-              %option{value: "選択してください"} 選択してください
-              %option{value: "送料込み(出品者負担)"} 送料込み(出品者負担)
-              %option{value: "着払(購入者負担)）"} 着払い(購入者負担)
+            = f.select :fee, Item.fees.keys, {include_blank: '選択してください'}, required: ""
           .content
-            .title_hissu
+            .info
+              = f.label :size, '商品のサイズ'
+              %span.ninni 任意
+            = f.text_field :size, autocomplete: "on", placeholder: "例) Mサイズ", class: "size"
+
+          .content
+            .info
               = f.label :prefecture, '発送元の地域'
               %span.hissu #{required}
               .prefecture
-                = f.collection_select :prefecture_code, Prefecture.all, :id, :name, prompt: "--", class: 'input'
+                = f.collection_select :prefecture, Prefecture.all, :id, :name, {include_blank: '--'}, class: 'input', required: ""
+
           .content
-            .title_hissu
+            .info
               = f.label :delivery_date, '発送までの日数'
               %span.hissu #{required}
             %br/
-            %select.delivery-date{name: "delivery-date"}
-              %option{value: "選択してください"} 選択してください
-              %option{value: "１〜２日で発送"} １~２日で発送
-              %option{value: "２〜３日で発送"} ２~３日で発送
-              %option{value: "４〜７日で発送"} ４~７日で発送
+            = f.select :delivery_date, Item.delivery_dates.keys, {include_blank: '選択してください'}, required: ""
         .form-box
           .content
             %p.price 価格（¥300〜9,999,999)
             .price-contents
-              .title_hissu
+              .info
                 = f.label :delivery_fee, '販売価格'
                 %span.hissu #{required}
               %p.money ¥
               = f.text_field :price, autocomplete: "on", required: "", placeholder: "0", style: "text-align: right;", class: "text-numeric"
           .submit
-            = link_to user_path do
-              = f.submit "更新する", class: "submit-sell"
-
-
-
+            = f.submit "更新する", class: "submit-sell"
 
   .logo
     = image_tag 'logo-white.png', width: '200', height: '60', class: 'logo-footer'

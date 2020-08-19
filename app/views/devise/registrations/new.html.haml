@@ -22,19 +22,21 @@
             %span.hissu #{required}
             %br/
             = f.email_field :email, autocomplete: "email", pattern: "/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i", placeholder: "PC・携帯どちらでも可" ,required: "", class: "default"
+          - if @sns_id.present?
+            = hidden_field_tag :sns_auth, true
+          - else
+            .field
+              = f.label :password, 'パスワード'
+              %span.hissu #{required}
+              %br/
+              = f.password_field :password, autocomplete: "new-password", pattern: "^[0-9A-Za-z]+$", placeholder: "7文字以上の半角英数字", required: "", class: "default"
 
-          .field
-            = f.label :password, 'パスワード'
-            %span.hissu #{required}
-            %br/
-            = f.password_field :password, autocomplete: "new-password", pattern: "^[0-9A-Za-z]+$", placeholder: "7文字以上の半角英数字", required: "", class: "default"
-
-          .field
-            = f.label :password_confirmation, 'パスワード(確認用)'
-            %span.hissu #{required}
-            %br/
-            = f.password_field :password_confirmation, autocomplete: "new-password", pattern: "^[0-9A-Za-z]+$", placeholder: "同じものを入力してください", required: "", class: "default"
-            %p.info-sentence ※英字と数字の両方を含めて設定してください
+            .field
+              = f.label :password_confirmation, 'パスワード(確認用)'
+              %span.hissu #{required}
+              %br/
+              = f.password_field :password_confirmation, autocomplete: "new-password", pattern: "^[0-9A-Za-z]+$", placeholder: "同じものを入力してください", required: "", class: "default"
+              %p.info-sentence ※英字と数字の両方を含めて設定してください
 
           .field
             %h3.identification-letter 本人確認

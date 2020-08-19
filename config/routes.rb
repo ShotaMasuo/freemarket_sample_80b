@@ -17,6 +17,10 @@ Rails.application.routes.draw do
       get 'confirmation', to: "items#confirmation"
       post 'pay', to: "items#pay"
     end
+    collection do
+      get 'category/get_category_children', to: 'items#get_category_children', defaults: { format: 'json' }
+      get 'category/get_category_grandchildren', to: 'items#get_category_grandchildren', defaults: { format: 'json' }
+    end
   end
   resources :categories, only: [:index, :show] do
     member do

@@ -26,6 +26,7 @@ class UsersController < ApplicationController
   
   def profile
     @profile = current_user.profile
+    @address = current_user.address
   end
   
   def logoutbtn
