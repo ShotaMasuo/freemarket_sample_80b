@@ -52,7 +52,11 @@ class ItemsController < ApplicationController
 
   def destroy
     @item = Item.find(params[:id])
-    @item.destroy
+    if @item.destroy
+      redirect_to item_path(item.id)
+    else
+      render :edit
+    end
   end
 
   def confirmation
