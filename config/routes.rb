@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :credit_cards, only: [:new, :create, :show, :destroy]
-  
+
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations'

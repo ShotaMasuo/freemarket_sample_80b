@@ -27,9 +27,9 @@
 
 .Main
   .ShowMain
-    .Content 
+    .Content
       .Content__main
-        %h2 test 
+        %h2 test
         .Content__box
           %ul
             %li
@@ -50,7 +50,7 @@
                 %td test
               %tr
                 %th カテゴリー
-                %td 
+                %td
                   = link_to "メンズ", "#"
               %tr
                 %th ブランド
@@ -71,29 +71,29 @@
               %tr
                 %th 発送日の目安
                 %td 1~2で発送
-            
+
         .Option
           = icon('fas', 'star')
           = link_to "お気に入り", "#"
       .Comments
-        %textarea{:cols => "70", :rows => "4"} 
-        %p 
+        %textarea{:cols => "70", :rows => "4"}
+        %p
           相手のことを考え丁寧なコメントを心がけましょう。
           %br
           不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      
+
         %input{type: "submit", value: "コメントする", class: "Comments__btn"}
         -# = icon('far', 'fa-comment')
-      
+
       %ul.Item_Next
         %li
           = link_to "<前の商品", "#", class: "Item_Next__page"
         %li
           = link_to "後ろの商品>", "#",class: "Item_Next__page"
-      
+
       .SubItem
         = link_to "他の商品をもっとみる", "#" ,class: "SubItem"
-      
+
       .ItemList
         = image_tag "dragonball.jpeg", alt:"TEST", height: "250", width:"250"
 

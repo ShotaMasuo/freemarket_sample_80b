@@ -28,17 +28,17 @@
   .MypageBody
     .SideList
       = link_to saleitem_path, method: :get, class: "ListBtn" do
-        %p 出品した商品  
+        %p 出品した商品
       = link_to favorites_path, method: :get, class: "ListBtn" do
-        %p いいねした商品 
+        %p いいねした商品
       = link_to history_path, method: :get, class: "ListBtn" do
         %p 購入履歴
       = link_to point_path, method: :get, class: "ListBtn" do
-        %p ポイント  
+        %p ポイント
       = link_to profile_path, method: :get, class: "ListBtn" do
-        %p プロフィール 
+        %p プロフィール
       = link_to new_credit_card_path, class: "ListBtn" do
-        %p 支払い方法    
+        %p 支払い方法
       = link_to logoutbtn_path, method: :get, class: "ListBtn" do
         %p ログアウト
     .MainField
@@ -55,12 +55,12 @@
           - @items.each do |item|
             .item
               = link_to "#" do
-                = image_tag item.images[0].image
-                %p 
+                = image_tag item.images[0].image.url
+                %p
                   = item.name
                 %ul
                   %li
-                    = "#{item.price}円" 
+                    = "#{item.price}円"
                     %span
                       = icon('fas', 'star')
                       = item.favorites.count
@@ -68,5 +68,4 @@
               .MoreList
                 = link_to "詳細", "#", class: "Btn"
                 = link_to "編集", edit_item_path(item.id), class: "Btn"
-                = link_to "削除", "#", class: "Btn"
-      
+                = link_to "削除", item_path(item.id), method: :delete, class: "Btn"
