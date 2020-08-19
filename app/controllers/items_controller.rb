@@ -13,6 +13,7 @@ class ItemsController < ApplicationController
   def show
     @prefecture = Prefecture.find(@item.prefecture).name
     @favorites = Favorite.where(item_id: params[:id]).count
+    @flug = Favorite.where(item_id: params[:id]).where(user_id: current_user.id)
   end
 
 
