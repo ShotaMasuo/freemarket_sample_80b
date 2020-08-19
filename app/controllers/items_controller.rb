@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
 
   before_action :get_categories
   
-  before_action :get_item, only: :show
+  before_action :get_item, except: [:index, :new, :create]
 
   def index
     @items = Item.includes(:images).order('created_at DESC').limit(5)
@@ -12,17 +12,17 @@ class ItemsController < ApplicationController
   
   def show
     @prefecture = Prefecture.find(@item.prefecture).name
-    # @favorites = Favorite.where(item_id: params[:id]).count
     @favorites = Favorite.includes(:item).group(:item_id).count
-    @flug = Favorite.where(item_id: params[:id]).where(user_id: current_user.id)
+    if user_signed_in?
+      @flug = Favorite.where(item_id: params[:id]).where(user_id: current_user.id)
+    end
     @comment = Comment.new
     @comments = Comment.where(item_id: params[:id])
-    @otherItems = Item.where(user_id: current_user.id).where.not(id: params[:id])
+    @otherItems = Item.where(user_id: @item.user_id).where.not(id: params[:id])
   end
 
   def new
     @category_array = Category.where(ancestry:nil)
-    
     @item = Item.new
     @item.images.new
   end
@@ -70,6 +70,7 @@ class ItemsController < ApplicationController
   def confirmation
     @user = User.find(current_user.id)
   end
+  
   require "payjp"
   def pay
     if @item.stage != "selling"
