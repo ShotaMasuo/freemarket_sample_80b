@@ -29,85 +29,116 @@
   .ShowMain
     .Content 
       .Content__main
-        %h2 test 
+        %h2
+          = @item.name 
         .Content__box
           %ul
             %li
-              = image_tag "to508-34191-01b.jpg", alt:"TEST", height: "300", width:"500"
+              - @item.images.each do |image|
+                = image_tag image.image.url, height: "300", width:"500"
               -# content内はユーザーの投稿した内容が表示されるようになる
         .Content__price
-          %span ¥10000
+          %span 
+            = "¥#{@item.price.to_s(:delimited, delimiter: ',')}"
+            %span.includeFee (税込)
         .Content__detail
-          %span (税込)
-          %span 送料込み
+          %span
+            = "#{@item.fee}"
         .Content__name
-          test
+          = @item.name
         .Content__table
           %table
             %tbody
               %tr
                 %th 出品者
-                %td test
+                %td
+                  = @item.user.nickname
               %tr
                 %th カテゴリー
                 %td 
-                  = link_to "メンズ", "#"
+                  = link_to "#" do
+                    = @item.category.name
               %tr
                 %th ブランド
-                %td test
+                %td
+                  = @item.brand
               %tr
                 %th 商品サイズ
-                %td L
+                %td
+                  = @item.size
               %tr
                 %th 商品の状態
-                %td 新品/未使用
+                %td 
+                  = @item.condition
               %tr
                 %th 配送料の負担
-                %td 送料込み（出品者負担）
+                %td
+                  = @item.fee
               %tr
                 %th 発送元の地域
                 %td
-                  = link_to "東京", "#"
+                  = link_to "#" do
+                    = @prefecture
               %tr
                 %th 発送日の目安
-                %td 1~2で発送
+                %td
+                  = @item.delivery_date
             
         .Option
-          = icon('fas', 'star')
-          = link_to "お気に入り", "#"
+          - if @flug.blank?
+            = link_to "#", class: "favorite-item", id: "#{@item.id}", data: {user_id: current_user.id}  do
+              = icon('fas', 'star')
+              %span いいね!
+              %span.favoritesNumber
+                = @favorites[@item.id]
+          - else
+            = link_to "#", class: "favorite-item addFavorite", id: "#{@item.id}", data: {user_id: current_user.id}  do
+              = icon('fas', 'star')
+              %span いいね!
+              %span.favoritesNumber
+                = @favorites[@item.id]
+
       .Comments
-        %textarea{:cols => "70", :rows => "4"} 
-        %p 
-          相手のことを考え丁寧なコメントを心がけましょう。
-          %br
-          不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      
-        %input{type: "submit", value: "コメントする", class: "Comments__btn"}
-        -# = icon('far', 'fa-comment')
-      
-      %ul.Item_Next
-        %li
-          = link_to "<前の商品", "#", class: "Item_Next__page"
-        %li
-          = link_to "後ろの商品>", "#",class: "Item_Next__page"
+        .Comments__container
+          - @comments.each do |comment|
+            .Comments__container__comment
+              %p.commenter
+                = comment.user.nickname
+                - if comment.user_id == @item.user_id
+                  %span 出品者
+              %p.content
+                = comment.comment
+                %span.dateinfo
+                  = comment.created_at.strftime("%Y-%m-%d %H:%M")
+        = form_with model: @comment, url: comment_item_path do |f|
+          = f.text_area :comment, cols: "70", rows: "4", class: "commentBox"
+          %p 
+            相手のことを考え丁寧なコメントを心がけましょう。
+            %br
+            不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          = f.submit value:"コメントする", class: "Comments__btn"
       
       .SubItem
-        = link_to "他の商品をもっとみる", "#" ,class: "SubItem"
+        = link_to "#{current_user.nickname}さんの他の出品をもっとみる", user_path(@item.user_id) ,class: "SubItem"
       
-      .ItemList
-        = image_tag "dragonball.jpeg", alt:"TEST", height: "250", width:"250"
-
-      .ItemList__body
-        %h3 test
-        .ItemList__data
-          %ul
-            %li
-              30000円
-            %li
-              = icon('fas', 'star')
-              2
-          %p
-            (税込)
+      .itemWrapper
+        - @otherItems.each do |item|
+          = link_to item_path(item.id) do
+            .itemContainer
+              .ItemList
+                = image_tag item.images[0].image.url
+              .ItemList__body
+                .ItemList__data
+                  %h3
+                    = item.name
+                  %ul
+                    %li
+                      = item.price
+                    %li
+                      = icon('fas', 'star')
+                      = @favorites[item.id]
+                  %p
+                    (税込)
 
 .bottom
   %h5 だれでもかんたん、人生を変えるフリマアプリ

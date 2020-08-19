@@ -32,4 +32,26 @@ $(function(){
       $(this).children('ul').removeClass("display_block");
     }
   )
+
+  $(document).on('click', '.favorite-item', function(e){
+    e.preventDefault();
+    let itemId = $(this).attr("id")
+    let userId = $(this).attr("data-user-id")
+    let url = "/items/" + itemId + "/favorite"
+    $.ajax({
+      type: "POST",
+      url: url,
+      dataType: 'json',
+      processData: false,
+      contentType: false
+    })
+    .done(function(data){
+      $('.favoritesNumber').text(data.favorite_num);
+      if(data.flug == 1){
+        $('.favorite-item').addClass("addFavorite");
+      } else {
+        $('.favorite-item').removeClass("addFavorite");
+      }
+    })
+  })
 });
