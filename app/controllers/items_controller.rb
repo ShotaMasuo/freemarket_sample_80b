@@ -2,8 +2,8 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   before_action :get_categories
-
-  before_action :get_item, except: [:index, :new, :create]
+  
+  before_action :get_item, only: :show
 
   def index
     @items = Item.includes(:images).order('created_at DESC').limit(5)
@@ -12,18 +12,9 @@ class ItemsController < ApplicationController
   def show
   end
 
-
   def new
-    @category_array = []
-    @categories.each do |category|
-      category.children.each do |child|
-        child.children.each do |gchild|
-          @category_array << [category.name, category.id]
-          @category_array << [child.name, child.id]
-          @category_array << [gchild.name, gchild.id]
-        end
-      end
-    end
+    @category_array = Category.where(ancestry:nil)
+    
     @item = Item.new
     @item.images.new
   end
@@ -38,11 +29,22 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @category_array = []
+    @categories.each do |category|
+      category.children.each do |child|
+        child.children.each do |gchild|
+          @category_array << [category.name, category.id]
+          @category_array << [child.name, child.id]
+          @category_array << [gchild.name, gchild.id]
+        end
+      end
+    end
+    @item = Item.find(params[:id])
   end
 
   def update
     if @item.update(item_params)
-      redirect_to root_path
+      redirect_to saleitem_path
     else
       render :edit
     end
@@ -84,6 +86,14 @@ class ItemsController < ApplicationController
         redirect_to root_path
       end
     end
+  end
+
+  def get_category_children
+    @category_children = Category.find(params[:category_id]).children
+  end
+
+  def get_category_grandchildren
+    @category_grandchildren = Category.find(params[:child_id]).children
   end
 
   private

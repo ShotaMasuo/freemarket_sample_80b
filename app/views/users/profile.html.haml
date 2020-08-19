@@ -60,5 +60,14 @@
             %p 生年月日
             %p 
               = @profile.birth_day
-        = link_to "#", class: "EditBtn" do
-          変更する
+          .ProfileData
+            %p 住所
+            %p 
+              = @address.prefecture_code
+              = @address.city
+              = @address.town
+              = @address.building
+          .ProfileData
+            %p 電話番号
+            %p 
+              = @address.tell
