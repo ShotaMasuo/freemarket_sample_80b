@@ -90,6 +90,7 @@
     }
     .ItemsBox {
       display: flex;
+      overflow-x: scroll;
       .item {
         width: 220px;
         margin: 10px 0 0 10px;
@@ -99,7 +100,7 @@
           font-size: 16px;
           font-weight: normal;
           img {
-            width: 100%;
+            width: 220px;
             height: 150px;
           }
           p {
@@ -164,6 +165,7 @@
     }
     .ItemsBox {
       display: flex;
+      overflow-x: scroll;
       .item {
         width: 220px;
         margin: 10px 0 0 10px;
@@ -176,7 +178,7 @@
           font-size: 16px;
           font-weight: normal;
           img {
-            width: 100%;
+            width: 220px;
             height: 150px;
           }
           p {
@@ -220,6 +222,7 @@
     }
     .ItemsBox {
       display: flex;
+      overflow-x: scroll;
       .item {
         width: 220px;
         margin: 10px 0 0 10px;
@@ -232,7 +235,7 @@
           font-size: 16px;
           font-weight: normal;
           img {
-            width: 100%;
+            width: 220px;
             height: 150px;
           }
           p {
