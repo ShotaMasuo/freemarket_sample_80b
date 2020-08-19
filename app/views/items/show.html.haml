@@ -29,52 +29,68 @@
   .ShowMain
     .Content 
       .Content__main
-        %h2 test 
+        %h2
+          = @item.name 
         .Content__box
           %ul
             %li
-              = image_tag "to508-34191-01b.jpg", alt:"TEST", height: "300", width:"500"
+              - @item.images.each do |image|
+                = image_tag image.image.url, height: "300", width:"500"
               -# content内はユーザーの投稿した内容が表示されるようになる
         .Content__price
-          %span ¥10000
+          %span 
+            = "¥#{@item.price.to_s(:delimited, delimiter: ',')}"
+            %span.includeFee (税込)
         .Content__detail
-          %span (税込)
-          %span 送料込み
+          %span
+            = "#{@item.fee}"
         .Content__name
-          test
+          = @item.name
         .Content__table
           %table
             %tbody
               %tr
                 %th 出品者
-                %td test
+                %td
+                  = @item.user.nickname
               %tr
                 %th カテゴリー
                 %td 
-                  = link_to "メンズ", "#"
+                  = link_to "#" do
+                    = @item.category.name
               %tr
                 %th ブランド
-                %td test
+                %td
+                  = @item.brand
               %tr
                 %th 商品サイズ
-                %td L
+                %td
+                  = @item.size
               %tr
                 %th 商品の状態
-                %td 新品/未使用
+                %td 
+                  = @item.condition
               %tr
                 %th 配送料の負担
-                %td 送料込み（出品者負担）
+                %td
+                  = @item.fee
               %tr
                 %th 発送元の地域
                 %td
-                  = link_to "東京", "#"
+                  = link_to "#" do
+                    = @prefecture
               %tr
                 %th 発送日の目安
-                %td 1~2で発送
+                %td
+                  = @item.delivery_date
             
         .Option
-          = icon('fas', 'star')
-          = link_to "お気に入り", "#"
+          = link_to favorite_item_path(@item.id), method: "post" do
+            = icon('fas', 'star')
+            %span いいね!
+            %span
+              = @favorites
+
       .Comments
         %textarea{:cols => "70", :rows => "4"} 
         %p 
