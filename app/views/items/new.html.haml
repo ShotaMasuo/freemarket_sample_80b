@@ -52,8 +52,9 @@
               = f.label :category_id, 'カテゴリー'
               %span.hissu #{required}
             %br/
-            = f.select :category_id, @category_array, {include_blank: '選択してください'} , required: "required"
-            
+            .category
+              = f.collection_select :category_id, @category_array, :id, :name, {include_blank: '選択してください'} , required: "required",  id: 'category' 
+
           .content
             .info
               = f.label :brand, 'ブランド'
