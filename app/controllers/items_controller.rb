@@ -12,7 +12,6 @@ class ItemsController < ApplicationController
   def show
   end
 
-
   def new
     @category_array = []
     @categories.each do |category|
