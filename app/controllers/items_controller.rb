@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
 
   before_action :get_categories
   
-  before_action :get_item, except: [:index, :new, :create]
+  before_action :get_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
 
   def index
     @items = Item.includes(:images).order('created_at DESC').limit(5)
