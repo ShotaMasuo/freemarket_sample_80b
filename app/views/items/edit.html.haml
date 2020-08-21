@@ -10,17 +10,25 @@
             .info
               = f.label :image, '出品画像'
               %span.hissu #{required}
-            .image-from
-              - @item.images.length.times do |i|
-                = image_tag asset_path(@item.images[i].image)
-              - i = 5 - @item.images.length
-              - i.times do
-                .image
-                  = f.text_field :content, placeholder: '', autocomplete: 'off', accept: "image/*", class: 'picimg' 
-                  = f.label :image, class: 'photo' do
-                    = icon('far', 'image', class: 'icon')
-                    = f.file_field :image, class: 'hidden'
-        .form-box
+            .image-products
+              .image
+                #image-box
+                  #previews
+                    - if @item.persisted?
+                      - @item.images.each_with_index do |image, i|
+                        = image_tag image.image.url, data: { index: i }, width: "150", height: '150', class: "pic"
+                        %span.delete-image{ data: { image_id: image.id } } x削除
+                  = f.fields_for :images do |image|
+                    .js-file_group{"data-index" => "#{image.index}"}
+                      = image.file_field :image, value: @item.images[0].image.url, class: 'js-file'
+                      %br/
+                      -# %span.js-remove 削除
+                    - if @item.persisted?
+                      = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+                  - if @item.persisted?
+                    .js-file_group{"data-index" => "#{@item.images.count}"}
+                      = f.file_field :image, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
+                      -# .js-remove 削除
           .content
             .info
               = f.label :name, '商品名'
@@ -41,8 +49,8 @@
               = f.label :category_id, 'カテゴリー'
               %span.hissu #{required}
             %br/
-            = f.select :category_id, @category_array, {include_blank: '選択してください'} , required: "required"
-            
+            .category
+              = f.collection_select :category_id, @category_array, :id, :name, {include_blank: '選択してください'} , required: "required",  id: 'category' 
           .content
             .info
               = f.label :brand, 'ブランド'

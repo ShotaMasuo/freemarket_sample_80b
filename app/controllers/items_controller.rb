@@ -37,26 +37,24 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @category_array = []
-    @categories.each do |category|
-      category.children.each do |child|
-        child.children.each do |gchild|
-          @category_array << [category.name, category.id]
-          @category_array << [child.name, child.id]
-          @category_array << [gchild.name, gchild.id]
-        end
-      end
-    end
+    @category_array = Category.where(ancestry:nil)
     @item = Item.find(params[:id])
+    @item.images
   end
-
+  
   def update
+    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to saleitem_path
     else
+      @item.images
       render :edit
     end
   end
+
+  def image_destroy
+    Image.destroy(params[:id])
+  end  
 
   def destroy
     if @item.destroy
@@ -113,10 +111,14 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :price, :size, :condition, :brand, :stage, :detail, :category_id, :prefecture, :fee, :delivery_date, images_attributes: [:image, :destroy, :id]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :price, :size, :condition, :brand, :stage, :detail, :category_id, :prefecture, :fee, :delivery_date, images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def get_item
     @item = Item.find(params[:id])
   end
+
+  # def update_item_params
+  #   params.require(:item).permit(:name, :price, :size, :condition, :brand, :stage, :detail, :category_id, :prefecture, :fee, :delivery_date)
+  # end  
 end
