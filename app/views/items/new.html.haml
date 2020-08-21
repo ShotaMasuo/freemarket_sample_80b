@@ -5,6 +5,7 @@
   .cotentns-form
     .product-details
       = form_with model: @item, local: true do |f|
+        = render 'layouts/error_messages', model: f.object
         - required = '必須'
         .form-box
           .content
@@ -50,11 +51,10 @@
             .info
               %p.product-details 商品の詳細
               = f.label :category_id, 'カテゴリー'
-              %span.hissu #{required}
+              %span.hissu #{required} 
             %br/
             .category
-              = f.collection_select :category_id, @category_array, :id, :name, {include_blank: '選択してください'} , required: "required",  id: 'category' 
-
+              = f.collection_select :category_id, Category.where(ancestry:nil), :id, :name, {include_blank: '選択してください'} , required: "required",  id: 'category' 
           .content
             .info
               = f.label :brand, 'ブランド'

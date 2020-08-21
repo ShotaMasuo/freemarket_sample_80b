@@ -569,6 +569,13 @@ footer{
     margin: 0 auto;
     .product-details {
       background-color: #fff;
+      .alert {
+        color:#262626; 
+        background:#FFEBE8;
+        text-align: center;
+        border:2px solid #990000;
+        padding:12px; font-weight:850;
+      }
       .form-box {
         padding-bottom: 40px;
         border-bottom: 1px solid #e9e9e9;
