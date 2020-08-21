@@ -15,7 +15,7 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :price, presence: true
   validates :condition, presence: true
-  validates :stage, presence: true
+  # validates :stage, presence: true
   validates :detail, presence: true
 
   has_many :favorites
