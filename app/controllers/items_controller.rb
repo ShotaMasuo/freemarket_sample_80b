@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
 
   before_action :get_categories
   
-  before_action :get_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
+  before_action :get_item, except: [:index, :new, :create, :image_destroy, :get_category_children, :get_category_grandchildren]
 
   def index
     @items = Item.includes(:images).order('created_at DESC').limit(5)
@@ -52,7 +52,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to saleitem_path
+      redirect_to item_path(params[:id])
     else
       render :edit
     end
@@ -64,6 +64,10 @@ class ItemsController < ApplicationController
       render :edit
     end
   end
+
+  def image_destroy
+    Image.destroy(params[:id])
+  end 
 
   def confirmation
     @user = User.find(current_user.id)

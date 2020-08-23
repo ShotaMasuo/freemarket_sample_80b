@@ -1,17 +1,17 @@
 $(document).on('turbolinks:load', ()=> {
   // 画像用のinputを生成する関数
   const buildFileField = (num)=> {
-    const html = `<div data-index="${num}" class="js-file_group">
+    const html = `<div data-index="${num}" class="js-file_group imageNumber${num}">
                     <input class="js-file" type="file"
                     name="item[images_attributes][${num}][image]"
                     id="product_images_attributes_${num}_image"><br>
-                    <div class="js-remove">削除</div>
                   </div>`;
     return html;
   }
   // プレビュー用のimgタグを生成する関数
   const buildImg = (index, url)=> {
-    const html = `<img data-index="${index}" src="${url}" width="150px" height="150px">`;
+    const html = `<img data-index="${index}" src="${url}" width="150px" height="150px">
+                  <span class="delete-image" data-image-id="">x削除</span>`;
     return html;
   }
 
@@ -22,6 +22,24 @@ $(document).on('turbolinks:load', ()=> {
   fileIndex.splice(0, lastIndex);
 
   $('.hidden-destroy').hide();
+  $(document).on('click', '.delete-image', function(e){
+    console.log($(this).attr("data-image-id"))
+    let image_id = $(this).attr("data-image-id")
+    let url = "/items/" + String(image_id) + "/deleteimage"
+    // $(this).parent().remove();
+    let data_index_image = $(this).prev().attr("data-index");
+    $(this).prev().remove();
+    $(this).remove();
+    $(".imageNumber" + String(data_index_image)).remove();
+    $("#item_images_attributes_"+ String(data_index_image) +"_id").remove();
+    $("#item_images_attributes_"+ String(data_index_image) +"__destroy").prev().remove();
+    $("#item_images_attributes_"+ String(data_index_image) +"__destroy").remove();
+    $.ajax({
+      url: url,
+      type: 'POST',
+      dataType: 'json'
+      })
+  })
 
   $('#image-box').on('change', '.js-file', function(e) {
     const targetIndex = $(this).parent().data('index');

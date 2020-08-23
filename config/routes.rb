@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       post 'pay', to: "items#pay"
       post 'favorite', to: "favorites#create"
       post 'comment', to: "comments#create"
+      post 'deleteimage', to: "items#image_destroy"
     end
     collection do
       get 'category/get_category_children', to: 'items#get_category_children', defaults: { format: 'json' }

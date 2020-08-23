@@ -10,17 +10,34 @@
             .info
               = f.label :image, '出品画像'
               %span.hissu #{required}
-            .image-from
-              - @item.images.length.times do |i|
-                = image_tag asset_path(@item.images[i].image)
-              - i = 5 - @item.images.length
-              - i.times do
-                .image
-                  = f.text_field :content, placeholder: '', autocomplete: 'off', accept: "image/*", class: 'picimg' 
-                  = f.label :image, class: 'photo' do
-                    = icon('far', 'image', class: 'icon')
-                    = f.file_field :image, class: 'hidden'
-        .form-box
+            .image-products
+              .image
+                
+                #image-box
+                  #previews
+                    - if @item.persisted?
+                      - @item.images.each_with_index do |image, i|
+                        - if image.image.url != nil
+                          = image_tag image.image.url, data: { index: i }, width: "150", height: '150'
+                          %span.delete-image{ data: { image_id: image.id } } x削除
+                  = f.fields_for :images do |image|
+                    .js-file_group{class: "imageNumber"+"#{image.index}", "data-index" => "#{image.index}", style: "display: flex; justify-content: space-between;"}
+                      - file_name = @item.images[image.index].image.to_s
+                      - file_name = file_name.split("/")
+                      %span{style: "display: block; width: 30%;"}
+                        = file_name[-1]
+                      %span{style: "display: block; width: 10%;"}
+                        →
+                      = image.file_field :image, class: 'js-file', style: "display: block; width: 50%;"
+                      %br/
+                      %br/
+                      %span.js-remove
+                    - if @item.persisted?
+                      = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+                  - if @item.persisted?
+                    .js-file_group{"data-index" => "#{@item.images.count}"}
+                      = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
+                      -# .js-remove 削除
           .content
             .info
               = f.label :name, '商品名'
