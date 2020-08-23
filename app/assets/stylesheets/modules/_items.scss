@@ -766,3 +766,8 @@ footer{
     }
   }
 }
+.delete-image{
+  &:nth-child(2){
+    display: none;
+  }
+}

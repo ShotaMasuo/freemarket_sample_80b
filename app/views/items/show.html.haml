@@ -35,7 +35,7 @@
           %ul
             %li
               - @item.images.each do |image|
-                = image_tag image.image.url, height: "300", width:"500"
+                = image_tag image.image.url
               -# content内はユーザーの投稿した内容が表示されるようになる
         .Content__price
           %span 
