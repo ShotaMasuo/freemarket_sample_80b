@@ -26,7 +26,6 @@ $(document).on('turbolinks:load', ()=> {
     console.log($(this).attr("data-image-id"))
     let image_id = $(this).attr("data-image-id")
     let url = "/items/" + String(image_id) + "/deleteimage"
-    // $(this).parent().remove();
     let data_index_image = $(this).prev().attr("data-index");
     $(this).prev().remove();
     $(this).remove();
