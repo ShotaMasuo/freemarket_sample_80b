@@ -23,7 +23,6 @@ $(document).on('turbolinks:load', ()=> {
 
   $('.hidden-destroy').hide();
   $(document).on('click', '.delete-image', function(e){
-    console.log($(this).attr("data-image-id"))
     let image_id = $(this).attr("data-image-id")
     let url = "/items/" + String(image_id) + "/deleteimage"
     let data_index_image = $(this).prev().attr("data-index");
