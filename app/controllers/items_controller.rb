@@ -84,7 +84,7 @@ class ItemsController < ApplicationController
     @user = User.find(current_user.id)
     @card = CreditCard.find_by(user_id: current_user.id)
     if @card.blank?
-      redirect_to action: "new" 
+      redirect_to new_credit_card_path
     else
       # 前前回credentials.yml.encに記載したAPI秘密鍵を呼び出します。
       Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
