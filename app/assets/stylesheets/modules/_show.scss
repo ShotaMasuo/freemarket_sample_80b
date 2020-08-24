@@ -9,7 +9,7 @@
 
     .Content{
       height: 100%;
-      width: 700px;
+      width: 60vw;
       &__main{
         text-align: center;
         background-color: white;
@@ -21,18 +21,23 @@
       }
         &__box{
           text-align: center;
-          height: 40vh;
           margin: 16px 0 0;
           li{
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
             img{
-              display: block;
+              display: inline-block;
+              width: 48%;
+              max-width: 400px;
+              margin-right: 1%;
+              margin-top: 3px;
+              max-height: 400px;
             }
           }
         }
         &__price{
-          margin-top: 50px;
+          margin-top: 20px;
           text-align: center;
           font-size: 46px;
           font-weight: bold;

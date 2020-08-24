@@ -32,7 +32,7 @@
               = f.label :post_code, '郵便番号'
               %span.hissu #{required}
               .post_code_info
-                = f.text_field :post_code, pattern: "^[0-9]{3}-[0-9]{4}$", required: "", placeholder: " 例) 123-4567 ", maxlength: "8", class: 'form-name'
+                = f.text_field :post_code, required: "", placeholder: " 例) 123-4567 ", maxlength: "8", class: 'form-name'
           
           .field
             .prefecture

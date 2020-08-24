@@ -21,7 +21,7 @@ class Item < ApplicationRecord
   validates :delivery_date, presence: true
   validates :price, presence: true
 
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :comments
   has_many :images, dependent: :destroy
   has_one :purchase
