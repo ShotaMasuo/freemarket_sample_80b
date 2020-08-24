@@ -2,14 +2,14 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   before_action :get_categories
-  
+
   before_action :get_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
 
   def index
     @items = Item.includes(:images).order('created_at DESC').limit(5)
     @favorites = Favorite.includes(:item).group(:item_id).count
   end
-  
+
   def show
     @prefecture = Prefecture.find(@item.prefecture).name
     @favorites = Favorite.includes(:item).group(:item_id).count
@@ -68,7 +68,7 @@ class ItemsController < ApplicationController
   def confirmation
     @user = User.find(current_user.id)
   end
-  
+
   require "payjp"
   def pay
     if @item.stage != "selling"
