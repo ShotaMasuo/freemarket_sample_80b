@@ -9,6 +9,7 @@ FactoryBot.define do
     prefecture        {"aaa"}
     delivery_date     {1}
     price             {"111"}
-    user_id           {"1"}
+    association :user
+
   end
 end
