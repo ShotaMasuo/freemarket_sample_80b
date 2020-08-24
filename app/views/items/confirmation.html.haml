@@ -7,20 +7,25 @@
       = "商品 : " + @item.name
     .confirmationWrapper__detailWrapper
       .confirmationWrapper__detailWrapper__detail
+        %p ポイント使用
+        %p
+          ="-#{@use_point}ポイント"
+      .confirmationWrapper__detailWrapper__detail
         %p 商品代金
         %p 
-          = "¥" + @item.price.to_s(:delimited)
+          = "¥" + @final_price.to_s(:delimited)
       .confirmationWrapper__detailWrapper__detail
         %p 決済手数料
         %p 
-          = "¥" + (@item.price/10).to_s(:delimited)
-      .confirmationWrapper__detailWrapper__detail
-        %p ポイント使用
-        %p &#045;P0
+          = "¥" + (@final_price/10).to_s(:delimited)
       .confirmationWrapper__detailWrapper__detail
         %p 支払い金額
         %p 
-          = "¥" + (@item.price + @item.price/10).to_s(:delimited)
+          = "¥" + (@final_price + @final_price/10).to_s(:delimited)
+      .confirmationWrapper__detailWrapper__detail
+        %p 獲得ポイント
+        %p 
+          = ((@final_price + @final_price/10)/10).to_s(:delimited) + " ポイント"
       .confirmationWrapper__detailWrapper__detail
         %p 支払い方法
         %p 
@@ -28,7 +33,12 @@
   - if @item.stage == "sold"
     %p.soldout 売り切れ
   - elsif @user.credit_card.present?
-    = link_to "商品を購入する", pay_item_path(params[:id]), class: "button", method: :post
+    - final_price = @final_price + @final_price/10
+    = form_with url: pay_item_path(params[:id]), method: :get, class: "newCard", local: true do |f|
+      = f.hidden_field :final_price, value: @final_price/10+@final_price
+      = f.hidden_field :use_point, value: @use_point
+      = f.submit "商品を購入する", class: "createCardBtn"
+
   - else
     = form_with url: new_credit_card_path, method: :get, class: "newCard", local: true do |f|
       = f.hidden_field :item_id, value: params[:id]
