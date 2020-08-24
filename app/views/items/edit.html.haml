@@ -4,6 +4,7 @@
   .cotentns-form
     .product-details
       = form_with model: @item, local: true do |f|
+        = render 'layouts/error_messages', model: f.object
         - required = '必須'
         .form-box
           .content
