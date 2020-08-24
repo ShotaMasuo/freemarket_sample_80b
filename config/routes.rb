@@ -18,8 +18,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :items do
     member do
-      get 'confirmation', to: "items#confirmation"
-      post 'pay', to: "items#pay"
+      get 'point', to: "items#point"
+      post 'confirmation', to: "items#confirmation"
+      get 'pay', to: "items#pay"
       post 'favorite', to: "favorites#create"
       post 'comment', to: "comments#create"
       post 'deleteimage', to: "items#image_destroy"

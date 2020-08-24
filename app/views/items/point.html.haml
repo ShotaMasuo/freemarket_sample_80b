@@ -1,0 +1,54 @@
+%header
+  = render partial: 'header'
+  .menuWrapper
+    %ul.menuWrapper__itemMenuWrapper
+      %li.menuWrapper__itemMenuWrapper__item.item__category
+        = link_to "カテゴリー", "#"
+        .menuWrapper__itemMenuWrapper__item__category
+          %ul.parents
+            - @categories.each do |category|
+              %li.parent
+                =link_to "#{category.name}", category_path(category.id)
+                %ul.children
+                  - category.children.each do |child|
+                    %li.child
+                      =link_to "#{child.name}", category_path(child.id)
+                      %ul.grandChildren
+                        - child.children.each do |gchild|
+                          %li.grandChild
+                            =link_to "#{gchild.name}", category_path(gchild.id)
+
+      %li.menuWrapper__itemMenuWrapper__item.item__brand
+        = link_to "ブランド", "#"
+        .menuWrapper__itemMenuWrapper__item__brand
+          = render partial: 'items/brand'
+    %ul.menuWrapper__userMenuWrapper
+      = render partial: 'user'
+
+.confirmationContainer
+  .confirmationWrapper
+    %h1 ポイント利用確認
+    %h3 
+      = "商品価格: #{@item.price.to_s(:delimited)}円"
+    %h3
+      = "保有POINT : #{@point.point.to_s} ポイント"
+    = form_with url: confirmation_item_path(@item.id), id: "point-form", local: true do |f|
+      = f.number_field :use_point, min: 0, max: @point.point, step: 1, id: "use_point"
+      %span.use_point__right
+        ポイント使用
+      = f.submit value: "確認画面へ", id: "point-button"
+
+.bottom
+  %h5 だれでもかんたん、人生を変えるフリマアプリ
+  %h3 今すぐ無料ダウンロード！
+  .hero__appWrapper
+    .hero__appWrapper__button
+      = link_to "", "#", class: "apple", style: "display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2008-12-10&kind=iossoftware&bubble=ios_apps) no-repeat;width:135px;height:40px;"
+      = link_to image_tag(asset_path("icon/google-play-badge.png")),"#", class: "google"
+
+%footer
+  = render partial: 'footer.html.haml'
+.cameraContainer
+  = link_to new_item_path do
+    %p 出品する
+    = image_tag asset_path("icon/icon_camera.png")

@@ -771,3 +771,25 @@ footer{
     display: none;
   }
 }
+
+#point-form{
+  text-align: center;
+  padding-bottom: 50px;
+  #use_point{
+    display: inline-block;
+    width: 100px;
+    margin: 0 auto 50px auto;
+  }
+  #point-button{
+    display: block;
+    margin: 0 auto;
+    border: none;
+    background-color: #3FC9CF;
+    color: #fff;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    
+  }
+}
