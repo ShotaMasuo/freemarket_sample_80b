@@ -5,17 +5,20 @@ class Item < ApplicationRecord
   }
 
   enum condition: {
-    '新品、未使用':1, '未使用に近い':2, '目立った傷や汚れなし':3, 'やや傷や汚れあり':4, '傷や汚れあり':5, '全体的に状態が悪い':6 
+    '新品、未使用':1, '未使用に近い':2, '目立った傷や汚れなし':3, 'やや傷や汚れあり':4, '傷や汚れあり':5, '全体的に状態が悪い':6
   }
 
   enum delivery_date: {
     '1~2日で発送':1, '2~3日で発送':2, '4~7日で発送':3
   }
-  
+
   validates :name, presence: true
-  validates :price, presence: true
-  validates :condition, presence: true
   validates :detail, presence: true
+  validates :condition, presence: true
+  validates :fee, presence: true
+  validates :prefecture, presence: true
+  validates :delivery_date, presence: true
+  validates :price, presence: true
 
   has_many :favorites, dependent: :destroy
   has_many :comments
