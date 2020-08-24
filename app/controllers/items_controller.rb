@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   before_action :get_categories
   
   before_action :get_item, except: [:index, :new, :create, :image_destroy, :get_category_children, :get_category_grandchildren]
+  require "payjp"
 
   def index
     @items = Item.includes(:images).order('created_at DESC').limit(5)
@@ -71,6 +72,24 @@ class ItemsController < ApplicationController
 
   def confirmation
     @user = User.find(current_user.id)
+    @card = CreditCard.find_by(user_id: current_user.id)
+    if @card.blank?
+      redirect_to action: "new" 
+    else
+      # 前前回credentials.yml.encに記載したAPI秘密鍵を呼び出します。
+      Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
+      # ログインユーザーのクレジットカード情報からPay.jpに登録されているカスタマー情報を引き出す
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      # カスタマー情報からカードの情報を引き出す
+      @customer_card = customer.cards.retrieve(@card.card_id)
+      
+      #  viewの記述を簡略化
+      @card_no = "**** **** ****" + @customer_card.last4
+      ## 有効期限'月'を定義
+      @exp_month = @customer_card.exp_month.to_s
+      ## 有効期限'年'を定義
+      @exp_year = @customer_card.exp_year.to_s.slice(2,3)
+    end
   end
   
   require "payjp"

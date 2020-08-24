@@ -16,13 +16,15 @@
           = "¥" + (@item.price/10).to_s(:delimited)
       .confirmationWrapper__detailWrapper__detail
         %p ポイント使用
-        %p &#045;P500
+        %p &#045;P0
       .confirmationWrapper__detailWrapper__detail
         %p 支払い金額
-        %p ¥6,100
+        %p 
+          = "¥" + (@item.price + @item.price/10).to_s(:delimited)
       .confirmationWrapper__detailWrapper__detail
         %p 支払い方法
-        %p カード
+        %p 
+          = "カード: #{@card_no}"
   - if @item.stage == "sold"
     %p.soldout 売り切れ
   - elsif @user.credit_card.present?

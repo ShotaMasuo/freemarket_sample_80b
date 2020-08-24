@@ -56,8 +56,14 @@
               %tr
                 %th カテゴリー
                 %td 
-                  = link_to "#" do
-                    = @item.category.name
+                  = link_to category_path(@item.category.parent.parent.id) do
+                    = "#{@item.category.parent.parent.name}"
+                  %br
+                  = link_to category_path(@item.category.parent.id) do
+                    = "> #{@item.category.parent.name}"
+                  %br
+                  = link_to category_path(@item.category.id) do
+                    = "> #{@item.category.name}"
               %tr
                 %th ブランド
                 %td
@@ -83,6 +89,13 @@
                 %th 発送日の目安
                 %td
                   = @item.delivery_date
+              - if current_user.id == @item.user_id
+                %tr
+                  %th 編集/削除
+                  %td
+                    = link_to "編集", edit_item_path(@item.id)
+                    = " / " 
+                    = link_to "削除", item_path(@item.id), method: :delete
         - if user_signed_in?
           .Option
             - if @flug.blank?
@@ -165,6 +178,6 @@
 %footer
   = render partial: 'footer.html.haml'
 .cameraContainer
-  = link_to "#" do
+  = link_to new_item_path do
     %p 出品する
     = image_tag asset_path("icon/icon_camera.png")
