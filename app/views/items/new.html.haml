@@ -14,7 +14,7 @@
               %span.hissu #{required}
             .image-products
               .image
-                
+
                 #image-box
                   #previews
                     - if @item.persisted?
@@ -51,10 +51,10 @@
             .info
               %p.product-details 商品の詳細
               = f.label :category_id, 'カテゴリー'
-              %span.hissu #{required} 
+              %span.hissu #{required}
             %br/
             .category
-              = f.collection_select :category_id, Category.where(ancestry:nil), :id, :name, {include_blank: '選択してください'} , required: "required",  id: 'category' 
+              = f.collection_select :category_id, Category.where(ancestry:nil), :id, :name, {include_blank: '選択してください'} , required: "required",  id: 'category'
           .content
             .info
               = f.label :brand, 'ブランド'
@@ -102,7 +102,7 @@
                 = f.label :delivery_fee, '販売価格'
                 %span.hissu #{required}
               %p.money ¥
-              = f.text_field :price, autocomplete: "on", required: "", placeholder: "0", style: "text-align: right;", class: "text-numeric"
+              = f.text_field :price, autocomplete: "on", required: "", placeholder: "0", style: "text-align: right;", pattern: "^[0-9]+$", class: "text-numeric"
           .submit
             = f.submit "出品する", class: "submit-sell"
 

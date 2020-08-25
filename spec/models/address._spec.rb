@@ -75,7 +75,7 @@ describe Address do
     it "is invalid with a post_code that has less than 7 characters" do
       address = build(:address, post_code: "000-000")
       address.valid?
-      expect(address.errors[:post_code]).to include("は8文字以上で入力してください")
+      expect(address.errors[:post_code]).to include("は8文字以上で入力してください", "は不正な値です")
     end
   end
 end

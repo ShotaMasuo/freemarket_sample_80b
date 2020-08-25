@@ -66,6 +66,6 @@
                       = item.favorites.count
                 %span.tax (税込)
               .MoreList
-                = link_to "詳細", "#", class: "Btn"
+                = link_to "詳細", item_path(item.id), class: "Btn"
                 = link_to "編集", edit_item_path(item.id), class: "Btn"
                 = link_to "削除", item_path(item.id), method: :delete, class: "Btn"
