@@ -1,7 +1,7 @@
-# FactoryBot.define do
+FactoryBot.define do
 
-#   factory :image do
-#     image              {"sample.jpg"}
-#     item_id            {"1"}
-#   end
-# end
+  factory :image do
+    image            {File.open("#{Rails.root}/spec/test_image.jpg")}
+    association :item
+  end
+end

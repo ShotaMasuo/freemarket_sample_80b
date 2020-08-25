@@ -14,7 +14,6 @@ class Item < ApplicationRecord
 
   validates :name, presence: true
   validates :detail, presence: true
-  validates :category_id, presence: true
   validates :condition, presence: true
   validates :fee, presence: true
   validates :prefecture, presence: true
