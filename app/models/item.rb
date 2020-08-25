@@ -17,6 +17,9 @@ class Item < ApplicationRecord
   validates :condition, presence: true
   # validates :stage, presence: true
   validates :detail, presence: true
+  validates :fee, presence: true
+  validates :prefecture, presence: true
+  validates :delivery_date, presence: true
 
   has_many :favorites
   has_many :comments
