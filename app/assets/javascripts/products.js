@@ -11,7 +11,7 @@ $(document).on('turbolinks:load', ()=> {
   // プレビュー用のimgタグを生成する関数
   const buildImg = (index, url)=> {
     const html = `<img data-index="${index}" src="${url}" width="150px" height="150px">
-                  <span class="delete-image" data-image-id="">x削除</span>`;
+                  <span class="delete-image" data-image-id="${index}"><i class="fas fa-window-close"></i></span>`;
     return html;
   }
 
@@ -32,6 +32,8 @@ $(document).on('turbolinks:load', ()=> {
     $("#item_images_attributes_"+ String(data_index_image) +"_id").remove();
     $("#item_images_attributes_"+ String(data_index_image) +"__destroy").prev().remove();
     $("#item_images_attributes_"+ String(data_index_image) +"__destroy").remove();
+    console.log($('[data-index=' + String(data_index_image)+']'))
+    $('[data-index=' + String(data_index_image)+']').remove();
     $.ajax({
       url: url,
       type: 'POST',

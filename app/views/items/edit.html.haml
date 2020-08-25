@@ -20,7 +20,8 @@
                       - @item.images.each_with_index do |image, i|
                         - if image.image.url != nil
                           = image_tag image.image.url, data: { index: i }, width: "150", height: '150'
-                          %span.delete-image{ data: { image_id: image.id } } x削除
+                          %span.delete-image{ data: { image_id: image.id } }
+                            = icon("fas" ,"window-close")
                   = f.fields_for :images do |image|
                     .js-file_group{class: "imageNumber"+"#{image.index}", "data-index" => "#{image.index}", style: "display: flex; justify-content: space-between;"}
                       - file_name = @item.images[image.index].image.to_s
@@ -38,7 +39,6 @@
                   - if @item.persisted?
                     .js-file_group{"data-index" => "#{@item.images.count}"}
                       = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
-                      -# .js-remove 削除
           .content
             .info
               = f.label :name, '商品名'
