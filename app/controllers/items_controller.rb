@@ -2,14 +2,14 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   before_action :get_categories
-  
+
   before_action :get_item, except: [:index, :new, :create, :image_destroy, :get_category_children, :get_category_grandchildren]
   require "payjp"
   def index
     @items = Item.includes(:images).order('created_at DESC').limit(5)
     @favorites = Favorite.includes(:item).group(:item_id).count
   end
-  
+
   def show
     @prefecture = Prefecture.find(@item.prefecture).name
     @favorites = Favorite.includes(:item).group(:item_id).count
@@ -67,7 +67,7 @@ class ItemsController < ApplicationController
 
   def image_destroy
     Image.destroy(params[:id])
-  end 
+  end
 
   def point
     @point = Point.where(user_id: current_user.id)[0]
@@ -92,7 +92,7 @@ class ItemsController < ApplicationController
       customer = Payjp::Customer.retrieve(@card.customer_id)
       # カスタマー情報からカードの情報を引き出す
       @customer_card = customer.cards.retrieve(@card.card_id)
-      
+
       #  viewの記述を簡略化
       @card_no = "**** **** ****" + @customer_card.last4
       ## 有効期限'月'を定義
@@ -101,7 +101,7 @@ class ItemsController < ApplicationController
       @exp_year = @customer_card.exp_year.to_s.slice(2,3)
     end
   end
-  
+
   require "payjp"
   def pay
     final_price = params[:final_price].to_i
