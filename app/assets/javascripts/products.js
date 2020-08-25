@@ -11,7 +11,7 @@ $(document).on('turbolinks:load', ()=> {
   // プレビュー用のimgタグを生成する関数
   const buildImg = (index, url)=> {
     const html = `<img data-index="${index}" src="${url}" width="150px" height="150px">
-                  <span class="delete-image" data-image-id="${index}">x削除</span>`;
+                  <span class="delete-image" data-image-id="${index}"><i class="fas fa-window-close"></i></span>`;
     return html;
   }
 
