@@ -50,6 +50,10 @@
           %table
             %tbody
               %tr
+                %th 商品の説明
+                %td
+                  = @item.detail
+              %tr
                 %th 出品者
                 %td
                   = @item.user.nickname
