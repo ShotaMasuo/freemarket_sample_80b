@@ -33,6 +33,11 @@ $(function(){
     }
   )
 
+  $("#input-text").on("keyup", function() {
+    let countNum = String($(this).val().length);
+    $("#counter").text(countNum + "文字");
+  });
+
   $(document).on('click', '.favorite-item', function(e){
     e.preventDefault();
     let itemId = $(this).attr("id")

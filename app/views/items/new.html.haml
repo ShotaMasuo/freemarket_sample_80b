@@ -45,7 +45,8 @@
               = f.label :detail, '商品の説明'
               %span.hissu #{required}
             %br/
-            = f.text_area :detail, autocomplete: "on", placeholder: '商品の説明(色、素材、重さ、定価、注意点など)                                 例)2019年頃に購入したジャケットです。ライトグレーで傷はありません。      あわせやすいのでおすすめです。', required: "", class: "long-sentence"
+            = f.text_area :detail, autocomplete: "on", placeholder: '商品の説明(色、素材、重さ、定価、注意点など)                                 例)2019年頃に購入したジャケットです。ライトグレーで傷はありません。      あわせやすいのでおすすめです。', required: "", class: "long-sentence", id: "input-text", rows: 1
+            %p#counter 0文字
         .form-box
           .content
             .info
