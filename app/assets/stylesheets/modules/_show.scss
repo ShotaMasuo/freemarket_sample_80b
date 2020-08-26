@@ -95,7 +95,7 @@
             }
           }
           .buyButton{
-            width: 300px;
+            width: 37%;
             margin: 30px auto;
             background-color: #3CCACE;
             span{
@@ -139,13 +139,14 @@
       }
       .commentBox{
         border-color: #bbb;
+        width: 80%;
       }
       &__btn{
         background-color:#3CCACE;
         border: 1px solid #3CCACE;
         border-radius: 100px;
         color: white;
-        width: 300px;
+        width: 37%;
         height: 50px;
         margin: 20px 0;
       }
