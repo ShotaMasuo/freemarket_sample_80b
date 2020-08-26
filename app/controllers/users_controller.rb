@@ -10,22 +10,30 @@ class UsersController < ApplicationController
   end
 
   def saleitem
-    @items = current_user.items
+    @items = Item.where(user_id: current_user.id).where(stage: "0")
   end  
 
+  def tradeitem
+    @items = Item.where(user_id: current_user.id).where(stage: "1").or(Item.where(user_id: current_user.id).where(stage: "2"))
+  end
+
+  def solditem
+    @items = Item.where(user_id: current_user.id).where(stage: "3")
+  end
+
   def favorites
-    @items = Item.where()
+    @favorites = Favorite.where(user_id: current_user.id)
   end
   
   def history
+    @purchases = Purchase.where(user_id: current_user.id)
   end
   
   def point
-    @points = current_user.point.point
+    @points = Point.where(user_id: current_user.id)
   end
   
   def profile
-    @profile = current_user.profile
     @address = current_user.address
   end
   

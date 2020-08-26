@@ -49,25 +49,21 @@
           .ProfileData
             %p お名前
             %p
-              = @profile.first_name
-              = @profile.family_name
+              = @address.first_name
+              = @address.family_name
           .ProfileData
             %p お名前カナ
             %p 
-              = @profile.first_name_kana
-              = @profile.family_name_kana
-          .ProfileData
-            %p 生年月日
-            %p 
-              = @profile.birth_day
+              = @address.first_name_kana
+              = @address.family_name_kana
           .ProfileData
             %p 住所
             %p 
-              = @address.prefecture_code
+              = Prefecture.find(@address.prefecture_code).name
               = @address.city
               = @address.town
               = @address.building
           .ProfileData
             %p 電話番号
-            %p 
-              = @address.tell
+            %p
+              = @address.tell 

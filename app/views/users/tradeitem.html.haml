@@ -28,24 +28,40 @@
   .MypageBody
     .SideList
       = link_to saleitem_path, method: :get, class: "ListBtn" do
-        %p 出品した商品  
+        %p 出品した商品
       = link_to favorites_path, method: :get, class: "ListBtn" do
-        %p いいねした商品 
+        %p いいねした商品
       = link_to history_path, method: :get, class: "ListBtn" do
         %p 購入履歴
       = link_to point_path, method: :get, class: "ListBtn" do
-        %p ポイント  
+        %p ポイント
       = link_to profile_path, method: :get, class: "ListBtn" do
-        %p プロフィール 
+        %p プロフィール
       = link_to new_credit_card_path, class: "ListBtn" do
-        %p 支払い方法    
+        %p 支払い方法
       = link_to logoutbtn_path, method: :get, class: "ListBtn" do
         %p ログアウト
     .MainField
-      .PointBox
-        %h1 所持ポイント
-        %p 
-          - if @points
-            = "#{@points.sum(:point)}ポイント"
-          - else
-            = "p0"
+      .SaleItems
+        .SaleHead 出品した商品
+        .SaleItemsStatus
+          = link_to saleitem_path, class: "ItemsStatus" do
+            %p 出品中
+          = link_to tradeitem_path, class: "ItemsStatus_show" do
+            %p 取引中
+          = link_to solditem_path, class: "ItemsStatus" do
+            %p 売却済
+        .ItemsBox
+          - @items.each do |item|
+            .item
+              = link_to "#" do
+                = image_tag item.images[0].image.url
+                %p 
+                  = item.name
+                %ul
+                  %li
+                    = "#{item.price}円"
+                    %span
+                      = icon('fas', 'star')
+                      = item.favorites.count
+                %span.tax (税込)
