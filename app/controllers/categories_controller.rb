@@ -18,6 +18,7 @@ class CategoriesController < ApplicationController
       end
     end
     @items = Item.where(category_id: category_list)
+    @favorites = Item.where(category_id: category_list).includes(:favorite).group(:id).count
     @categories = Category.where(ancestry: nil)
     @category = Category.find(params[:id])
   end 
