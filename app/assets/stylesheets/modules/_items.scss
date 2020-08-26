@@ -511,8 +511,6 @@ footer{
       font-weight: bold;
       margin-bottom: 30px;
     }
-    li{
-    }
     a{
       color: #fff;
       text-decoration: none;
@@ -570,7 +568,7 @@ footer{
     .product-details {
       background-color: #fff;
       .alert {
-        color:#262626; 
+        color:#262626;
         background:#FFEBE8;
         text-align: center;
         border:2px solid #990000;
@@ -629,8 +627,15 @@ footer{
             height: 150px;
             padding-top: 15px；
           }
-          .long-sentence:focus, .text:focus,.text-numeric:focus {
-            background-color: rgb(255, 250, 206);
+          .long-sentence:focus, .text:focus,.text-numeric:focus, .size:focus {
+            background-color: rgb(255, 251, 219);
+          }
+          p#counter {
+            color: #999898;
+            font-weight: 550;
+            margin-right: 20px;
+            letter-spacing: 3px;
+            text-align: end;
           }
 
           .image-from {
@@ -795,6 +800,6 @@ footer{
     font-size: 20px;
     font-weight: bold;
     letter-spacing: 3px;
-    
+
   }
 }
