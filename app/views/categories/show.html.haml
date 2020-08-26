@@ -31,9 +31,14 @@
       - @items.each do |item|
         = link_to item_path(item.id) do
           .showWrapper__container__items__item
-            = image_tag asset_path("pict/pict-reason-01.jpg")
+            = image_tag item.images[0].image.url
             %p
               = item.name
+            %p{style: "text-align: right;height: 30px;"}
+              - if @favorites[item.id]
+                = icon('fas', 'star')
+                = @favorites[item.id]
+            
 
 .cameraContainer
   = link_to "#" do
