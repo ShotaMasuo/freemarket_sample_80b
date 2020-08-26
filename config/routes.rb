@@ -42,6 +42,8 @@ Rails.application.routes.draw do
   
   resources :users, only: [:index, :show]
   get 'saleitem', to: "users#saleitem"
+  get 'tradeitem', to: "users#tradeitem"
+  get 'solditem', to: "users#solditem"
   get 'favorites', to: "users#favorites"
   get 'history', to: "users#history"
   get 'point', to: "users#point"

@@ -45,47 +45,16 @@
       .PurchaseHistory
         .PurchaseHead 購入履歴
         .ItemsBox
-          .item
-            = link_to "#" do
-              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
-              %p gyoza
-              %ul
-                %li
-                  700円
-                  %span
-                    = icon('fas', 'star')
-                    4
-              %span.tax (税込)
-          .item
-            = link_to "#" do
-              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"
-              %p curry
-              %ul
-                %li
-                  500円
-                  %span
-                    = icon('fas', 'star')
-                    100
-              %span.tax (税込)
-          .item
-            = link_to "#" do
-              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
-              %p gyoza
-              %ul
-                %li
-                  700円
-                  %span
-                    = icon('fas', 'star')
-                    4
-              %span.tax (税込)
-          .item
-            = link_to "#" do
-              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"
-              %p curry
-              %ul
-                %li
-                  500円
-                  %span
-                    = icon('fas', 'star')
-                    100
-              %span.tax (税込)
+          - @purchases.each do |purchase|
+            .item
+              = link_to do
+                = image_tag purchase.item.images[0].image.url
+                %p 
+                  = purchase.item.name
+                %ul
+                  %li
+                    = "#{purchase.item.price}円"
+                    %span
+                      = icon('fas', 'star')
+                      = purchase.item.favorites.count
+                %span.tax (税込)

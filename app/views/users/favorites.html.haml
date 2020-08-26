@@ -45,47 +45,16 @@
       .FavoriteItems
         .FavoriteHead いいね！一覧
         .ItemsBox
-          .item
-            = link_to "#" do
-              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"
-              %p moyashi
-              %ul
-                %li
-                  900円
-                  %span
-                    = icon('fas', 'star')
-                    2
-              %span.tax (税込)
-          .item
-            = link_to "#" do
-              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"
-              %p moyashi
-              %ul
-                %li
-                  900円
-                  %span
-                    = icon('fas', 'star')
-                    2
-              %span.tax (税込)
-          .item
-            = link_to "#" do
-              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"
-              %p moyashi
-              %ul
-                %li
-                  900円
-                  %span
-                    = icon('fas', 'star')
-                    2
-              %span.tax (税込)
-          .item
-            = link_to "#" do
-              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"
-              %p moyashi
-              %ul
-                %li
-                  900円
-                  %span
-                    = icon('fas', 'star')
-                    2
-              %span.tax (税込)
+          - @favorites.each do |favorite|
+            .item
+              = link_to do
+                = image_tag favorite.item.images[0].image.url
+                %p 
+                  = favorite.item.name
+                %ul
+                  %li
+                    = "#{favorite.item.price}円"
+                    %span
+                      = icon('fas', 'star')
+                      = favorite.item.favorites.count
+                %span.tax (税込)
