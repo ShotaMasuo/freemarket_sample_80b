@@ -60,7 +60,11 @@
               %span.hissu #{required}
             %br/
             .category
-              = f.collection_select :category_id, Category.where(ancestry:nil), :id, :name, {include_blank: '選択してください'} , required: "required",  id: 'category' 
+              = f.collection_select :category_id, Category.where(ancestry:nil), :id, :name, {include_blank: '選択してください', selected: @parent.id} , required: "required",  id: 'category' 
+              .category_1
+                = f.collection_select :category_id,Category.where(ancestry: "#{@parent.id}"), :id, :name,{include_blank: '---', selected: @child.id}, {id: 'child_category'}
+              .category_2
+                = f.collection_select :category_id,Category.where(ancestry: "#{@parent.id}/#{@child.id}"), :id, :name,{prompt: '---', selected: @grandchild.id}, {id: 'grandchild_category'}
             
           .content
             .info

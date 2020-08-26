@@ -27,6 +27,14 @@ class ItemsController < ApplicationController
     @item.images.new
   end
 
+  def get_category_children
+    @category_children = Category.find(params[:category_id]).children
+  end
+
+  def get_category_grandchildren
+    @category_grandchildren = Category.find(params[:child_id]).children
+  end
+
   def create
     @item = Item.new(item_params)
     if @item.save
@@ -37,16 +45,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @category_array = []
-    @categories.each do |category|
-      category.children.each do |child|
-        child.children.each do |gchild|
-          @category_array << [category.name, category.id]
-          @category_array << [child.name, child.id]
-          @category_array << [gchild.name, gchild.id]
-        end
-      end
-    end
+    @grandchild = Category.find(@item.category_id)
+    @child = @grandchild.parent
+    @parent = @child.parent
     @item = Item.find(params[:id])
   end
 
