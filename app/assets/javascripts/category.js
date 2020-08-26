@@ -47,6 +47,8 @@ $(document).on('turbolinks:load', function(){
         .done(function(children){
           $('#children_wrapper').remove(); //親が変更された時、子以下を削除する
           $('#grandchildren_wrapper').remove();
+          $('#child_category').remove(); //編集時親が変更された時、子以下を削除する
+          $('#grandchild_category').remove();
           var insertHTML ='';
           children.forEach(function(child){
             insertHTML += appendOption(child);
