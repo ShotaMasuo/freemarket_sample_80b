@@ -89,13 +89,14 @@
                 %th 発送日の目安
                 %td
                   = @item.delivery_date
-              - if current_user.id == @item.user_id
-                %tr
-                  %th 編集/削除
-                  %td
-                    = link_to "編集", edit_item_path(@item.id)
-                    = " / " 
-                    = link_to "削除", item_path(@item.id), method: :delete
+              - if user_signed_in?
+                - if current_user.id == @item.user_id
+                  %tr
+                    %th 編集/削除
+                    %td
+                      = link_to "編集", edit_item_path(@item.id)
+                      = " / " 
+                      = link_to "削除", item_path(@item.id), method: :delete
         - if user_signed_in?
           .Option
             - if @flug.blank?
