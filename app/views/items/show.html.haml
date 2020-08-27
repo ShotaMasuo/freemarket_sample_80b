@@ -54,6 +54,10 @@
                 %td
                   = @item.user.nickname
               %tr
+                %th 商品の説明
+                %td
+                  = @item.detail
+              %tr
                 %th カテゴリー
                 %td 
                   = link_to category_path(@item.category.parent.parent.id) do
